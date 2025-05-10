@@ -4,24 +4,33 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <main style="max-width: 700px; margin: 2rem auto; padding: 2rem; font-family: inherit; background: rgba(7,54,66,0.07); border-radius: 1.5rem; box-shadow: 0 4px 32px rgba(0,43,54,0.07);">
-    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent);">Travis Example</h1>
-    <p style="font-size: 1.2rem; color: var(--fg); margin-bottom: 2rem;">Welcome to my personal website! This is a place to share a bit about myself, my projects, and how to get in touch.</p>
-    <section id="about" style="margin-bottom: 2rem;">
-      <h2 style="color: var(--yellow);">About Me</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. (Replace this with your own bio.)</p>
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); text-align: center;">Travis Example</h1>
+    <p style="font-size: 1.2rem; color: var(--fg); margin-bottom: 2rem; text-align: center;">Welcome to my personal website! This is a place to share a bit about myself, my projects, and how to get in touch.</p>
+    <section id="about" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 1.5rem;">
+      <img src="/stick_about.svg" alt="Funny stick figure about me" width="90" height="90" style="flex-shrink:0; border-radius: 1rem; background: var(--base2); box-shadow: 0 2px 8px rgba(0,43,54,0.07);" />
+      <div>
+        <h2 style="color: var(--yellow); margin-top: 0;">About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. (Replace this with your own bio.)</p>
+      </div>
     </section>
-    <section id="projects" style="margin-bottom: 2rem;">
-      <h2 style="color: var(--green);">Projects</h2>
-      <ul style="padding-left: 1.2rem;">
-        <li><strong>Project One</strong> – Short description goes here.</li>
-        <li><strong>Project Two</strong> – Short description goes here.</li>
-        <li><strong>Project Three</strong> – Short description goes here.</li>
-      </ul>
+    <section id="projects" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 1.5rem; flex-direction: row-reverse;">
+      <img src="/stick_projects.svg" alt="Funny stick figure projects" width="90" height="90" style="flex-shrink:0; border-radius: 1rem; background: var(--base2); box-shadow: 0 2px 8px rgba(0,43,54,0.07);" />
+      <div>
+        <h2 style="color: var(--green); margin-top: 0;">Projects</h2>
+        <ul style="padding-left: 1.2rem;">
+          <li><strong>Project One</strong> – Short description goes here.</li>
+          <li><strong>Project Two</strong> – Short description goes here.</li>
+          <li><strong>Project Three</strong> – Short description goes here.</li>
+        </ul>
+      </div>
     </section>
-    <section id="contact">
-      <h2 style="color: var(--blue);">Contact</h2>
-      <p>Email: <a href="mailto:you@example.com" style="color: var(--accent);">you@example.com</a></p>
-      <p>Or reach out on <a href="#" style="color: var(--accent);">social media</a>.</p>
+    <section id="contact" style="display: flex; align-items: center; gap: 1.5rem;">
+      <img src="/stick_contact.svg" alt="Funny stick figure contact" width="90" height="90" style="flex-shrink:0; border-radius: 1rem; background: var(--base2); box-shadow: 0 2px 8px rgba(0,43,54,0.07);" />
+      <div>
+        <h2 style="color: var(--blue); margin-top: 0;">Contact</h2>
+        <p>Email: <a href="mailto:you@example.com" style="color: var(--accent);">you@example.com</a></p>
+        <p>Or reach out on <a href="#" style="color: var(--accent);">social media</a>.</p>
+      </div>
     </section>
   </main>
 </Layout>
