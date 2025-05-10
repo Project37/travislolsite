@@ -1,22 +1,118 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Travis Example - Personal Site</title>
+    <style>
+      :root {
+        /* Solarized Light */
+        --base03: #002b36;
+        --base02: #073642;
+        --base01: #586e75;
+        --base00: #657b83;
+        --base0:  #839496;
+        --base1:  #93a1a1;
+        --base2:  #eee8d5;
+        --base3:  #fdf6e3;
+        --yellow: #b58900;
+        --orange: #cb4b16;
+        --red:    #dc322f;
+        --magenta:#d33682;
+        --violet: #6c71c4;
+        --blue:   #268bd2;
+        --cyan:   #2aa198;
+        --green:  #859900;
+        --bg: var(--base3);
+        --fg: var(--base00);
+        --accent: var(--blue);
+      }
+      [data-theme="dark"] {
+        --bg: var(--base03);
+        --fg: var(--base0);
+        --accent: var(--cyan);
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Inter', system-ui, sans-serif;
+        transition: background 0.3s, color 0.3s;
+      }
+      header {
+        background: var(--base02);
+        color: var(--base1);
+        padding: 1.5rem 0 1rem 0;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+      }
+      nav {
+        margin-top: 0.5rem;
+      }
+      nav a {
+        color: var(--accent);
+        margin: 0 1rem;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      nav a:hover {
+        color: var(--yellow);
+      }
+      .theme-toggle {
+        background: var(--base02);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        border-radius: 1.5rem;
+        padding: 0.3rem 1.2rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+      }
+      .theme-toggle:hover {
+        background: var(--accent);
+        color: var(--base02);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Travis Example</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+    </header>
+    <slot />
+    <script>
+      // Theme toggle logic
+      const btn = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      function setTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      }
+      function toggleTheme() {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        setTheme(current);
+      }
+      btn.addEventListener('click', toggleTheme);
+      // On load, set theme from localStorage or system preference
+      const saved = localStorage.getItem('theme');
+      if (saved) setTheme(saved);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+    </script>
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

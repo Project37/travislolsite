@@ -1,11 +1,27 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <main style="max-width: 700px; margin: 2rem auto; padding: 2rem; font-family: inherit; background: rgba(7,54,66,0.07); border-radius: 1.5rem; box-shadow: 0 4px 32px rgba(0,43,54,0.07);">
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent);">Travis Example</h1>
+    <p style="font-size: 1.2rem; color: var(--fg); margin-bottom: 2rem;">Welcome to my personal website! This is a place to share a bit about myself, my projects, and how to get in touch.</p>
+    <section id="about" style="margin-bottom: 2rem;">
+      <h2 style="color: var(--yellow);">About Me</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. (Replace this with your own bio.)</p>
+    </section>
+    <section id="projects" style="margin-bottom: 2rem;">
+      <h2 style="color: var(--green);">Projects</h2>
+      <ul style="padding-left: 1.2rem;">
+        <li><strong>Project One</strong> – Short description goes here.</li>
+        <li><strong>Project Two</strong> – Short description goes here.</li>
+        <li><strong>Project Three</strong> – Short description goes here.</li>
+      </ul>
+    </section>
+    <section id="contact">
+      <h2 style="color: var(--blue);">Contact</h2>
+      <p>Email: <a href="mailto:you@example.com" style="color: var(--accent);">you@example.com</a></p>
+      <p>Or reach out on <a href="#" style="color: var(--accent);">social media</a>.</p>
+    </section>
+  </main>
 </Layout>
