@@ -3,36 +3,157 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-  <main style="max-width: 700px; margin: 2rem auto; padding: 2rem; font-family: inherit; background: rgba(7,54,66,0.07); border-radius: 1.5rem; box-shadow: 0 4px 32px rgba(0,43,54,0.07);">
-    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); text-align: center;">Travis Example</h1>
-    <p style="font-size: 1.2rem; color: var(--fg); margin-bottom: 2rem; text-align: center;">Welcome to my personal website! This is a place to share a bit about myself, my projects, and how to get in touch.</p>
-    <div style="text-align: center; margin-bottom: 2rem;">
-      <a href="/blog/" style="display: inline-block; background: var(--accent); color: var(--bg); padding: 0.7rem 2rem; border-radius: 2rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; box-shadow: 0 2px 8px rgba(0,43,54,0.07); transition: background 0.2s, color 0.2s;">Visit the Blog</a>
+  <!-- Hero section with professional introduction -->
+  <section style="background: linear-gradient(135deg, var(--base02) 0%, var(--base03) 100%); padding: 5rem 1rem; text-align: center; color: var(--base2);">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem; color: var(--base2);">Securing Your Digital Future</h1>
+      <p style="font-size: 1.5rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        Senior IT Security Professional with extensive experience in enterprise security architecture, threat mitigation, and security compliance.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/#contact" style="display: inline-block; background: var(--accent); color: var(--bg); padding: 0.8rem 2rem; border-radius: 0.3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.2s;">Contact Me</a>
+        <a href="/blog/" style="display: inline-block; background: transparent; color: var(--accent); border: 2px solid var(--accent); padding: 0.8rem 2rem; border-radius: 0.3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.2s;">Read My Blog</a>
+      </div>
     </div>
-    <section id="about" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 1.5rem;">
-      <img src="/stick_about.svg" alt="Funny stick figure about me" width="90" height="90" style="flex-shrink:0; border-radius: 1rem; background: var(--base2); box-shadow: 0 2px 8px rgba(0,43,54,0.07);" />
+  </section>
+
+  <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+    <!-- About section -->
+    <section id="about" style="margin-bottom: 4rem; display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
       <div>
-        <h2 style="color: var(--yellow); margin-top: 0;">About Me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. (Replace this with your own bio.)</p>
+        <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;">About Me</h2>
+        <p style="line-height: 1.6; margin-bottom: 1rem;">With over [X] years of experience in IT security, I specialize in designing and implementing robust security solutions for enterprises. My expertise spans across network security, identity and access management, security compliance frameworks, and incident response.</p>
+        <p style="line-height: 1.6; margin-bottom: 1rem;">I am passionate about staying ahead of emerging threats and utilizing cutting-edge technologies to protect organizational assets. I believe in a proactive approach to security, focusing on threat prevention while maintaining operational efficiency.</p>
+        <p style="line-height: 1.6;">Currently serving as a Senior IT Security Administrator at [Company Name], I oversee security operations and lead initiatives to enhance the organization's security posture.</p>
+      </div>
+      <div style="text-align: center;">
+        <!-- Replace with a professional headshot or security-themed image -->
+        <div style="width: 250px; height: 250px; background: var(--base02); border-radius: 0.5rem; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: bold;">
+          [Your Professional Photo]
+        </div>
       </div>
     </section>
-    <section id="projects" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 1.5rem; flex-direction: row-reverse;">
-      <img src="/stick_projects.svg" alt="Funny stick figure projects" width="90" height="90" style="flex-shrink:0; border-radius: 1rem; background: var(--base2); box-shadow: 0 2px 8px rgba(0,43,54,0.07);" />
-      <div>
-        <h2 style="color: var(--green); margin-top: 0;">Projects</h2>
-        <ul style="padding-left: 1.2rem;">
-          <li><strong>Project One</strong> – Short description goes here.</li>
-          <li><strong>Project Two</strong> – Short description goes here.</li>
-          <li><strong>Project Three</strong> – Short description goes here.</li>
-        </ul>
+
+    <!-- Expertise section -->
+    <section id="expertise" style="margin-bottom: 4rem;">
+      <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;">Areas of Expertise</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--blue);">
+          <h3 style="color: var(--blue); margin-top: 0;">Network Security</h3>
+          <p>Designing secure network architectures, implementing firewalls, IDS/IPS, and network segmentation strategies.</p>
+        </div>
+        
+        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--green);">
+          <h3 style="color: var(--green); margin-top: 0;">Identity & Access Management</h3>
+          <p>Implementing robust IAM solutions, multi-factor authentication, and privileged access management.</p>
+        </div>
+        
+        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--yellow);">
+          <h3 style="color: var(--yellow); margin-top: 0;">Security Compliance</h3>
+          <p>Ensuring adherence to regulatory frameworks including GDPR, HIPAA, PCI-DSS, and industry best practices.</p>
+        </div>
+        
+        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--orange);">
+          <h3 style="color: var(--orange); margin-top: 0;">Incident Response</h3>
+          <p>Developing and implementing incident response plans, security monitoring, and threat hunting.</p>
+        </div>
+        
+        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--violet);">
+          <h3 style="color: var(--violet); margin-top: 0;">Cloud Security</h3>
+          <p>Securing cloud environments (AWS, Azure, GCP), implementing security controls, and ensuring data protection.</p>
+        </div>
+        
+        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--cyan);">
+          <h3 style="color: var(--cyan); margin-top: 0;">Security Awareness</h3>
+          <p>Developing and delivering security training programs to foster a security-first culture.</p>
+        </div>
       </div>
     </section>
-    <section id="contact" style="display: flex; align-items: center; gap: 1.5rem;">
-      <img src="/stick_contact.svg" alt="Funny stick figure contact" width="90" height="90" style="flex-shrink:0; border-radius: 1rem; background: var(--base2); box-shadow: 0 2px 8px rgba(0,43,54,0.07);" />
-      <div>
-        <h2 style="color: var(--blue); margin-top: 0;">Contact</h2>
-        <p>Email: <a href="mailto:you@example.com" style="color: var(--accent);">you@example.com</a></p>
-        <p>Or reach out on <a href="#" style="color: var(--accent);">social media</a>.</p>
+
+    <!-- Projects/Case Studies Section -->
+    <section id="projects" style="margin-bottom: 4rem;">
+      <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;">Selected Projects</h2>
+      
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+        <div style="background: rgba(7,54,66,0.07); padding: 2rem; border-radius: 0.5rem;">
+          <h3 style="color: var(--blue); margin-top: 0;">Enterprise Security Architecture Redesign</h3>
+          <p style="font-style: italic; color: var(--base01); margin-bottom: 1rem;">Company: [Client Name] | Duration: [Time Period]</p>
+          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Challenge:</strong> Legacy security infrastructure with significant vulnerabilities and compliance gaps.</p>
+          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Solution:</strong> Designed and implemented a modern security architecture with next-gen firewalls, advanced endpoint protection, and identity-based access controls.</p>
+          <p style="line-height: 1.6;"><strong>Result:</strong> 85% reduction in security incidents, successful compliance with industry regulations, and improved operational efficiency.</p>
+        </div>
+        
+        <div style="background: rgba(7,54,66,0.07); padding: 2rem; border-radius: 0.5rem;">
+          <h3 style="color: var(--green); margin-top: 0;">Secure Cloud Migration</h3>
+          <p style="font-style: italic; color: var(--base01); margin-bottom: 1rem;">Company: [Client Name] | Duration: [Time Period]</p>
+          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Challenge:</strong> Securely migrating on-premises infrastructure to cloud while maintaining security controls.</p>
+          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Solution:</strong> Developed a comprehensive cloud security framework with automated compliance monitoring, secure CI/CD pipelines, and data encryption strategies.</p>
+          <p style="line-height: 1.6;"><strong>Result:</strong> Successful migration with zero security breaches, maintaining compliance requirements, and reduced operational costs.</p>
+        </div>
+        
+        <div style="background: rgba(7,54,66,0.07); padding: 2rem; border-radius: 0.5rem;">
+          <h3 style="color: var(--yellow); margin-top: 0;">Security Awareness Program</h3>
+          <p style="font-style: italic; color: var(--base01); margin-bottom: 1rem;">Company: [Client Name] | Duration: [Time Period]</p>
+          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Challenge:</strong> High rate of successful phishing attacks and security incidents due to employee errors.</p>
+          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Solution:</strong> Designed and implemented a comprehensive security awareness program including training, simulated phishing, and gamification elements.</p>
+          <p style="line-height: 1.6;"><strong>Result:</strong> 90% reduction in successful phishing attempts and a measurable improvement in security culture throughout the organization.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="margin-bottom: 3rem;">
+      <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;">Let's Connect</h2>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div>
+          <p style="line-height: 1.6; margin-bottom: 1.5rem;">I'm always interested in discussing security challenges, opportunities, and industry best practices. Whether you're looking for consultation on your security infrastructure or exploring potential collaboration, feel free to reach out.</p>
+          
+          <div style="margin-bottom: 1rem;">
+            <h3 style="color: var(--blue); margin-bottom: 0.5rem;">Email</h3>
+            <a href="mailto:you@example.com" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 500;">you@example.com</span>
+            </a>
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <h3 style="color: var(--green); margin-bottom: 0.5rem;">LinkedIn</h3>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 500;">linkedin.com/in/yourprofile</span>
+            </a>
+          </div>
+          
+          <div>
+            <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">Twitter</h3>
+            <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 500;">@yourhandle</span>
+            </a>
+          </div>
+        </div>
+        
+        <div style="background: rgba(7,54,66,0.07); padding: 2rem; border-radius: 0.5rem;">
+          <h3 style="color: var(--accent); margin-top: 0;">Security Consultation</h3>
+          <p style="margin-bottom: 1.5rem;">Interested in a security assessment or consultation? Provide your details below, and I'll get back to you promptly.</p>
+          
+          <!-- This is just a visual form; you'd need to implement actual form processing -->
+          <div style="margin-bottom: 1rem;">
+            <label for="name" style="display: block; margin-bottom: 0.5rem; color: var(--base01);">Name</label>
+            <input type="text" id="name" placeholder="Your Name" style="width: 100%; padding: 0.7rem; border-radius: 0.3rem; border: 1px solid var(--base01); background: var(--bg); color: var(--fg);" />
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--base01);">Email</label>
+            <input type="email" id="email" placeholder="Your Email" style="width: 100%; padding: 0.7rem; border-radius: 0.3rem; border: 1px solid var(--base01); background: var(--bg); color: var(--fg);" />
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <label for="message" style="display: block; margin-bottom: 0.5rem; color: var(--base01);">Message</label>
+            <textarea id="message" placeholder="How can I help you?" rows="4" style="width: 100%; padding: 0.7rem; border-radius: 0.3rem; border: 1px solid var(--base01); background: var(--bg); color: var(--fg);"></textarea>
+          </div>
+          
+          <button type="submit" style="background: var(--accent); color: var(--bg); border: none; padding: 0.8rem 1.5rem; border-radius: 0.3rem; cursor: pointer; font-weight: 500; margin-top: 0.5rem;">Send Message</button>
+        </div>
       </div>
     </section>
   </main>

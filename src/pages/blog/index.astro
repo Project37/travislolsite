@@ -3,15 +3,92 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout>
-  <main style="max-width: 700px; margin: 2rem auto; padding: 2rem; font-family: inherit; background: rgba(7,54,66,0.07); border-radius: 1.5rem; box-shadow: 0 4px 32px rgba(0,43,54,0.07);">
-    <h1 style="font-size: 2.2rem; color: var(--accent); text-align: center;">Blog</h1>
-    <p style="text-align: center; color: var(--fg);">Welcome to my blog! Here you'll find posts about my projects, thoughts, and more.</p>
-    <ul style="margin-top: 2rem;">
-      <li><a href="/blog/first-post/">First Post (.astro Example)</a> <span style="color: var(--base01); font-size: 0.9em;">(Custom layout, SVG, dynamic date)</span></li>
-      <li><a href="/blog/another-post/">Another Post (.astro Example)</a> <span style="color: var(--base01); font-size: 0.9em;">(SVG, interactive counter)</span></li>
-    </ul>
-    <div style="margin-top: 2.5rem; color: var(--base01); font-size: 1rem; text-align: center;">
-      <em>These posts use <code>.astro</code> files to demonstrate custom layouts, components, and interactivity.</em>
+  <!-- Blog header section -->
+  <section style="background: linear-gradient(135deg, var(--base02) 0%, var(--base03) 100%); padding: 3rem 1rem; text-align: center; color: var(--base2);">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--base2);">Security Insights Blog</h1>
+      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+        Expert analysis, best practices, and insights on modern cybersecurity challenges and solutions.
+      </p>
+    </div>
+  </section>
+
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 2rem;">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+      <!-- Featured post -->
+      <div style="background: rgba(7,54,66,0.07); padding: 2rem; border-radius: 0.5rem; margin-bottom: 1rem; border-left: 4px solid var(--accent);">
+        <span style="text-transform: uppercase; color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">Featured Post</span>
+        <h2 style="font-size: 1.8rem; margin: 0.5rem 0; color: var(--fg);">
+          <a href="/blog/first-post/" style="color: inherit; text-decoration: none; transition: color 0.2s;">
+            Zero Trust Architecture: Beyond the Perimeter
+          </a>
+        </h2>
+        <p style="font-size: 1.1rem; color: var(--base01); margin-bottom: 1rem;">
+          Published: <strong>{new Date().toLocaleDateString()}</strong> • 10 min read
+        </p>
+        <p style="line-height: 1.6; margin-bottom: 1.5rem;">
+          As organizations increasingly adopt remote work and cloud services, traditional perimeter-based security models are no longer effective. Learn how Zero Trust Architecture addresses modern security challenges by verifying every access request regardless of source.
+        </p>
+        <a href="/blog/first-post/" style="color: var(--accent); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center;">
+          Read More <span style="margin-left: 5px;">→</span>
+        </a>
+      </div>
+      
+      <!-- Recent posts -->
+      <div>
+        <h3 style="color: var(--accent); margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block; font-size: 1.4rem;">Recent Posts</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div style="background: rgba(7,54,66,0.05); padding: 1.5rem; border-radius: 0.5rem; transition: transform 0.2s;">
+            <span style="color: var(--base01); font-size: 0.9rem;">May 5, 2025</span>
+            <h3 style="margin: 0.5rem 0; font-size: 1.3rem;">
+              <a href="/blog/another-post/" style="color: inherit; text-decoration: none; transition: color 0.2s;">
+                Effective Cloud Security Controls
+              </a>
+            </h3>
+            <p style="line-height: 1.5; margin-bottom: 1rem; color: var(--fg);">Essential security controls for protecting cloud environments while enabling business agility and innovation.</p>
+            <a href="/blog/another-post/" style="color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.9rem;">Read article →</a>
+          </div>
+          
+          <div style="background: rgba(7,54,66,0.05); padding: 1.5rem; border-radius: 0.5rem; transition: transform 0.2s;">
+            <span style="color: var(--base01); font-size: 0.9rem;">April 22, 2025</span>
+            <h3 style="margin: 0.5rem 0; font-size: 1.3rem;">
+              <a href="#" style="color: inherit; text-decoration: none; transition: color 0.2s;">
+                Incident Response in Modern Enterprises
+              </a>
+            </h3>
+            <p style="line-height: 1.5; margin-bottom: 1rem; color: var(--fg);">Building effective incident response plans that minimize impact and ensure business continuity.</p>
+            <a href="#" style="color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.9rem;">Read article →</a>
+          </div>
+          
+          <div style="background: rgba(7,54,66,0.05); padding: 1.5rem; border-radius: 0.5rem; transition: transform 0.2s;">
+            <span style="color: var(--base01); font-size: 0.9rem;">April 10, 2025</span>
+            <h3 style="margin: 0.5rem 0; font-size: 1.3rem;">
+              <a href="#" style="color: inherit; text-decoration: none; transition: color 0.2s;">
+                The Human Element in Cybersecurity
+              </a>
+            </h3>
+            <p style="line-height: 1.5; margin-bottom: 1rem; color: var(--fg);">How effective security awareness programs can transform employees from vulnerabilities to security assets.</p>
+            <a href="#" style="color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.9rem;">Read article →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Topics -->
+      <div style="margin-top: 1rem;">
+        <h3 style="color: var(--accent); margin-bottom: 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block; font-size: 1.4rem;">Security Topics</h3>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+          <a href="#" style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">Zero Trust</a>
+          <a href="#" style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">Cloud Security</a>
+          <a href="#" style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">Incident Response</a>
+          <a href="#" style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">Threat Intelligence</a>
+          <a href="#" style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">Compliance</a>
+          <a href="#" style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">Security Architecture</a>
+          <a href="#" style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">IAM</a>
+          <a href="#" style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">Security Awareness</a>
+        </div>
+      </div>
     </div>
   </main>
 </Layout>
