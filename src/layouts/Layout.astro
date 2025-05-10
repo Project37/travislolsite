@@ -6,6 +6,16 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Travis Example - Personal Site</title>
+    <!-- Prevent flash by applying theme immediately -->
+    <script is:inline>
+      // Get theme from localStorage or system preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
     <style>
       :root {
         /* Solarized Light */
@@ -96,9 +106,10 @@
       <h1>Travis Example</h1>
       <nav>
         <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="/#about">About</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#contact">Contact</a>
+        <a href="/blog/">Blog</a>
       </nav>
     </header>
     <slot />

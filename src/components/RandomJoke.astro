@@ -1,0 +1,12 @@
+---
+const jokes = [
+  "Why did the stick figure go to school? To draw attention!",
+  "Stick figures are always outstanding in their field.",
+  "Why did the stick figure get promoted? He was above the line!",
+  "Stick figures never get bent out of shape!"
+];
+const joke = jokes[Math.floor(Math.random() * jokes.length)];
+---
+<div style="background: var(--base2); color: var(--base01); border-left: 4px solid var(--accent); padding: 1rem; margin: 1.5rem 0; border-radius: 0.5rem; font-style: italic;">
+  <strong>Random Joke:</strong> {joke}
+</div>

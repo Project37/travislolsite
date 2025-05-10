@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+  <main style="max-width: 700px; margin: 2rem auto; padding: 2rem; font-family: inherit; background: rgba(7,54,66,0.07); border-radius: 1.5rem; box-shadow: 0 4px 32px rgba(0,43,54,0.07);">
+    <h1 style="font-size: 2.2rem; color: var(--accent); text-align: center;">Blog</h1>
+    <p style="text-align: center; color: var(--fg);">Welcome to my blog! Here you'll find posts about my projects, thoughts, and more.</p>
+    <ul style="margin-top: 2rem;">
+      <li><a href="/blog/first-post/">First Post (.astro Example)</a> <span style="color: var(--base01); font-size: 0.9em;">(Custom layout, SVG, dynamic date)</span></li>
+      <li><a href="/blog/another-post/">Another Post (.astro Example)</a> <span style="color: var(--base01); font-size: 0.9em;">(SVG, interactive counter)</span></li>
+    </ul>
+    <div style="margin-top: 2.5rem; color: var(--base01); font-size: 1rem; text-align: center;">
+      <em>These posts use <code>.astro</code> files to demonstrate custom layouts, components, and interactivity.</em>
+    </div>
+  </main>
+</Layout>
