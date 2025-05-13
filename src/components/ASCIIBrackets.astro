@@ -1,0 +1,43 @@
+---
+/**
+ * ASCIIBrackets Component
+ * 
+ * A component that wraps content in stylized ASCII art brackets
+ * for visual sectioning of content on the website.
+ *
+ * @component
+ */
+interface Props {
+  /** The type of brackets to use: square, curly, angle, or pipe */
+  type?: 'square' | 'curly' | 'angle' | 'pipe';
+  /** The size of the brackets: small, medium, or large */
+  size?: 'small' | 'medium' | 'large';
+  /** The color of the brackets (matches theme color variables) */
+  color?: 'blue' | 'green' | 'yellow' | 'orange' | 'violet' | 'cyan' | 'red' | 'teal' | 'purple';
+}
+
+const { 
+  type = 'square', 
+  size = 'medium',
+  color = 'violet'
+} = Astro.props;
+
+// Map bracket type to CSS class
+const bracketClass = type === 'square' ? '' : type;
+---
+
+<div class={`ascii-bracketed ${bracketClass} ${size} ${color}`}>
+  <slot />
+</div>
+
+<style>
+  /* Component-specific styles can be added here */
+  .ascii-bracketed {
+    margin: 2rem 0;
+  }
+</style>
+
+<!--
+  This component uses styles from src/styles/ascii-brackets.css
+  Make sure to import the CSS file in your Layout component
+-->

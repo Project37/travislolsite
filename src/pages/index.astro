@@ -4,6 +4,7 @@ import Button from '../components/Button.astro';
 import ExpertiseCard from '../components/ExpertiseCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ContactInfo from '../components/ContactInfo.astro';
+import ASCIIBrackets from '../components/ASCIIBrackets.astro';
 import siteConfig from '../config/site.js';
 import expertiseAreas from '../config/expertise.js';
 import projects from '../config/projects.js';
@@ -78,6 +79,36 @@ const { author } = siteConfig;
       </div>
     </section>
 
+    <!-- ASCII Bracket Demo Section -->
+    <section id="approach" class="section">
+      <h2 class="section-title">My Approach</h2>
+      
+      <div>
+        <ASCIIBrackets type="square" size="medium" color="violet">
+          <div style="text-align: center; padding: 1rem 2rem;">
+            <h3 style="color: var(--violet); margin-bottom: 1rem;">Security-First Methodology</h3>
+            <p>My security approach integrates advanced technology with strategic planning to create multi-layered defense mechanisms that adapt to evolving threats while maintaining business continuity.</p>
+          </div>
+        </ASCIIBrackets>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+          <ASCIIBrackets type="curly" size="small" color="blue">
+            <div style="text-align: center; padding: 1rem;">
+              <h4 style="color: var(--blue); margin-bottom: 0.5rem;">Prevention</h4>
+              <p>Proactive security measures to prevent breaches before they occur.</p>
+            </div>
+          </ASCIIBrackets>
+          
+          <ASCIIBrackets type="angle" size="small" color="red">
+            <div style="text-align: center; padding: 1rem;">
+              <h4 style="color: var(--red); margin-bottom: 0.5rem;">Response</h4>
+              <p>Rapid incident response protocols to minimize impact when threats are detected.</p>
+            </div>
+          </ASCIIBrackets>
+        </div>
+      </div>
+    </section>
+    
     <!-- Contact Section -->
     <section id="contact" class="section" style="margin-bottom: 3rem;">
       <ContactInfo>
