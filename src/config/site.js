@@ -7,7 +7,7 @@ export default {
     title: "Senior IT Security Administrator",
     company: "Hypertherm Associates",
     yearsOfExperience: "10",
-    email: "you@example.com",
+    email: "CyberSec@Travis.lol",
     linkedin: "https://linkedin.com/in/yourprofile",
     twitter: "@yourhandle"
   },
