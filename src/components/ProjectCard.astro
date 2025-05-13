@@ -1,22 +1,67 @@
 ---
-// Project card component for showcasing portfolio projects
+/**
+ * ProjectCard Component
+ * 
+ * Displays a security project or case study with detailed information about
+ * the challenge, solution, and results. This component is designed to showcase
+ * professional security work in a consistent format.
+ * 
+ * @component
+ */
 interface Props {
+  /** Project or case study title */
   title: string;
+  /** Client company or organization name (can be anonymized if needed) */
   company: string;
+  /** Project duration (e.g., "3 months", "Q2 2023") */
   duration: string;
+  /** Brief description of the security challenge addressed */
   challenge: string;
+  /** Description of the implemented security solution */
   solution: string;
+  /** Outcomes and metrics demonstrating success */
   result: string;
-  accentColor?: string;
+  /** Optional accent color for visual distinction (mapped to CSS variables) */
+  accentColor?: 'blue' | 'green' | 'red' | 'purple' | 'orange';
+  /** Optional array of technology or methodology tags */
+  tags?: string[];
+  /** Optional image URL for project visualization */
+  imageUrl?: string;
 }
 
-const { title, company, duration, challenge, solution, result, accentColor = 'blue' } = Astro.props;
+const { 
+  title, 
+  company, 
+  duration, 
+  challenge, 
+  solution, 
+  result, 
+  accentColor = 'blue',
+  tags = [],
+  imageUrl
+} = Astro.props;
 ---
 
-<div class="project-card">
-  <h3 style={`color: var(--${accentColor})`}>{title}</h3>
+<div class="project-card accent-{accentColor}">
+  {imageUrl && <div class="project-image"><img src={imageUrl} alt={`${title} project visualization`} loading="lazy" /></div>}
+  <h3>{title}</h3>
   <p class="project-meta">Company: {company} | Duration: {duration}</p>
-  <p><strong>Challenge:</strong> {challenge}</p>
-  <p><strong>Solution:</strong> {solution}</p>
-  <p><strong>Result:</strong> {result}</p>
+  
+  <div class="project-details">
+    <p><strong>Challenge:</strong> {challenge}</p>
+    <p><strong>Solution:</strong> {solution}</p>
+    <p><strong>Result:</strong> {result}</p>
+  </div>
+  
+  {tags.length > 0 && (
+    <div class="project-tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  )}
 </div>
+
+<!--
+  Styling is maintained in src/styles/components.css
+  The card uses the accent color for consistent theming
+  Images are lazy-loaded for performance
+-->

@@ -1,15 +1,34 @@
 ---
-// This component creates an expertise card with a colored border
+/**
+ * ExpertiseCard Component
+ * 
+ * Displays a security expertise or service area with a title, description,
+ * and customizable accent color. Used on the homepage to showcase key
+ * professional security capabilities.
+ *
+ * @component
+ */
 interface Props {
+  /** The title of the expertise area */
   title: string;
+  /** A brief description of the expertise or service */
   description: string;
+  /** The accent color for the card (corresponds to CSS classes) */
   color: string;
+  /** Optional icon identifier */
+  icon?: string;
 }
 
-const { title, description, color } = Astro.props;
+const { title, description, color, icon } = Astro.props;
 ---
 
 <div class={`expertise-card ${color}`}>
+  {icon && <div class="icon-container"><span class={`icon icon-${icon}`}></span></div>}
   <h3>{title}</h3>
   <p>{description}</p>
 </div>
+
+<!-- 
+  Styling is maintained in src/styles/components.css
+  The card uses CSS variables for theming and consistent styling
+-->

@@ -2,10 +2,12 @@
 title: "Zero Trust Architecture: Beyond the Perimeter"
 description: "As organizations increasingly adopt remote work and cloud services, traditional perimeter-based security models are no longer effective. Learn how Zero Trust Architecture addresses modern security challenges."
 pubDate: 2025-05-10
-author: "Security Admin"
+updateDate: 2025-05-12
+author: "Travis D'Amico"
 readingTime: "10 minutes"
-tags: ["Zero Trust", "Security Architecture", "Identity"]
+tags: ["Zero Trust", "Security Architecture", "Identity", "Cloud Security", "Access Control"]
 isFeatured: true
+coverImage: "/images/blog/zero-trust-header.jpg"
 ---
 
 As organizations increasingly adopt remote work models and migrate to cloud services, traditional perimeter-based security approaches are becoming obsolete. Zero Trust Architecture (ZTA) offers a more robust framework for modern security challenges.

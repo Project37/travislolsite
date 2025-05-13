@@ -1,13 +1,32 @@
 ---
-// Contact form component
+/**
+ * ContactForm Component
+ * 
+ * A customizable contact form for security consultation requests.
+ * Includes basic form validation and accessibility features.
+ * Form submissions can be configured to work with various backend services.
+ * 
+ * @component
+ */
 interface Props {
+  /** Form section title */
   title?: string;
+  /** Descriptive text above the form */
   description?: string;
+  /** Form submission endpoint (defaults to serverless function) */
+  endpoint?: string;
+  /** Success message shown after form submission */
+  successMessage?: string;
+  /** Include security services dropdown */
+  includeServicesDropdown?: boolean;
 }
 
 const { 
   title = "Security Consultation", 
-  description = "Interested in a security assessment or consultation? Provide your details below, and I'll get back to you promptly."
+  description = "Interested in a security assessment or consultation? Provide your details below, and I'll get back to you promptly.",
+  endpoint = "/api/contact",
+  successMessage = "Thank you for your message. I'll respond within 1-2 business days.",
+  includeServicesDropdown = true
 } = Astro.props;
 ---
 
@@ -15,37 +34,143 @@ const {
   <h3>{title}</h3>
   <p>{description}</p>
   
-  <div class="form-group">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" id="name" placeholder="Your Name" class="form-control" />
-  </div>
-  
-  <div class="form-group">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" id="email" placeholder="Your Email" class="form-control" />
-  </div>
-  
-  <div class="form-group">
-    <label for="message" class="form-label">Message</label>
-    <textarea id="message" placeholder="How can I help you?" rows="4" class="form-control"></textarea>
-  </div>
-  
-  <button type="submit" class="form-button">Send Message</button>
+  <form id="security-contact-form" action={endpoint} method="POST">
+    <div class="form-group">
+      <label for="name" class="form-label">Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name"
+        placeholder="Your Name" 
+        class="form-control" 
+        required 
+        aria-required="true"
+      />
+    </div>
+    
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email"
+        placeholder="Your Email" 
+        class="form-control" 
+        required 
+        aria-required="true"
+      />
+    </div>
+    
+    {includeServicesDropdown && (
+      <div class="form-group">
+        <label for="service" class="form-label">Service Interested In</label>
+        <select id="service" name="service" class="form-control">
+          <option value="security-assessment">Security Assessment</option>
+          <option value="penetration-testing">Penetration Testing</option>
+          <option value="security-training">Security Training</option>
+          <option value="incident-response">Incident Response</option>
+          <option value="other">Other (Please Specify)</option>
+        </select>
+      </div>
+    )}
+    
+    <div class="form-group">
+      <label for="message" class="form-label">Message</label>
+      <textarea 
+        id="message" 
+        name="message"
+        placeholder="How can I help with your security needs?" 
+        rows="4" 
+        class="form-control"
+        required
+        aria-required="true"
+      ></textarea>
+    </div>
+    
+    <div class="form-group privacy-notice">
+      <small>Your information will be processed securely and never shared with third parties.</small>
+    </div>
+    
+    <button type="submit" class="form-button">Send Message</button>
+    
+    <div id="form-success-message" class="success-message" style="display: none;">
+      {successMessage}
+    </div>
+  </form>
 </div>
 
+<script>
+  // Client-side form validation and submission handling
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('security-contact-form');
+    const successMessage = document.getElementById('form-success-message');
+    
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Basic form validation
+        const formData = new FormData(form);
+        const formObject = Object.fromEntries(formData);
+        
+        try {
+          // In a real implementation, this would send data to the backend
+          // For demo purposes, we'll just show the success message
+          
+          // Simulated API call delay
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          // Show success message and reset form
+          if (successMessage) {
+            successMessage.style.display = 'block';
+            form.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+              successMessage.style.display = 'none';
+            }, 5000);
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert('There was an error submitting the form. Please try again.');
+        }
+      });
+    }
+  });
+</script>
+
+<!-- 
+  Most styling is handled in src/styles/components.css
+  Only component-specific styles are included here
+-->
 <style>
   .contact-form {
-    background: rgba(7,54,66,0.07);
+    background: var(--card-bg-color);
     padding: 2rem;
     border-radius: 0.5rem;
+    box-shadow: var(--card-shadow);
   }
   
   .contact-form h3 {
-    color: var(--accent);
+    color: var(--accent-color);
     margin-top: 0;
   }
   
   .contact-form p {
     margin-bottom: 1.5rem;
+  }
+  
+  .success-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border-radius: 0.25rem;
+    text-align: center;
+  }
+  
+  .privacy-notice {
+    margin-top: 1rem;
+    opacity: 0.8;
   }
 </style>

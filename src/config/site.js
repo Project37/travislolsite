@@ -1,7 +1,20 @@
-// Site configuration
+/**
+ * Site Configuration
+ * 
+ * Central configuration file for the security professional portfolio site.
+ * Contains all site-wide settings, personal information, and configuration options.
+ */
 export default {
+  // Site basics
   siteName: "Security Professional Portfolio",
   siteDescription: "Personal website for IT Security Professional showcasing expertise and insights",
+  siteUrl: "https://security.travis.lol",
+  
+  // SEO and social sharing
+  ogImage: "/images/security-portfolio-og.jpg",
+  twitterHandle: "@travis_lol",
+  
+  // Personal information
   author: {
     name: "Travis D'Amico",
     title: "Senior IT Security Administrator",
@@ -9,7 +22,8 @@ export default {
     yearsOfExperience: "10",
     email: "CyberSec@Travis.lol",
     linkedin: "https://linkedin.com/in/yourprofile",
-    twitter: "@yourhandle"
+    twitter: "@yourhandle",
+    github: "https://github.com/yourusername"
   },
   navigation: [
     { title: "Home", url: "/" },

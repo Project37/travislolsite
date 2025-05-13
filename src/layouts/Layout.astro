@@ -1,32 +1,83 @@
 ---
-import '../styles/global.css';
-import '../styles/layout.css';
-import '../styles/components.css';
-import '../styles/blog.css';
+/**
+ * Main Layout Component
+ * 
+ * This is the primary layout for the security professional portfolio site.
+ * It provides:
+ * - Theme management with persistent user preferences
+ * - SEO optimization
+ * - Responsive navigation
+ * - Consistent header and footer
+ * 
+ * @component
+ */
+
+// Import all CSS files for site-wide styles
+import '../styles/global.css';  // Theme variables and global styles
+import '../styles/layout.css';  // Layout structure styles
+import '../styles/components.css';  // Component-specific styles
+import '../styles/blog.css';  // Blog-specific styles
+
+// Import site configuration
+import siteConfig from '../config/site.js';
+
+// Define the interface for props
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+// Destructure props with defaults from site config
+const { 
+  title = siteConfig.siteName, 
+  description = siteConfig.siteDescription,
+  ogImage = siteConfig.ogImage
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Travis Example - Personal Site</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.author.name} />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={siteConfig.siteUrl} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
     <!-- Prevent flash by applying theme immediately -->
     <script is:inline>
-      // Get theme from localStorage or use gruvbox as default
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else {
-        document.documentElement.setAttribute('data-theme', 'gruvbox');
-      }
+      // Apply the saved theme or default to prevent flash of unstyled content
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
   </head>
   <body>
     <header>
-      <h1>Your Full Name</h1>
+      <h1>{siteConfig.siteName}</h1>
       <p>Senior IT Security Administrator</p>
       <nav>
         <a href="/">Home</a>
