@@ -18,8 +18,12 @@ Inside your Astro project, you'll find the following structure:
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   ├── stick_about.svg
+│   ├── stick_contact.svg
+│   └── stick_projects.svg
 ├── src/
+│   ├── assets/          # Static assets like SVGs
 │   ├── components/      # Reusable UI components
 │   ├── config/          # Site configuration files
 │   ├── content/         # Content collections
@@ -68,8 +72,10 @@ Edit the file at `src/config/site.js` to update:
 - Your name and professional title
 - Contact information
 - Company/organization name
-- Social media links and profiles
+- Social media links and profiles (Email, LinkedIn, BlueSky, GitHub)
 - Site metadata and SEO information
+
+The contact information is displayed using the `ContactInfo` component that includes SVG icons and hover animations.
 
 ### Security Expertise Areas
 
@@ -118,6 +124,14 @@ tags: ["Zero Trust", "Enterprise Security", "Architecture"]
 
 Your blog post content here...
 ```
+
+## Icons and Graphics
+
+The site uses inline SVG icons for contact information and other visual elements. These are included directly in components like `ContactInfo.astro` to ensure they:
+- Are accessible
+- Can be styled with CSS
+- Have smooth animations
+- Adapt to the current theme colors
 
 ## Theme Management
 

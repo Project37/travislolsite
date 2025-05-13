@@ -6,11 +6,17 @@ This document outlines the structure and best practices for maintaining this sec
 
 ```
 src/
+  ├── assets/             # Static assets like SVGs
+  │   ├── astro.svg
+  │   └── background.svg
+  │
   ├── components/         # Reusable UI components
   │   ├── Button.astro    # Styled button component
   │   ├── ContactForm.astro  # Contact form with validation
+  │   ├── ContactInfo.astro  # Contact information with social links and icons
   │   ├── ExpertiseCard.astro  # Security expertise card 
   │   ├── ProjectCard.astro  # Security project showcase card
+  │   ├── ScrollToTop.astro  # Scroll to top button component
   │   └── ThemePreview.astro  # Theme preview component
   │
   ├── config/             # Site-wide configuration
@@ -61,6 +67,15 @@ src/
 - Keep components focused on a single responsibility
 - Use slots and props for component customization
 
+Many components like `ContactInfo` utilize slots to allow additional content insertion. For example:
+
+```astro
+<ContactInfo>
+  <!-- Additional content here will be inserted in the right column -->
+  <ContactForm />
+</ContactInfo>
+```
+
 Example component structure:
 ```astro
 ---
@@ -104,6 +119,19 @@ const { title, icon, description, accentColor = "blue" } = Astro.props;
 - Update all personal information in one place
 
 ### 5. Adding New Content
+
+#### Updating Contact Information
+
+The `ContactInfo` component displays your contact information with SVG icons for:
+- Email
+- LinkedIn
+- BlueSky
+- GitHub
+
+To update your contact information:
+1. Edit the corresponding entries in `src/config/site.js`
+2. The component automatically formats the display of social links (removing URL prefixes)
+3. Icons use the theme's accent color and have hover animations
 
 #### New Security Blog Posts
 
