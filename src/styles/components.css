@@ -149,6 +149,23 @@ main {
   margin-bottom: 1rem;
 }
 
+/* Constact section styles */
+
+.contact-info a:hover {
+    color: var(--accent) !important;
+    transform: translateY(-1px);
+    transition: transform 0.2s ease;
+  }
+  
+  .contact-info svg {
+    color: var(--accent);
+    transition: transform 0.2s ease;
+  }
+  
+  .contact-info a:hover svg {
+    transform: scale(1.5);
+  }
+
 /* Form styles */
 .form-group {
   margin-bottom: 1rem;
