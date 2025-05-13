@@ -107,6 +107,9 @@ main {
 .expertise-card.orange { border-left: 4px solid var(--orange); }
 .expertise-card.violet { border-left: 4px solid var(--violet); }
 .expertise-card.cyan { border-left: 4px solid var(--cyan); }
+.expertise-card.red { border-left: 4px solid var(--red); }
+.expertise-card.teal { border-left: 4px solid var(--teal); }
+.expertise-card.purple { border-left: 4px solid var(--purple); }
 
 .expertise-card h3 {
   margin-top: 0;
@@ -118,6 +121,9 @@ main {
 .expertise-card.orange h3 { color: var(--orange); }
 .expertise-card.violet h3 { color: var(--violet); }
 .expertise-card.cyan h3 { color: var(--cyan); }
+.expertise-card.red h3 { color: var(--red); }
+.expertise-card.teal h3 { color: var(--teal); }
+.expertise-card.purple h3 { color: var(--purple); }
 
 /* Project card styles */
 .project-grid {

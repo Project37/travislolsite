@@ -1,0 +1,88 @@
+---
+/**
+ * ScrollToTop Component
+ * 
+ * A floating button that appears when scrolling down the page
+ * and allows users to quickly return to the top of the page.
+ * 
+ * @component
+ */
+import { Icon } from 'astro-iconify';
+---
+
+<button id="scroll-to-top" aria-label="Scroll to top" title="Return to top">
+  <Icon name="tabler:arrow-up" width="24" height="24" />
+</button>
+
+<script>
+  // JavaScript to handle the scroll to top button behavior
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollToTopButton = document.getElementById('scroll-to-top');
+    
+    // Show button when user scrolls down 300px from the top
+    const toggleButtonVisibility = () => {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollToTopButton.classList.add('visible');
+      } else {
+        scrollToTopButton.classList.remove('visible');
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', toggleButtonVisibility);
+    
+    // Scroll to top when button is clicked
+    scrollToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+<style>
+  #scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background-color 0.3s;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+  }
+
+  #scroll-to-top.visible {
+    opacity: 0.9;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #scroll-to-top:hover {
+    opacity: 1;
+    background-color: var(--blue);
+    transform: translateY(-3px);
+  }
+
+  /* For smaller mobile devices */
+  @media (max-width: 480px) {
+    #scroll-to-top {
+      width: 40px;
+      height: 40px;
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+</style>

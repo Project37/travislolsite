@@ -20,6 +20,7 @@ import '../styles/blog.css';  // Blog-specific styles
 
 // Import site configuration
 import siteConfig from '../config/site.js';
+import ScrollToTop from '../components/ScrollToTop.astro';
 
 // Define the interface for props
 interface Props {
@@ -127,5 +128,8 @@ const {
         if (select.value === 'system') setTheme('system');
       });
     </script>
+
+    <!-- Return to Top Button -->
+    <ScrollToTop />
   </body>
 </html>

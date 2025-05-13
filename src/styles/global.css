@@ -18,6 +18,10 @@
   --blue:   #268bd2;
   --cyan:   #2aa198;
   --green:  #859900;
+  /* Additional colors for new expertise areas */
+  --teal:   #00827F;
+  --purple: #8052EC;
+  /* Main theme variables */
   --bg: var(--base3);
   --fg: var(--base00);
   --accent: var(--blue);
@@ -27,6 +31,8 @@
   --bg: var(--base03);
   --fg: var(--base0);
   --accent: var(--cyan);
+  /* Keep the standard Solarized colors but adjust teal for better visibility in dark mode */
+  --teal: #4DB6AC;
 }
 
 /* Dracula Theme */
@@ -39,6 +45,9 @@
   --yellow: #f1fa8c;
   --green: #50fa7b;
   --blue: #8be9fd;
+  --red: #ff5555;
+  --teal: #64FFDA;
+  --purple: #bd93f9;
 }
 
 /* Gruvbox Dark Theme */
@@ -49,6 +58,9 @@
   --base02: #3c3836;
   --base1: #ebdbb2;
   --yellow: #fabd2f;
+  --red: #fb4934;
+  --teal: #8ec07c;
+  --purple: #d3869b;
   --green: #b8bb26;
   --blue: #83a598;
 }

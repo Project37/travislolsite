@@ -19,7 +19,7 @@ export default [
   {
     title: "Identity & Access Management",
     description: "Implementing robust IAM solutions, multi-factor authentication, and privileged access management.",
-    color: "green",
+    color: "orange",
     icon: "carbon:fingerprint-recognition"
   },
   {
@@ -31,14 +31,14 @@ export default [
   {
     title: "Incident Response",
     description: "Developing and implementing incident response plans, security monitoring, and threat hunting.",
-    color: "orange",
+    color: "green",
     icon: "mdi:shield-alert"
   },
   {
     title: "Cloud Security",
     description: "Securing cloud environments (AWS, Azure, GCP), implementing security controls, and ensuring data protection.",
     color: "violet",
-    icon: "carbon:cloud-security"
+    icon: "mdi:cloud-lock"
   },
   {
     title: "Security Awareness",
@@ -56,7 +56,7 @@ export default [
     title: "Threat Intelligence",
     description: "Analyzing and correlating security data to identify emerging threats and proactively strengthen defenses.",
     color: "teal",
-    icon: "carbon:data-security"
+    icon: "tabler:chart-radar"
   },
   {
     title: "Zero Trust Architecture",
