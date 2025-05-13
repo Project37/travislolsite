@@ -125,7 +125,8 @@ main {
 .expertise-card.teal h3 { color: var(--teal); }
 .expertise-card.purple h3 { color: var(--purple); }
 
-/* Project card styles */
+
+
 .project-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -136,12 +137,35 @@ main {
   background: rgba(7,54,66,0.07);
   padding: 2rem;
   border-radius: 0.5rem;
+  border-left: 4px solid var(--blue); /* Default border */
 }
 
+/* Project card color variants - matches expertise cards */
+.project-card.blue { border-left: 4px solid var(--blue); }
+.project-card.green { border-left: 4px solid var(--green); }
+.project-card.yellow { border-left: 4px solid var(--yellow); }
+.project-card.orange { border-left: 4px solid var(--orange); }
+.project-card.violet { border-left: 4px solid var(--violet); }
+.project-card.cyan { border-left: 4px solid var(--cyan); }
+.project-card.red { border-left: 4px solid var(--red); }
+.project-card.teal { border-left: 4px solid var(--teal); }
+.project-card.purple { border-left: 4px solid var(--purple); }
+
 .project-card h3 {
-  color: var(--blue);
   margin-top: 0;
+  color: var(--blue); /* Default color */
 }
+
+/* Project heading color variants - matches expertise cards */
+.project-card.blue h3 { color: var(--blue); }
+.project-card.green h3 { color: var(--green); }
+.project-card.yellow h3 { color: var(--yellow); }
+.project-card.orange h3 { color: var(--orange); }
+.project-card.violet h3 { color: var(--violet); }
+.project-card.cyan h3 { color: var(--cyan); }
+.project-card.red h3 { color: var(--red); }
+.project-card.teal h3 { color: var(--teal); }
+.project-card.purple h3 { color: var(--purple); }
 
 .project-meta {
   font-style: italic;
@@ -149,7 +173,36 @@ main {
   margin-bottom: 1rem;
 }
 
-/* Constact section styles */
+.project-details {
+  margin-bottom: 1rem;
+}
+
+.project-details p {
+  margin-bottom: 0.75rem;
+}
+
+.project-details strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Project tags styling */
+.project-tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tags .tag {
+  background: rgba(7,54,66,0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  color: var(--base01);
+}
+
+/* Contact section styles */
 
 .contact-info a:hover {
     color: var(--accent) !important;

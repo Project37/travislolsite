@@ -42,7 +42,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="project-card accent-{accentColor}">
+<div class={`project-card ${accentColor}`}>
   {imageUrl && <div class="project-image"><img src={imageUrl} alt={`${title} project visualization`} loading="lazy" /></div>}
   <h3>{title}</h3>
   <p class="project-meta">Company: {company} | Duration: {duration}</p>
