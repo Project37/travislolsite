@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 import ExpertiseCard from '../components/ExpertiseCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import ContactInfo from '../components/ContactInfo.astro';
 import siteConfig from '../config/site.js';
 import expertiseAreas from '../config/expertise.js';
 import projects from '../config/projects.js';
@@ -79,42 +80,9 @@ const { author } = siteConfig;
 
     <!-- Contact Section -->
     <section id="contact" class="section" style="margin-bottom: 3rem;">
-      <h2 class="section-title">Let's Connect</h2>
-      
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-        <div>
-          <p style="line-height: 1.6; margin-bottom: 1.5rem;">I'm always interested in discussing security challenges, opportunities, and industry best practices. Whether you're looking for consultation on your security infrastructure or exploring potential collaboration, feel free to reach out.</p>
-          
-          <div style="margin-bottom: 1rem;">
-            <h3 style="color: var(--blue); margin-bottom: 0.5rem;">Email</h3>
-            <a href={`mailto:${author.email}`} style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-weight: 500;">{author.email}</span>
-            </a>
-          </div>
-          
-          <div style="margin-bottom: 1rem;">
-            <h3 style="color: var(--green); margin-bottom: 0.5rem;">LinkedIn</h3>
-            <a href={author.linkedin} target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-weight: 500;">{author.linkedin.replace('https://linkedin.com/in/', '')}</span>
-            </a>
-          </div>
-          
-          <div>
-            <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">BlueSky</h3>
-            <a href={`https://bsky.app/profile/${author.bluesky.replace('@', '')}`} target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-weight: 500;">{author.bluesky}</span>
-            </a>
-          </div>
-          <div>
-            <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">GitHub</h3>
-            <a href={author.github} target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-weight: 500;">{author.github.replace('https://github.com/', '')}</span>
-            </a>
-          </div>
-        </div>
-        
-        
-      </div>
+      <ContactInfo>
+        <!-- You can add a contact form or other content in this slot if needed -->
+      </ContactInfo>
     </section>
   </main>
 </Layout>
