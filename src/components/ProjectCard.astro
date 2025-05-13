@@ -1,0 +1,22 @@
+---
+// Project card component for showcasing portfolio projects
+interface Props {
+  title: string;
+  company: string;
+  duration: string;
+  challenge: string;
+  solution: string;
+  result: string;
+  accentColor?: string;
+}
+
+const { title, company, duration, challenge, solution, result, accentColor = 'blue' } = Astro.props;
+---
+
+<div class="project-card">
+  <h3 style={`color: var(--${accentColor})`}>{title}</h3>
+  <p class="project-meta">Company: {company} | Duration: {duration}</p>
+  <p><strong>Challenge:</strong> {challenge}</p>
+  <p><strong>Solution:</strong> {solution}</p>
+  <p><strong>Result:</strong> {result}</p>
+</div>

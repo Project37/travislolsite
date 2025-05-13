@@ -1,3 +1,10 @@
+---
+import '../styles/global.css';
+import '../styles/layout.css';
+import '../styles/components.css';
+import '../styles/blog.css';
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,103 +15,19 @@
     <title>Travis Example - Personal Site</title>
     <!-- Prevent flash by applying theme immediately -->
     <script is:inline>
-      // Get theme from localStorage or system preference
+      // Get theme from localStorage or use gruvbox as default
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
-      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'gruvbox');
       }
     </script>
-    <style>
-      :root {
-        /* Solarized Light */
-        --base03: #002b36;
-        --base02: #073642;
-        --base01: #586e75;
-        --base00: #657b83;
-        --base0:  #839496;
-        --base1:  #93a1a1;
-        --base2:  #eee8d5;
-        --base3:  #fdf6e3;
-        --yellow: #b58900;
-        --orange: #cb4b16;
-        --red:    #dc322f;
-        --magenta:#d33682;
-        --violet: #6c71c4;
-        --blue:   #268bd2;
-        --cyan:   #2aa198;
-        --green:  #859900;
-        --bg: var(--base3);
-        --fg: var(--base00);
-        --accent: var(--blue);
-      }
-      [data-theme="dark"] {
-        --bg: var(--base03);
-        --fg: var(--base0);
-        --accent: var(--cyan);
-      }
-      /* Dracula Theme */
-      [data-theme="dracula"] {
-        --bg: #282a36;
-        --fg: #f8f8f2;
-        --accent: #bd93f9;
-        --base02: #44475a;
-        --base1: #f8f8f2;
-        --yellow: #f1fa8c;
-        --green: #50fa7b;
-        --blue: #8be9fd;
-      }
-      /* Gruvbox Dark Theme */
-      [data-theme="gruvbox"] {
-        --bg: #282828;
-        --fg: #ebdbb2;
-        --accent: #fe8019;
-        --base02: #3c3836;
-        --base1: #ebdbb2;
-        --yellow: #fabd2f;
-        --green: #b8bb26;
-        --blue: #83a598;
-      }
-      body {
-        background: var(--bg);
-        color: var(--fg);
-        margin: 0;
-        min-height: 100vh;
-        font-family: 'Inter', system-ui, sans-serif;
-        transition: background 0.3s, color 0.3s;
-      }
-      header {
-        background: var(--base02);
-        color: var(--base1);
-        padding: 1.5rem 0 1rem 0;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      }
-      header h1 {
-        margin: 0;
-        font-size: 2.2rem;
-        letter-spacing: 1px;
-      }
-      nav {
-        margin-top: 0.5rem;
-      }
-      nav a {
-        color: var(--accent);
-        margin: 0 1rem;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s;
-      }
-      nav a:hover {
-        color: var(--yellow);
-      }
-    </style>
   </head>
   <body>
     <header>
       <h1>Your Full Name</h1>
-      <p style="margin: 0.25rem 0 0.5rem 0; font-size: 1.1rem; color: var(--base1); font-weight: 300;">Senior IT Security Administrator</p>
+      <p>Senior IT Security Administrator</p>
       <nav>
         <a href="/">Home</a>
         <a href="/#about">About</a>
@@ -115,9 +38,9 @@
       </nav>
     </header>
     <slot />
-    <footer style="background: var(--base02); color: var(--base1); text-align: center; padding: 1.5rem 0 2.5rem 0; margin-top: 3rem;">
-      <label for="theme-select" style="font-weight: 500; margin-right: 0.5rem;">Theme:</label>
-      <select id="theme-select" style="padding: 0.3rem 1.2rem; border-radius: 1.5rem; border: 1px solid var(--accent); background: var(--base02); color: var(--accent); font-size: 1rem;">
+    <footer>
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select">
         <option value="system">System</option>
         <option value="light">Solarized Light</option>
         <option value="dark">Solarized Dark</option>
@@ -131,22 +54,22 @@
       function setTheme(theme) {
         if (theme === 'system') {
           localStorage.removeItem('theme');
-          if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
-          else root.setAttribute('data-theme', 'light');
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'gruvbox');
+          else root.setAttribute('data-theme', 'gruvbox');
         } else {
           root.setAttribute('data-theme', theme);
           localStorage.setItem('theme', theme);
         }
       }
       select.addEventListener('change', e => setTheme(e.target.value));
-      // On load, set theme from localStorage or system
+      // On load, set theme from localStorage or default to gruvbox
       const saved = localStorage.getItem('theme');
       if (saved) {
         setTheme(saved);
         select.value = saved;
       } else {
-        setTheme('system');
-        select.value = 'system';
+        setTheme('gruvbox');
+        select.value = 'gruvbox';
       }
       // Listen for system theme changes if "system" is selected
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {

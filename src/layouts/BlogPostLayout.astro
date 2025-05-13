@@ -1,0 +1,57 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  publishDate: Date;
+  readingTime?: string;
+  tags?: string[];
+}
+
+const { title, publishDate, readingTime = '5 minutes', tags = [] } = Astro.props;
+const formattedDate = publishDate.toLocaleDateString();
+---
+
+<Layout>
+  <section class="blog-hero">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h1>{title}</h1>
+      <div class="blog-meta">
+        <span style="margin-right: 1.5rem;">
+          <strong>Published:</strong> {formattedDate}
+        </span>
+        <span>
+          <strong>Reading time:</strong> {readingTime}
+        </span>
+      </div>
+      {tags.length > 0 && (
+        <div style="display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+          {tags.map(tag => (
+            <span class="blog-tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <main class="blog-container">
+    <article class="blog-content">
+      <slot />
+      
+      <div class="blog-author">
+        <h3>About the Author</h3>
+        <p>
+          As a Senior IT Security Administrator with over [X] years of practical experience in designing and implementing enterprise security solutions, I've helped organizations across multiple industries strengthen their security posture through modern architectures like Zero Trust.
+        </p>
+      </div>
+    </article>
+
+    <div class="blog-footer">
+      <h3 style="color: var(--accent);">Continue Reading</h3>
+      <ul class="blog-navigation">
+        <li><a href="/blog/another-post/">Effective Cloud Security Controls →</a></li>
+        <li><a href="/blog/">← Back to All Posts</a></li>
+      </ul>
+    </div>
+  </main>
+</Layout>

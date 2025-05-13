@@ -1,0 +1,15 @@
+---
+// This component creates an expertise card with a colored border
+interface Props {
+  title: string;
+  description: string;
+  color: string;
+}
+
+const { title, description, color } = Astro.props;
+---
+
+<div class={`expertise-card ${color}`}>
+  <h3>{title}</h3>
+  <p>{description}</p>
+</div>

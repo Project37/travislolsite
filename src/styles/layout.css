@@ -1,0 +1,61 @@
+/* Header styles */
+header {
+  background: var(--base02);
+  color: var(--base1);
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+header p {
+  margin: 0.25rem 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--base1);
+  font-weight: 300;
+}
+
+/* Navigation styles */
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: var(--accent);
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--yellow);
+}
+
+/* Footer styles */
+footer {
+  background: var(--base02);
+  color: var(--base1);
+  text-align: center;
+  padding: 1.5rem 0 2.5rem 0;
+  margin-top: 3rem;
+}
+
+footer label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+footer select {
+  padding: 0.3rem 1.2rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--accent);
+  background: var(--base02);
+  color: var(--accent);
+  font-size: 1rem;
+}

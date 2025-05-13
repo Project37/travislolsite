@@ -1,12 +1,14 @@
-# Astro Starter Kit: Basics
+# Security Professional Portfolio Site
 
-```sh
-npm create astro@latest -- --template basics
-```
+A modern, maintainable personal website for IT security professionals to showcase their expertise, projects, and share security insights via a blog.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Features
+
+- 🎨 Theme switching (Solarized Light/Dark, Dracula, Gruvbox)
+- 📱 Responsive design for all devices
+- ✍️ Markdown-based blog with content collections
+- 🧩 Component-based architecture
+- 🔄 Reusable configuration
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
@@ -28,21 +30,66 @@ Inside of your Astro project, you'll see the following folders and files:
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+For detailed information on the project structure and maintainability practices, see [STRUCTURE.md](./STRUCTURE.md).
 
-## 🧞 Commands
+## Getting Started
 
-All commands are run from the root of the project, from a terminal:
+### Prerequisites
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Node.js 16.x or higher
+- npm 7.x or higher
 
-## 👀 Want to learn more?
+### Installation
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/security-portfolio.git
+cd security-portfolio
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start the development server
+```bash
+npm run dev
+```
+
+4. Open your browser to `http://localhost:4321`
+
+## Customization
+
+### Personal Information
+
+Edit the file at `src/config/site.js` to update:
+
+- Your name and title
+- Contact information
+- Company name
+- Social media links
+
+### Expertise Areas
+
+Edit the file at `src/config/expertise.js` to update your areas of expertise.
+
+### Projects/Case Studies
+
+Edit the file at `src/config/projects.js` to update your project showcases.
+
+### Blog Content
+
+Add or modify Markdown files in the `src/content/blog/` directory.
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run format` - Format code with Prettier
+- `npm run lint` - Lint code with ESLint
+
+## License
+
+[MIT License](./LICENSE)

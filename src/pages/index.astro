@@ -1,30 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import ExpertiseCard from '../components/ExpertiseCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import siteConfig from '../config/site.js';
+import expertiseAreas from '../config/expertise.js';
+import projects from '../config/projects.js';
+
+const { author } = siteConfig;
 ---
 
 <Layout>
   <!-- Hero section with professional introduction -->
-  <section style="background: linear-gradient(135deg, var(--base02) 0%, var(--base03) 100%); padding: 5rem 1rem; text-align: center; color: var(--base2);">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem; color: var(--base2);">Securing Your Digital Future</h1>
-      <p style="font-size: 1.5rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+  <section class="hero">
+    <div class="hero-container">
+      <h1>Securing Your Digital Future</h1>
+      <p>
         Senior IT Security Professional with extensive experience in enterprise security architecture, threat mitigation, and security compliance.
       </p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="/#contact" style="display: inline-block; background: var(--accent); color: var(--bg); padding: 0.8rem 2rem; border-radius: 0.3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.2s;">Contact Me</a>
-        <a href="/blog/" style="display: inline-block; background: transparent; color: var(--accent); border: 2px solid var(--accent); padding: 0.8rem 2rem; border-radius: 0.3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.2s;">Read My Blog</a>
+        <Button href="/#contact" variant="primary">Contact Me</Button>
+        <Button href="/blog/" variant="outline">Read My Blog</Button>
       </div>
     </div>
   </section>
 
-  <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+  <main>
     <!-- About section -->
-    <section id="about" style="margin-bottom: 4rem; display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
+    <section id="about" class="section" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
       <div>
-        <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;">About Me</h2>
-        <p style="line-height: 1.6; margin-bottom: 1rem;">With over [X] years of experience in IT security, I specialize in designing and implementing robust security solutions for enterprises. My expertise spans across network security, identity and access management, security compliance frameworks, and incident response.</p>
-        <p style="line-height: 1.6; margin-bottom: 1rem;">I am passionate about staying ahead of emerging threats and utilizing cutting-edge technologies to protect organizational assets. I believe in a proactive approach to security, focusing on threat prevention while maintaining operational efficiency.</p>
-        <p style="line-height: 1.6;">Currently serving as a Senior IT Security Administrator at [Company Name], I oversee security operations and lead initiatives to enhance the organization's security posture.</p>
+        <h2 class="section-title">About Me</h2>
+        <p>With over {author.yearsOfExperience} years of experience in IT security, I specialize in designing and implementing robust security solutions for enterprises. My expertise spans across network security, identity and access management, security compliance frameworks, and incident response.</p>
+        <p>I am passionate about staying ahead of emerging threats and utilizing cutting-edge technologies to protect organizational assets. I believe in a proactive approach to security, focusing on threat prevention while maintaining operational efficiency.</p>
+        <p>Currently serving as a Senior IT Security Administrator at {author.company}, I oversee security operations and lead initiatives to enhance the organization's security posture.</p>
       </div>
       <div style="text-align: center;">
         <!-- Replace with a professional headshot or security-themed image -->
@@ -35,76 +43,42 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Expertise section -->
-    <section id="expertise" style="margin-bottom: 4rem;">
-      <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;">Areas of Expertise</h2>
+    <section id="expertise" class="section">
+      <h2 class="section-title">Areas of Expertise</h2>
       
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--blue);">
-          <h3 style="color: var(--blue); margin-top: 0;">Network Security</h3>
-          <p>Designing secure network architectures, implementing firewalls, IDS/IPS, and network segmentation strategies.</p>
-        </div>
-        
-        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--green);">
-          <h3 style="color: var(--green); margin-top: 0;">Identity & Access Management</h3>
-          <p>Implementing robust IAM solutions, multi-factor authentication, and privileged access management.</p>
-        </div>
-        
-        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--yellow);">
-          <h3 style="color: var(--yellow); margin-top: 0;">Security Compliance</h3>
-          <p>Ensuring adherence to regulatory frameworks including GDPR, HIPAA, PCI-DSS, and industry best practices.</p>
-        </div>
-        
-        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--orange);">
-          <h3 style="color: var(--orange); margin-top: 0;">Incident Response</h3>
-          <p>Developing and implementing incident response plans, security monitoring, and threat hunting.</p>
-        </div>
-        
-        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--violet);">
-          <h3 style="color: var(--violet); margin-top: 0;">Cloud Security</h3>
-          <p>Securing cloud environments (AWS, Azure, GCP), implementing security controls, and ensuring data protection.</p>
-        </div>
-        
-        <div style="background: rgba(7,54,66,0.07); padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid var(--cyan);">
-          <h3 style="color: var(--cyan); margin-top: 0;">Security Awareness</h3>
-          <p>Developing and delivering security training programs to foster a security-first culture.</p>
-        </div>
+      <div class="expertise-grid">
+        {expertiseAreas.map(area => (
+          <ExpertiseCard 
+            title={area.title} 
+            description={area.description} 
+            color={area.color} 
+          />
+        ))}
       </div>
     </section>
 
     <!-- Projects/Case Studies Section -->
-    <section id="projects" style="margin-bottom: 4rem;">
-      <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;">Selected Projects</h2>
+    <section id="projects" class="section">
+      <h2 class="section-title">Selected Projects</h2>
       
-      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
-        <div style="background: rgba(7,54,66,0.07); padding: 2rem; border-radius: 0.5rem;">
-          <h3 style="color: var(--blue); margin-top: 0;">Enterprise Security Architecture Redesign</h3>
-          <p style="font-style: italic; color: var(--base01); margin-bottom: 1rem;">Company: [Client Name] | Duration: [Time Period]</p>
-          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Challenge:</strong> Legacy security infrastructure with significant vulnerabilities and compliance gaps.</p>
-          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Solution:</strong> Designed and implemented a modern security architecture with next-gen firewalls, advanced endpoint protection, and identity-based access controls.</p>
-          <p style="line-height: 1.6;"><strong>Result:</strong> 85% reduction in security incidents, successful compliance with industry regulations, and improved operational efficiency.</p>
-        </div>
-        
-        <div style="background: rgba(7,54,66,0.07); padding: 2rem; border-radius: 0.5rem;">
-          <h3 style="color: var(--green); margin-top: 0;">Secure Cloud Migration</h3>
-          <p style="font-style: italic; color: var(--base01); margin-bottom: 1rem;">Company: [Client Name] | Duration: [Time Period]</p>
-          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Challenge:</strong> Securely migrating on-premises infrastructure to cloud while maintaining security controls.</p>
-          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Solution:</strong> Developed a comprehensive cloud security framework with automated compliance monitoring, secure CI/CD pipelines, and data encryption strategies.</p>
-          <p style="line-height: 1.6;"><strong>Result:</strong> Successful migration with zero security breaches, maintaining compliance requirements, and reduced operational costs.</p>
-        </div>
-        
-        <div style="background: rgba(7,54,66,0.07); padding: 2rem; border-radius: 0.5rem;">
-          <h3 style="color: var(--yellow); margin-top: 0;">Security Awareness Program</h3>
-          <p style="font-style: italic; color: var(--base01); margin-bottom: 1rem;">Company: [Client Name] | Duration: [Time Period]</p>
-          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Challenge:</strong> High rate of successful phishing attacks and security incidents due to employee errors.</p>
-          <p style="line-height: 1.6; margin-bottom: 1rem;"><strong>Solution:</strong> Designed and implemented a comprehensive security awareness program including training, simulated phishing, and gamification elements.</p>
-          <p style="line-height: 1.6;"><strong>Result:</strong> 90% reduction in successful phishing attempts and a measurable improvement in security culture throughout the organization.</p>
-        </div>
+      <div class="project-grid">
+        {projects.map(project => (
+          <ProjectCard 
+            title={project.title}
+            company={project.company}
+            duration={project.duration}
+            challenge={project.challenge}
+            solution={project.solution}
+            result={project.result}
+            accentColor={project.accentColor}
+          />
+        ))}
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" style="margin-bottom: 3rem;">
-      <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;">Let's Connect</h2>
+    <section id="contact" class="section" style="margin-bottom: 3rem;">
+      <h2 class="section-title">Let's Connect</h2>
       
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
         <div>
@@ -112,22 +86,22 @@ import Layout from '../layouts/Layout.astro';
           
           <div style="margin-bottom: 1rem;">
             <h3 style="color: var(--blue); margin-bottom: 0.5rem;">Email</h3>
-            <a href="mailto:you@example.com" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-weight: 500;">you@example.com</span>
+            <a href={`mailto:${author.email}`} style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 500;">{author.email}</span>
             </a>
           </div>
           
           <div style="margin-bottom: 1rem;">
             <h3 style="color: var(--green); margin-bottom: 0.5rem;">LinkedIn</h3>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-weight: 500;">linkedin.com/in/yourprofile</span>
+            <a href={author.linkedin} target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 500;">{author.linkedin.replace('https://linkedin.com/in/', '')}</span>
             </a>
           </div>
           
           <div>
             <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">Twitter</h3>
-            <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-weight: 500;">@yourhandle</span>
+            <a href={`https://twitter.com/${author.twitter.replace('@', '')}`} target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 500;">{author.twitter}</span>
             </a>
           </div>
         </div>
@@ -137,22 +111,22 @@ import Layout from '../layouts/Layout.astro';
           <p style="margin-bottom: 1.5rem;">Interested in a security assessment or consultation? Provide your details below, and I'll get back to you promptly.</p>
           
           <!-- This is just a visual form; you'd need to implement actual form processing -->
-          <div style="margin-bottom: 1rem;">
-            <label for="name" style="display: block; margin-bottom: 0.5rem; color: var(--base01);">Name</label>
-            <input type="text" id="name" placeholder="Your Name" style="width: 100%; padding: 0.7rem; border-radius: 0.3rem; border: 1px solid var(--base01); background: var(--bg); color: var(--fg);" />
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" placeholder="Your Name" class="form-control" />
           </div>
           
-          <div style="margin-bottom: 1rem;">
-            <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--base01);">Email</label>
-            <input type="email" id="email" placeholder="Your Email" style="width: 100%; padding: 0.7rem; border-radius: 0.3rem; border: 1px solid var(--base01); background: var(--bg); color: var(--fg);" />
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" placeholder="Your Email" class="form-control" />
           </div>
           
-          <div style="margin-bottom: 1rem;">
-            <label for="message" style="display: block; margin-bottom: 0.5rem; color: var(--base01);">Message</label>
-            <textarea id="message" placeholder="How can I help you?" rows="4" style="width: 100%; padding: 0.7rem; border-radius: 0.3rem; border: 1px solid var(--base01); background: var(--bg); color: var(--fg);"></textarea>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" placeholder="How can I help you?" rows="4" class="form-control"></textarea>
           </div>
           
-          <button type="submit" style="background: var(--accent); color: var(--bg); border: none; padding: 0.8rem 1.5rem; border-radius: 0.3rem; cursor: pointer; font-weight: 500; margin-top: 0.5rem;">Send Message</button>
+          <button type="submit" class="form-button">Send Message</button>
         </div>
       </div>
     </section>
