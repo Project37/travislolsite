@@ -100,9 +100,15 @@ const { author } = siteConfig;
           </div>
           
           <div>
-            <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">Twitter</h3>
-            <a href={`https://twitter.com/${author.twitter.replace('@', '')}`} target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-weight: 500;">{author.twitter}</span>
+            <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">BlueSky</h3>
+            <a href={`https://bsky.app/profile/${author.bluesky.replace('@', '')}`} target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 500;">{author.bluesky}</span>
+            </a>
+          </div>
+          <div>
+            <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">GitHub</h3>
+            <a href={author.github} target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 500;">{author.github.replace('https://github.com/', '')}</span>
             </a>
           </div>
         </div>

@@ -22,8 +22,8 @@ export default {
     yearsOfExperience: "10",
     email: "CyberSec@Travis.lol",
     linkedin: "https://linkedin.com/in/yourprofile",
-    twitter: "@yourhandle",
-    github: "https://github.com/yourusername"
+    bluesky: "@travis.lol",
+    github: "https://github.com/Project37"
   },
   navigation: [
     { title: "Home", url: "/" },
