@@ -28,6 +28,24 @@ main {
   line-height: 1.6;
 }
 
+/* Expertise Card Icons */
+.expertise-card .icon-container {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.expertise-card .icon-container svg {
+  color: var(--accent-color);
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.expertise-card:hover .icon-container svg {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
 .hero-container {
   max-width: 900px;
   margin: 0 auto;

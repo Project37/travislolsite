@@ -8,6 +8,8 @@
  *
  * @component
  */
+import { Icon } from 'astro-iconify';
+
 interface Props {
   /** The title of the expertise area */
   title: string;
@@ -15,7 +17,10 @@ interface Props {
   description: string;
   /** The accent color for the card (corresponds to CSS classes) */
   color: string;
-  /** Optional icon identifier */
+  /** 
+   * Icon identifier in format "pack:icon-name" 
+   * Example: "mdi:shield-lock", "carbon:security-services", etc.
+   */
   icon?: string;
 }
 
@@ -23,7 +28,11 @@ const { title, description, color, icon } = Astro.props;
 ---
 
 <div class={`expertise-card ${color}`}>
-  {icon && <div class="icon-container"><span class={`icon icon-${icon}`}></span></div>}
+  {icon && (
+    <div class="icon-container">
+      <Icon name={icon} width="36" height="36" />
+    </div>
+  )}
   <h3>{title}</h3>
   <p>{description}</p>
 </div>
