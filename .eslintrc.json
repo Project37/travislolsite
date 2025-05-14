@@ -11,6 +11,13 @@
         "parser": "@typescript-eslint/parser",
         "extraFileExtensions": [".astro"]
       }
+    },
+    {
+      "files": ["*.js", "*.mjs", "*.cjs", "*.ts"],
+      "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": "latest"
+      }
     }
   ]
 }

@@ -1,7 +1,6 @@
 ---
-import { getCollection, CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content'; // Removed CollectionEntry
 import Layout from '../../../layouts/Layout.astro';
-import CodeBrackets from '../../../components/CodeBrackets.astro'; // Assuming you might want to use this
 // import BlogCard from '../../../components/BlogCard.astro'; // If you have a specific card component for posts
 
 export async function getStaticPaths() {
