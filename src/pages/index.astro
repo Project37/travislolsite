@@ -4,7 +4,7 @@ import Button from '../components/Button.astro';
 import ExpertiseCard from '../components/ExpertiseCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ContactInfo from '../components/ContactInfo.astro';
-import ASCIIBrackets from '../components/ASCIIBrackets.astro';
+import CodeBrackets from '../components/CodeBrackets.astro'; // Changed from ASCIIBrackets
 import siteConfig from '../config/site.js';
 import expertiseAreas from '../config/expertise.js';
 import projects from '../config/projects.js';
@@ -79,43 +79,43 @@ const { author } = siteConfig;
       </div>
     </section>
 
-    <!-- ASCII Bracket Demo Section -->
+    <!-- Code Bracket Demo Section -->
     <section id="approach" class="section">
       <h2 class="section-title">My Security Approach</h2>
       
       <div>
-        <ASCIIBrackets type="security-report" size="medium" color="violet" label="APPROACH">
+        <CodeBrackets type="security-report" size="medium" color="violet" label="APPROACH">
           <div style="text-align: center; padding: 1rem 2rem;">
             <h3 style="color: var(--violet); margin-bottom: 1rem;">Security-First Methodology</h3>
             <p>My security approach integrates advanced technology with strategic planning to create multi-layered defense mechanisms that adapt to evolving threats while maintaining business continuity.</p>
           </div>
-        </ASCIIBrackets>
+        </CodeBrackets>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 2rem;">
-          <ASCIIBrackets type="python" size="small" color="green" label="prevention.py">
+          <CodeBrackets type="python" size="small" color="green" label="prevention.py">
             <div style="text-align: center; padding: 1rem;">
               <h4 style="color: var(--green); margin-bottom: 0.5rem;">Prevention</h4>
               <p>Proactive security measures to prevent breaches before they occur.</p>
             </div>
-          </ASCIIBrackets>
+          </CodeBrackets>
           
-          <ASCIIBrackets type="jsx" size="small" color="blue" label="Monitor.jsx">
+          <CodeBrackets type="jsx" size="small" color="blue" label="Monitor.jsx">
             <div style="text-align: center; padding: 1rem;">
               <h4 style="color: var(--blue); margin-bottom: 0.5rem;">Monitoring</h4>
               <p>Continuous security monitoring to detect anomalies and threats in real-time.</p>
             </div>
-          </ASCIIBrackets>
+          </CodeBrackets>
           
-          <ASCIIBrackets type="bash" size="small" color="red" label="response.sh">
+          <CodeBrackets type="css" size="small" color="orange" label="Response.css">
             <div style="text-align: center; padding: 1rem;">
-              <h4 style="color: var(--red); margin-bottom: 0.5rem;">Response</h4>
+              <h4 style="color: var(--orange); margin-bottom: 0.5rem;">Response</h4>
               <p>Rapid incident response protocols to minimize impact when threats are detected.</p>
             </div>
-          </ASCIIBrackets>
+          </CodeBrackets>
         </div>
         
         <div style="margin-top: 3rem;">
-          <ASCIIBrackets type="code-review" size="medium" color="teal" label="SECURITY ASSESSMENT">
+          <CodeBrackets type="code-review" size="medium" color="teal" label="SECURITY ASSESSMENT">
             <div style="padding: 1.5rem;">
               <h3 style="color: var(--teal); margin-bottom: 1rem; text-align: center;">My Security Assessment Process</h3>
               
@@ -137,7 +137,7 @@ const { author } = siteConfig;
                 </div>
               </div>
             </div>
-          </ASCIIBrackets>
+          </CodeBrackets>
         </div>
       </div>
     </section>

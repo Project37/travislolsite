@@ -5,5 +5,5 @@ export default defineConfig({
   output: 'static',
   site: 'http://travis.lol',
   base: '/', // Correct base for custom domain
-  trailingSlash: 'never',
+  trailingSlash: 'always',
 });

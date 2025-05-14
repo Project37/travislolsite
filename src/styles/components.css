@@ -251,12 +251,7 @@ main {
 }
 
 /* CodeBrackets component styles */
-.ascii-bracketed {
-  margin: 2rem 0;
-  position: relative;
-  border-radius: 0.3rem;
-}
-
+/* Styles for the label that can appear on top of a bracket */
 .bracket-label {
   position: absolute;
   top: -0.8rem;
@@ -272,15 +267,297 @@ main {
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-.blog-content .ascii-bracketed {
-  background: var(--base02);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  overflow: visible;
+/* ASCII Art Bracket Section Styling */
+/* 
+ * Main ASCII bracket container
+ * Position is relative to allow absolute positioning of brackets
+ * Padding creates space for the brackets on both sides
+ */
+.ascii-bracketed {
   position: relative;
-  z-index: 1;
+  padding: 2rem 2.5rem;
+  margin: 2rem 0;
+  overflow: visible; /* Allow ghost brackets to protrude */
+  background: var(--base02); /* Distinct container background */
+  border-radius: 0.5rem;
+  z-index: 1; /* Sit above page background */
 }
 
-.blog-content .ascii-bracketed::before,
-.blog-content .ascii-bracketed::after {
-  z-index: 2;
+/* 
+ * Common styles for both brackets
+ * Uses monospace font for consistent character widths
+ * Ghostly appearance with reduced opacity
+ * Fixed positioning at start and end of content
+ */
+.ascii-bracketed::before,
+.ascii-bracketed::after {
+  font-family: monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  position: absolute;
+  color: var(--accent);
+  opacity: 0.2; /* Ghostly appearance */
+  z-index: 2; /* Position above container background */
+}
+
+/* 
+ * Opening bracket positioned at top-left corner
+ * Uses flex layout to distribute lines evenly from top to bottom
+ * White-space: pre preserves line breaks in content string
+ */
+.ascii-bracketed::before {
+  content: "[\A \A \A ]";
+  white-space: pre;
+  left: 0.5rem;
+  top: 0;
+  height: auto; /* Allow bracket to take natural height */
+  max-height: 100%; /* Limit height to container */
+}
+
+/* 
+ * Closing bracket positioned at bottom-right corner
+ * Removed height: 100% to allow natural positioning
+ * Uses flex layout for vertical distribution only when needed
+ */
+.ascii-bracketed::after {
+  content: "]\A \A \A [";
+  white-space: pre;
+  right: 0.5rem;
+  bottom: 0;
+  height: auto; /* Allow bracket to take natural height */
+  max-height: 100%; /* Limit height to container */
+}
+
+/* 
+ * Programming-style brackets - each type uses syntax appropriate for that language
+ * Opening brackets are positioned at top-left
+ * Closing brackets are positioned at bottom-right
+ */
+
+/* JavaScript/JSON curly braces */
+.ascii-bracketed.js-object::before { 
+  content: "{\A  // Start\A \A"; 
+  top: 0.5rem;
+}
+.ascii-bracketed.js-object::after { 
+  content: "\A  // End\A}"; 
+  bottom: 0.5rem;
+}
+
+/* HTML tags */
+.ascii-bracketed.html::before { 
+  content: "<div>\A  <!-- Start -->\A \A"; 
+  top: 0.5rem;
+}
+.ascii-bracketed.html::after { 
+  content: "\A  <!-- End -->\A</div>"; 
+  bottom: 0.5rem;
+}
+
+/* JSX/React component */
+.ascii-bracketed.jsx::before { 
+  content: "<Component\A  props={{\A  // Start"; 
+  top: 0.5rem;
+}
+.ascii-bracketed.jsx::after { 
+  content: "  // End\A  }}\A/>"; 
+  bottom: 0.5rem;
+}
+
+/* CSS rule */
+.ascii-bracketed.css::before { 
+  content: ".class {\A  /* Start */\A \A"; 
+  top: 0.5rem;
+}
+.ascii-bracketed.css::after { 
+  content: "\A  /* End */\A}"; 
+  bottom: 0.5rem;
+}
+
+/* Python function */
+.ascii-bracketed.python::before { 
+  content: "def function():\A    # Start\A \A"; 
+  top: 0.5rem;
+}
+.ascii-bracketed.python::after { 
+  content: "\A    # End\A    return result"; 
+  bottom: 0.5rem;
+}
+
+/* Markdown headings */
+.ascii-bracketed.markdown::before { 
+  content: "# Title\A## Section\A### Content"; 
+  top: 0.5rem;
+}
+.ascii-bracketed.markdown::after { 
+  content: "**Summary**\A*Notes*\A`Reference`"; 
+  bottom: 0.5rem;
+}
+
+/* SQL query */
+.ascii-bracketed.sql::before { 
+  content: "SELECT *\AFROM table\AWHERE condition"; 
+  top: 0.5rem;
+}
+.ascii-bracketed.sql::after { 
+  content: "ORDER BY id\AGROUP BY field\ALIMIT 10;"; 
+  bottom: 0.5rem;
+}
+
+/* Bash script */
+.ascii-bracketed.bash::before { 
+  content: "#!/bin/bash\A# Start script\A \A"; 
+  top: 0.5rem;
+}
+.ascii-bracketed.bash::after { 
+  content: "\A# End script\Aexit 0"; 
+  bottom: 0.5rem;
+}
+
+/* Security report brackets - formal security assessment style */
+.ascii-bracketed.security-report::before { 
+  content: "───SECURITY REPORT───\A \A───CONFIDENTIAL───"; 
+  white-space: pre;
+  top: 0.5rem;
+  left: 0;
+  opacity: 0.3;
+}
+.ascii-bracketed.security-report::after { 
+  content: "───FINDINGS SUMMARY───\A \A─────END REPORT─────"; 
+  white-space: pre;
+  bottom: 0.5rem;
+  right: 0;
+  opacity: 0.3;
+}
+
+/* Code review brackets - programming comment style */
+.ascii-bracketed.code-review::before { 
+  content: "/*\A * CODE REVIEW START\A * Date: 2023-07-15"; 
+  top: 0.5rem;
+  opacity: 0.25;
+}
+.ascii-bracketed.code-review::after { 
+  content: "* Reviewer: Security Team\A * STATUS: COMPLETED\A */"; 
+  bottom: 0.5rem;
+  opacity: 0.25;
+}
+
+/* Vulnerability brackets - warning style */
+.ascii-bracketed.vulnerability::before { 
+  content: "!!! WARNING !!!\A!!! SECURITY RISK !!!\A!!! DETECTED !!!"; 
+  top: 0.5rem;
+  color: var(--red);
+  opacity: 0.25;
+}
+.ascii-bracketed.vulnerability::after { 
+  content: "!!! REMEDIATED !!!\A!!! VERIFIED !!!\A!!! PATCHED !!!"; 
+  bottom: 0.5rem;
+  color: var(--green);
+  opacity: 0.25;
+}
+
+/* Cybersecurity brackets - hacker-inspired style */
+.ascii-bracketed.cybersecurity::before { 
+  content: "# =/=/=/= #\A# SECURITY #\A# =/=/=/= #"; 
+  top: 0.5rem;
+  opacity: 0.25;
+  font-size: 2rem;
+}
+.ascii-bracketed.cybersecurity::after { 
+  content: "# =/=/=/= #\A# PROTECTED #\A# =/=/=/= #"; 
+  bottom: 0.5rem;
+  opacity: 0.25;
+  font-size: 2rem;
+}
+
+/* Classic brackets for backward compatibility - now with positioning */
+.ascii-bracketed.curly::before { 
+  content: "{\A \A \A"; 
+  top: 0.5rem; 
+}
+.ascii-bracketed.curly::after { 
+  content: "}\A \A \A"; 
+  bottom: 0.5rem; 
+}
+
+.ascii-bracketed.angle::before { 
+  content: "<\A <\A <\A"; 
+  top: 0.5rem; 
+}
+.ascii-bracketed.angle::after { 
+  content: ">\A >\A >\A"; 
+  bottom: 0.5rem; 
+}
+
+.ascii-bracketed.pipe::before { 
+  content: "|\A|\A|\A"; 
+  top: 0.5rem; 
+}
+.ascii-bracketed.pipe::after { 
+  content: "|\A|\A|\A"; 
+  bottom: 0.5rem; 
+}
+
+/* Size variants */
+.ascii-bracketed.large::before,
+.ascii-bracketed.large::after {
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
+
+.ascii-bracketed.medium::before,
+.ascii-bracketed.medium::after {
+  font-size: 2.5rem;
+  line-height: 1.3;
+}
+
+.ascii-bracketed.small::before,
+.ascii-bracketed.small::after {
+  font-size: 1.8rem;
+  line-height: 1.4;
+}
+
+/* Color variants - using the theme colors */
+.ascii-bracketed.blue::before, .ascii-bracketed.blue::after { color: var(--blue); }
+.ascii-bracketed.green::before, .ascii-bracketed.green::after { color: var(--green); }
+.ascii-bracketed.yellow::before, .ascii-bracketed.yellow::after { color: var(--yellow); }
+.ascii-bracketed.orange::before, .ascii-bracketed.orange::after { color: var(--orange); }
+.ascii-bracketed.violet::before, .ascii-bracketed.violet::after { color: var(--violet); }
+.ascii-bracketed.cyan::before, .ascii-bracketed.cyan::after { color: var(--cyan); }
+.ascii-bracketed.red::before, .ascii-bracketed.red::after { color: var(--red); }
+.ascii-bracketed.teal::before, .ascii-bracketed.teal::after { color: var(--teal); }
+.ascii-bracketed.purple::before, .ascii-bracketed.purple::after { color: var(--purple); }
+
+/* Special styling for blog posts - extra ghostly appearance */
+.blog-container .ascii-bracketed {
+  background: var(--base02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* above page background */
+  overflow: visible; /* ensure brackets can protrude */
+  position: relative;
+}
+.blog-container .ascii-bracketed::before,
+.blog-container .ascii-bracketed::after {
+  z-index: 2; /* ensure ghost brackets on top of container */
+  opacity: 0.15; /* Even more ghostly for better content readability */
+}
+
+/* Solarized Light theme: outline blog post instead of dark background */
+html[data-theme="light"] .blog-container .ascii-bracketed {
+  background: transparent;
+  border: 1px solid var(--base01);
+  box-shadow: none;
+}
+html[data-theme="light"] .blog-container .ascii-bracketed::before,
+html[data-theme="light"] .blog-container .ascii-bracketed::after {
+  opacity: 0.15;
+}
+
+/* Make brackets adapt to theme colors in dark mode */
+@media (prefers-color-scheme: dark) {
+  .ascii-bracketed::before,
+  .ascii-bracketed::after {
+    opacity: 0.25; /* Slightly higher opacity for better visibility in dark mode */
+  }
 }

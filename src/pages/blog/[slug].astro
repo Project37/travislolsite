@@ -21,7 +21,7 @@ const { Content } = await entry.render();
   tags={entry.data.tags}
   bracketType={entry.data.bracketType || "markdown"}
   bracketColor={entry.data.bracketColor || "blue"}
-  bracketLabel={entry.data.bracketLabel || "static-default-label.md"}
+  bracketLabel={entry.data.bracketLabel || `${entry.slug}.md`}
 >
   <Content />
 </BlogPostLayout>
