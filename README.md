@@ -17,7 +17,7 @@ Inside your Astro project, you'll find the following structure:
 
 ```text
 /
-├── public/              # Static assets (favicon, social images, etc.)
+├── public/              # Static assets (favicon, social images, etc. )
 │   ├── favicon.svg
 │   ├── stick_about.svg
 │   ├── stick_contact.svg
