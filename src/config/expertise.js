@@ -59,7 +59,7 @@ export default [
     icon: "tabler:tools"
   },
   {
-    title: "Zero Trust Architecture",
+    title: "Zero-Trust Architecture",
     description: "Implementing modern security frameworks that verify every access request regardless of source or resource location.",
     color: "purple",
     icon: "tabler:shield-lock"
