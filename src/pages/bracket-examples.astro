@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ASCIIBrackets from '../components/ASCIIBrackets.astro';
+import CodeBrackets from '../components/CodeBrackets.astro';
 
 // Define bracket types for showcase
 const bracketTypes = [
@@ -43,12 +43,12 @@ const bracketTypes = [
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
         {bracketTypes.slice(0, 8).map(bracket => (
-          <ASCIIBrackets type={bracket.type} color={bracket.color} label={bracket.label}>
+          <CodeBrackets type={bracket.type} color={bracket.color} label={bracket.label}>
             <div style="padding: 1rem; text-align: center;">
               <h4 style={`color: var(--${bracket.color}); margin-bottom: 0.5rem;`}>{bracket.title}</h4>
               <p>{bracket.content}</p>
             </div>
-          </ASCIIBrackets>
+          </CodeBrackets>
         ))}
       </div>
       
@@ -57,12 +57,12 @@ const bracketTypes = [
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
         {bracketTypes.slice(8, 11).map(bracket => (
-          <ASCIIBrackets type={bracket.type} color={bracket.color} label={bracket.label}>
+          <CodeBrackets type={bracket.type} color={bracket.color} label={bracket.label}>
             <div style="padding: 1rem; text-align: center;">
               <h4 style={`color: var(--${bracket.color}); margin-bottom: 0.5rem;`}>{bracket.title}</h4>
               <p>{bracket.content}</p>
             </div>
-          </ASCIIBrackets>
+          </CodeBrackets>
         ))}
       </div>
       
@@ -71,12 +71,12 @@ const bracketTypes = [
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
         {bracketTypes.slice(11).map(bracket => (
-          <ASCIIBrackets type={bracket.type} color={bracket.color}>
+          <CodeBrackets type={bracket.type} color={bracket.color}>
             <div style="padding: 1rem; text-align: center;">
               <h4 style={`color: var(--${bracket.color}); margin-bottom: 0.5rem;`}>{bracket.title}</h4>
               <p>{bracket.content}</p>
             </div>
-          </ASCIIBrackets>
+          </CodeBrackets>
         ))}
       </div>
     </section>
@@ -84,7 +84,7 @@ const bracketTypes = [
     <section class="section">
       <h2 class="section-title">Using Brackets in Blog Posts</h2>
       
-      <ASCIIBrackets type="markdown" color="violet" label="howto.md">
+      <CodeBrackets type="markdown" color="violet" label="howto.md">
         <div style="padding: 1rem;">
           <p>When creating a new blog post, specify the bracket style in the frontmatter:</p>
           
@@ -113,7 +113,7 @@ bracketLabel: "security_script.py"
             <li><code>pipe</code> - Pipes</li>
           </ul>
         </div>
-      </ASCIIBrackets>
+      </CodeBrackets>
     </section>
   </main>
 </Layout>

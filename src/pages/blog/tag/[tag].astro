@@ -1,0 +1,83 @@
+---
+import { getCollection, CollectionEntry } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import CodeBrackets from '../../../components/CodeBrackets.astro'; // Assuming you might want to use this
+// import BlogCard from '../../../components/BlogCard.astro'; // If you have a specific card component for posts
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  const uniqueTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
+
+  return uniqueTags.map(tag => {
+    return {
+      params: { tag: tag },
+      props: { tag },
+    };
+  });
+}
+
+const { tag } = Astro.props;
+const allPosts = await getCollection('blog');
+const filteredPosts = allPosts.filter(post => post.data.tags && post.data.tags.includes(tag));
+
+// Helper function to format tag for display (e.g., capitalize)
+const formatTagForDisplay = (tagString: string) => {
+  return tagString.charAt(0).toUpperCase() + tagString.slice(1);
+};
+---
+
+<Layout>
+  <section class="blog-hero">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <h1>Posts tagged: {formatTagForDisplay(tag)}</h1>
+      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+        Browsing all articles related to "{formatTagForDisplay(tag)}".
+      </p>
+      <p style="margin-top: 1rem;">
+        <a href="/blog/" class="btn btn-outline">Back to All Posts</a>
+      </p>
+    </div>
+  </section>
+
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 2rem;">
+    {filteredPosts.length > 0 ? (
+      <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+        {filteredPosts.map(post => (
+          <article class="post-card" style="background: var(--bg-offset); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+            <h2 style="font-size: 1.5rem; margin-top: 0; margin-bottom: 0.5rem;">
+              <a href={`/blog/${post.slug}/`} style="color: var(--accent); text-decoration: none;">{post.data.title}</a>
+            </h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Published on: {new Date(post.data.pubDate).toLocaleDateString()}
+            </p>
+            <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+              {post.data.description || 'Read more...'}
+            </p>
+            <a href={`/blog/${post.slug}/`} class="btn btn-primary" style="font-size: 0.9rem;">Read Post</a>
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                {post.data.tags.map((t: string) => (
+                  <a href={`/blog/tag/${t}/`} class="tag-link" style="background-color: var(--accent-muted); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 0.25rem; font-size: 0.8rem; text-decoration: none;">
+                    {formatTagForDisplay(t)}
+                  </a>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    ) : (
+      <p style="text-align: center; font-size: 1.1rem;">No posts found for the tag "{formatTagForDisplay(tag)}".</p>
+    )}
+  </main>
+</Layout>
+
+<style>
+  .tag-link:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+  }
+  .post-card:hover {
+    border-color: var(--accent);
+  }
+</style>

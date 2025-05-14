@@ -1,0 +1,47 @@
+---
+/**
+ * CodeBrackets Component
+ * 
+ * A component that wraps content in stylized code-like brackets
+ * inspired by programming language syntax and IT aesthetics.
+ * Can be used for visual sectioning of content, especially for blogs
+ * about technical topics or code snippets.
+ *
+ * @component
+ */
+interface Props {
+  /** 
+   * The type of brackets to use: 
+   * - Programming types: 'js-object', 'html', 'jsx', 'css', 'python', 'markdown', 'sql', 'bash'
+   * - Security types: 'security-report', 'code-review', 'vulnerability'
+   * - Classic types: 'square', 'curly', 'angle', 'pipe'
+   */
+  type?: string | 'square' | 'curly' | 'angle' | 'pipe' | 'js-object' | 'html' | 'jsx' | 'css' | 'python' | 'markdown' | 'sql' | 'bash' | 'security-report' | 'code-review' | 'vulnerability';
+  
+  /** The size of the brackets: small, medium, or large */
+  size?: 'small' | 'medium' | 'large';
+  
+  /** The color of the brackets (matches theme color variables) */
+  color?: string | 'blue' | 'green' | 'yellow' | 'orange' | 'violet' | 'cyan' | 'red' | 'teal' | 'purple';
+  
+  /** Optional label for the bracket (e.g. language name or file extension) */
+  label?: string;
+}
+
+const { 
+  type = 'square', 
+  size = 'medium',
+  color = 'violet',
+  label = ''
+} = Astro.props;
+
+// Map bracket type to CSS class
+const bracketClass = type === 'square' ? '' : type;
+---
+
+<div class={`ascii-bracketed ${bracketClass} ${size} ${color}`}>
+  {label && <div class="bracket-label">{label}</div>}
+  <slot />
+</div>
+
+<!-- Styles for CodeBrackets moved to src/styles/components.css -->

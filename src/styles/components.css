@@ -249,3 +249,38 @@ main {
   font-weight: 500;
   margin-top: 0.5rem;
 }
+
+/* CodeBrackets component styles */
+.ascii-bracketed {
+  margin: 2rem 0;
+  position: relative;
+  border-radius: 0.3rem;
+}
+
+.bracket-label {
+  position: absolute;
+  top: -0.8rem;
+  left: 2.5rem;
+  background-color: var(--bg);
+  padding: 0 0.5rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: inherit;
+  opacity: 0.8;
+  z-index: 1;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.blog-content .ascii-bracketed {
+  background: var(--base02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-content .ascii-bracketed::before,
+.blog-content .ascii-bracketed::after {
+  z-index: 2;
+}
