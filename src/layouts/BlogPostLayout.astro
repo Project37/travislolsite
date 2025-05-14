@@ -1,14 +1,15 @@
 ---
 import Layout from './Layout.astro';
-import ASCIIBrackets from '../components/ASCIIBrackets.astro';
+import CodeBrackets from '../components/CodeBrackets.astro'; // Changed from ASCIIBrackets
 
 interface Props {
   title: string;
   publishDate: Date;
   readingTime?: string;
   tags?: string[];
-  bracketType?: 'js-object' | 'html' | 'jsx' | 'css' | 'python' | 'markdown' | 'sql' | 'bash' | 'square' | 'curly' | 'angle' | 'pipe';
-  bracketColor?: 'blue' | 'green' | 'yellow' | 'orange' | 'violet' | 'cyan' | 'red' | 'teal' | 'purple';
+  // Props for CodeBrackets (formerly for ASCIIBrackets)
+  bracketType?: string; // Adjusted to string as per CodeBrackets.astro, can be more specific if needed
+  bracketColor?: string; // Adjusted to string
   bracketLabel?: string;
 }
 
@@ -17,9 +18,9 @@ const {
   publishDate, 
   readingTime = '5 minutes', 
   tags = [],
-  bracketType = 'markdown',
-  bracketColor = 'blue',
-  bracketLabel = ''
+  bracketType = 'markdown', // Restored prop
+  bracketColor = 'blue',    // Restored prop
+  bracketLabel = ''         // Restored prop
 } = Astro.props;
 const formattedDate = publishDate.toLocaleDateString();
 ---
@@ -47,7 +48,7 @@ const formattedDate = publishDate.toLocaleDateString();
   </section>
 
   <main class="blog-container">
-    <ASCIIBrackets type={bracketType} color={bracketColor} label={bracketLabel || `${bracketType}.post`} size="large">
+    <CodeBrackets type={bracketType} color={bracketColor} label={bracketLabel || `${bracketType}.post`} size="large">
       <article class="blog-content">
         <slot />
         
@@ -58,7 +59,7 @@ const formattedDate = publishDate.toLocaleDateString();
           </p>
         </div>
       </article>
-    </ASCIIBrackets>
+    </CodeBrackets>
 
     <div class="blog-footer">
       <h3 style="color: var(--accent);">Continue Reading</h3>
