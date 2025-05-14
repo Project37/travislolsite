@@ -22,6 +22,7 @@ import '../styles/ascii-brackets.css';  // ASCII bracket styling
 // Import site configuration
 import siteConfig from '../config/site.js';
 import ScrollToTop from '../components/ScrollToTop.astro';
+import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 
 // Define the interface for props
 interface Props {
@@ -95,32 +96,7 @@ const {
     <!-- Fixed theme switcher + scroll-to-top in bottom-right corner -->
     <footer style="position:fixed; bottom:1rem; right:1rem; display:flex; align-items:center; gap:0.5rem; z-index:100; background:transparent; border:none;">
       <ScrollToTop />
-      <label for="theme-select">Theme:</label>
-      <select id="theme-select">
-        <option value="one-light">One Light</option>
-        <option value="light">Solarized Light</option>
-        <option value="dark">Solarized Dark</option>
-        <option value="dracula">Dracula</option>
-        <option value="gruvbox">Gruvbox Dark</option>
-      </select>
+      <ThemeSwitcher />
     </footer>
-    <script>
-      const select = document.getElementById('theme-select');
-      const root = document.documentElement;
-      function setTheme(theme) {
-        root.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-      }
-      select.addEventListener('change', e => setTheme(e.target.value));
-      // Initialize theme on load (default to One Light)
-      const saved = localStorage.getItem('theme');
-      if (saved) {
-        setTheme(saved);
-        select.value = saved;
-      } else {
-        setTheme('one-light');
-        select.value = 'one-light';
-      }
-    </script>
   </body>
 </html>

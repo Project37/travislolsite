@@ -90,6 +90,31 @@
   --purple: #c678dd;
 }
 
+/* Programming Light Theme */
+[data-theme="programming-light"] {
+  --bg: #ffffff;
+  --fg: #333333;
+  --accent: #007acc;
+  --base03: #f3f3f3;
+  --base02: #e1e1e1;
+  --base01: #cfcfcf;
+  --base00: #bdbdbd;
+  --base0:  #5c5c5c;
+  --base1:  #454545;
+  --base2:  #e1e1e1;
+  --base3:  #ffffff;
+  --yellow: #b89500;
+  --orange: #c85c00;
+  --red:    #a1260d;
+  --magenta:#b4009e;
+  --violet: #800080;
+  --blue:   #007acc;
+  --cyan:   #008080;
+  --green:  #008000;
+  --teal:   #008080;
+  --purple: #800080;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);
