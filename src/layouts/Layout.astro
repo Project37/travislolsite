@@ -92,10 +92,12 @@ const {
       </nav>
     </header>
     <slot />
-    <footer>
+    <!-- Fixed theme switcher + scroll-to-top in bottom-right corner -->
+    <footer style="position:fixed; bottom:1rem; right:1rem; display:flex; align-items:center; gap:0.5rem; z-index:100; background:transparent; border:none;">
+      <ScrollToTop />
       <label for="theme-select">Theme:</label>
       <select id="theme-select">
-        <option value="system">System</option>
+        <option value="one-light">One Light</option>
         <option value="light">Solarized Light</option>
         <option value="dark">Solarized Dark</option>
         <option value="dracula">Dracula</option>
@@ -106,32 +108,19 @@ const {
       const select = document.getElementById('theme-select');
       const root = document.documentElement;
       function setTheme(theme) {
-        if (theme === 'system') {
-          localStorage.removeItem('theme');
-          if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'gruvbox');
-          else root.setAttribute('data-theme', 'gruvbox');
-        } else {
-          root.setAttribute('data-theme', theme);
-          localStorage.setItem('theme', theme);
-        }
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
       }
       select.addEventListener('change', e => setTheme(e.target.value));
-      // On load, set theme from localStorage or default to gruvbox
+      // Initialize theme on load (default to One Light)
       const saved = localStorage.getItem('theme');
       if (saved) {
         setTheme(saved);
         select.value = saved;
       } else {
-        setTheme('gruvbox');
-        select.value = 'gruvbox';
+        setTheme('one-light');
+        select.value = 'one-light';
       }
-      // Listen for system theme changes if "system" is selected
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (select.value === 'system') setTheme('system');
-      });
     </script>
-
-    <!-- Return to Top Button -->
-    <ScrollToTop />
   </body>
 </html>

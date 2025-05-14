@@ -11,10 +11,10 @@
  */
 export default [
   {
-    title: "Network Security",
-    description: "Designing secure network architectures, implementing firewalls, IDS/IPS, and network segmentation strategies.",
+    title: "Software Development Security",
+    description: "Implementing security best practices across the SDLC, integrating DevSecOps practices, automated code scanning, vulnerability management, and secure coding standards.",
     color: "blue",
-    icon: "mdi:lan-check"
+    icon: "tabler:shield-code"
   },
   {
     title: "Identity & Access Management",
@@ -24,7 +24,7 @@ export default [
   },
   {
     title: "Security Compliance",
-    description: "Ensuring adherence to regulatory frameworks including GDPR, HIPAA, PCI-DSS, and industry best practices.",
+    description: "Ensuring compliance with NIST and CIS cybersecurity frameworks, implementing controls and best practices for secure configuration and continuous monitoring.",
     color: "yellow",
     icon: "tabler:certificate"
   },
@@ -42,21 +42,21 @@ export default [
   },
   {
     title: "Security Awareness",
-    description: "Developing and delivering security training programs to foster a security-first culture.",
+    description: "Developing and delivering security training programs, coaching, and collaborating with business teams to embed security practices and foster a security-first culture.",
     color: "cyan",
     icon: "tabler:user-shield"
   },
   {
-    title: "Penetration Testing",
-    description: "Conducting thorough security assessments to identify vulnerabilities before they can be exploited by malicious actors.",
+    title: "Secrets & Credential Management",
+    description: "Implementing robust secrets management: secure storage, rotation, and access controls for credentials using solutions like Azure Key Vault and AWS Secrets Manager",
     color: "red",
-    icon: "mdi:lock-open"
+    icon: "mdi:key"
   },
   {
-    title: "Threat Intelligence",
-    description: "Analyzing and correlating security data to identify emerging threats and proactively strengthen defenses.",
+    title: "Vulnerability & Patch Management",
+    description: "Managing vulnerabilities through assessment, prioritization, patch deployment, and verification to reduce risk and maintain secure systems.",
     color: "teal",
-    icon: "tabler:chart-radar"
+    icon: "tabler:tools"
   },
   {
     title: "Zero Trust Architecture",

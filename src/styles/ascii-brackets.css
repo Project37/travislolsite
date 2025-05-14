@@ -277,6 +277,17 @@
   opacity: 0.15; /* Even more ghostly for better content readability */
 }
 
+/* Solarized Light theme: outline blog post instead of dark background */
+html[data-theme="light"] .blog-container .ascii-bracketed {
+  background: transparent;
+  border: 1px solid var(--base01);
+  box-shadow: none;
+}
+html[data-theme="light"] .blog-container .ascii-bracketed::before,
+html[data-theme="light"] .blog-container .ascii-bracketed::after {
+  opacity: 0.15;
+}
+
 /* Make brackets adapt to theme colors in dark mode */
 @media (prefers-color-scheme: dark) {
   .ascii-bracketed::before,

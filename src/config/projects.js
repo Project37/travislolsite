@@ -1,29 +1,29 @@
 // Projects configuration
 export default [
   {
-    title: "Enterprise Security Architecture Redesign",
+    title: "Vulnerability Management & Risk Reduction",
     company: "[Client Name]",
     duration: "[Time Period]",
-    challenge: "Legacy security infrastructure with significant vulnerabilities and compliance gaps.",
-    solution: "Designed and implemented a modern security architecture with next-gen firewalls, advanced endpoint protection, and identity-based access controls.",
-    result: "85% reduction in security incidents, successful compliance with industry regulations, and improved operational efficiency.",
+    challenge: "Legacy software and processes lacking standardized patch management, introducing critical security risks.",
+    solution: "Implemented an end-to-end vulnerability management program with asset discovery, automated scanning, risk-based prioritization, remediation orchestration, and continuous monitoring.",
+    result: "Reduced critical vulnerabilities by 75%, improved risk posture, and enhanced compliance with security standards.",
     accentColor: "blue"
   },
   {
-    title: "Secure Cloud Migration",
+    title: "Device Management & Policy Enforcement",
     company: "[Client Name]",
     duration: "[Time Period]",
-    challenge: "Securely migrating on-premises infrastructure to cloud while maintaining security controls.",
-    solution: "Developed a comprehensive cloud security framework with automated compliance monitoring, secure CI/CD pipelines, and data encryption strategies.",
-    result: "Successful migration with zero security breaches, maintaining compliance requirements, and reduced operational costs.",
-    accentColor: "green"
+    challenge: "Managing corporate devices at scale using Microsoft Intune and Group Policy Objects (GPO) to enforce security policies and configuration compliance.",
+    solution: "Implemented Intune and GPO-driven policy enforcement with automated compliance checks, remote device monitoring, and streamlined provisioning workflows.",
+    result: "Achieved 100% device compliance, reduced configuration drift by 90%, and accelerated secure device onboarding.",
+    accentColor: "violet"
   },
   {
     title: "Security Awareness Program",
     company: "[Client Name]",
     duration: "[Time Period]",
     challenge: "High rate of successful phishing attacks and security incidents due to employee errors.",
-    solution: "Designed and implemented a comprehensive security awareness program including training, simulated phishing, and gamification elements.",
+    solution: "Designed and implemented a comprehensive security awareness program including training, coaching sessions, simulated phishing, gamification, and close collaboration with business teams to embed security best practices.",
     result: "90% reduction in successful phishing attempts and a measurable improvement in security culture throughout the organization.",
     accentColor: "yellow"
   }

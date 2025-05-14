@@ -65,6 +65,31 @@
   --blue: #83a598;
 }
 
+/* One Light Theme */
+[data-theme="one-light"] {
+  --bg: #fafafa;
+  --fg: #383a42;
+  --accent: #0184bc;
+  --base03: #fafafa;
+  --base02: #e7e7e7;
+  --base01: #d0d0d0;
+  --base00: #cacaca;
+  --base0:  #909090;
+  --base1:  #787878;
+  --base2:  #e7e7e7;
+  --base3:  #ffffff;
+  --yellow: #e5c07b;
+  --orange: #d19a66;
+  --red:    #e06c75;
+  --magenta:#c678dd;
+  --violet: #a626a4;
+  --blue:   #0184bc;
+  --cyan:   #56b6c2;
+  --green:  #98c379;
+  --teal:   #56b6c2;
+  --purple: #c678dd;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);
