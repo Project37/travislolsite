@@ -135,11 +135,77 @@ const {
         <a href="/#contact">Contact</a>
       </nav>
     </header>
-    <slot />
-    <!-- Fixed theme switcher + scroll-to-top in bottom-right corner -->
-    <footer style="position:fixed; bottom:1rem; right:1rem; display:flex; align-items:center; gap:0.5rem; z-index:100; background:transparent; border:none;">
-      <ScrollToTop />
-      <ThemeSwitcher />
+
+    <main>
+      <slot /> <!-- Page content will be injected here -->
+    </main>
+
+    <footer>
+      <div class="word-cloud-background">
+        <span>Security</span>
+        <Icon name="carbon:enterprise" />
+        <span>Enterprise</span>
+        <Icon name="tabler:shield-code" />
+        <span>Threat</span>
+        <Icon name="tabler:binary-tree" />
+        <span>Compliance</span>
+        <Icon name="carbon:fingerprint-recognition" />
+        <span>Digital</span>
+        <Icon name="tabler:building-arch" />
+        <span>Architecture</span>
+        <Icon name="tabler:certificate" />
+        <span>Mitigation</span>
+        <Icon name="mdi:lan" />
+        <span>Network</span>
+        <Icon name="mdi:shield-alert" />
+        <span>Identity</span>
+        <Icon name="carbon:analytics" />
+        <span>Access</span>
+        <Icon name="mdi:cloud-lock" />
+        <span>Incident Response</span>
+        <Icon name="mdi:chip" />
+        <span>Proactive</span>
+        <Icon name="tabler:user-shield" />
+        <span>Prevention</span>
+        <Icon name="tabler:alert-triangle" />
+        <span>Monitoring</span>
+        <Icon name="mdi:key" />
+        <span>Protect</span>
+        <span>Frameworks</span>
+        <Icon name="tabler:tools" />
+        <span>Technology</span>
+        <span>Cybersecurity</span>
+        <Icon name="tabler:shield-lock" />
+        <span>Defense</span>
+        <span>Vulnerability</span>
+        <span>Risk</span>
+        <span>Audit</span>
+        <span>Controls</span>
+        <span>Secure</span>
+      </div>
+      <div class="footer-content">
+        <p>&copy; {new Date().getFullYear()} {siteConfig.author.name}. All rights reserved.</p>
+        <div class="footer-badges">
+          <a href="https://astro.build/" target="_blank" rel="noopener noreferrer" class="badge">
+            <span class="badge-label">Built with</span>
+            <span class="badge-value astro">Astro</span>
+          </a>
+          <a href="./LICENSE" target="_blank" rel="noopener noreferrer" class="badge">
+            <span class="badge-label">License</span>
+            <span class="badge-value mit">MIT</span>
+          </a>
+          <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer" class="badge">
+            <span class="badge-label">Hosted on</span>
+            <span class="badge-value github-pages">GitHub Pages</span>
+          </a>
+          <!-- Add more badges here -->
+        </div>
+      </div>
     </footer>
+
+    <div class="fixed-corner-controls">
+      <ThemeSwitcher />
+      <ScrollToTop />
+    </div>
   </body>
 </html>
