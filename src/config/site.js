@@ -17,7 +17,7 @@ export default {
   // Personal information
   author: {
     name: "Travis D'Amico",
-    title: "Senior IT Security Administrator",
+    title: "Travis.lol",
     company: "Hypertherm Associates",
     yearsOfExperience: "10",
     email: "CyberSec@Travis.lol",
