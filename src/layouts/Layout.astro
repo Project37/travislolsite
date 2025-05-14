@@ -23,6 +23,7 @@ import '../styles/ascii-brackets.css';  // ASCII bracket styling
 import siteConfig from '../config/site.js';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+import { Icon } from 'astro-iconify'; // Added import for Icon component
 
 // Define the interface for props
 interface Props {
@@ -80,6 +81,48 @@ const {
   </head>
   <body>
     <header>
+      <div class="word-cloud-background">
+        <span>Security</span>
+        <Icon name="carbon:enterprise" />
+        <span>Enterprise</span>
+        <Icon name="tabler:shield-code" />
+        <span>Threat</span>
+        <Icon name="tabler:binary-tree" />
+        <span>Compliance</span>
+        <Icon name="carbon:fingerprint-recognition" />
+        <span>Digital</span>
+        <Icon name="tabler:building-arch" /> <!-- Was tabler:home -->
+        <span>Architecture</span>
+        <Icon name="tabler:certificate" />
+        <span>Mitigation</span>
+        <Icon name="mdi:lan" />
+        <span>Network</span>
+        <Icon name="mdi:shield-alert" />
+        <span>Identity</span>
+        <Icon name="carbon:analytics" /> <!-- Was carbon:home -->
+        <span>Access</span>
+        <Icon name="mdi:cloud-lock" />
+        <span>Incident Response</span>
+        <Icon name="mdi:chip" />
+        <span>Proactive</span>
+        <Icon name="tabler:user-shield" />
+        <span>Prevention</span>
+        <Icon name="tabler:alert-triangle" />
+        <span>Monitoring</span>
+        <Icon name="mdi:key" />
+        <span>Protect</span>
+        <span>Frameworks</span>
+        <Icon name="tabler:tools" />
+        <span>Technology</span>
+        <span>Cybersecurity</span>
+        <Icon name="tabler:shield-lock" />
+        <span>Defense</span>
+        <span>Vulnerability</span>
+        <span>Risk</span>
+        <span>Audit</span>
+        <span>Controls</span>
+        <span>Secure</span>
+      </div>
       <h1>{siteConfig.siteName}</h1>
       <p>Senior IT Security Administrator</p>
       <nav>

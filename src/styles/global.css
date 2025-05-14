@@ -24,12 +24,14 @@
   /* Main theme variables */
   --bg: var(--base3);
   --fg: var(--base00);
+  --fg-rgb: 101, 123, 131; /* RGB for #657b83 */
   --accent: var(--blue);
 }
 
 [data-theme="dark"] {
   --bg: var(--base03);
   --fg: var(--base0);
+  --fg-rgb: 131, 148, 150; /* RGB for #839496 */
   --accent: var(--cyan);
   /* Keep the standard Solarized colors but adjust teal for better visibility in dark mode */
   --teal: #4DB6AC;
@@ -39,6 +41,7 @@
 [data-theme="dracula"] {
   --bg: #282a36;
   --fg: #f8f8f2;
+  --fg-rgb: 248, 248, 242; /* RGB for #f8f8f2 */
   --accent: #bd93f9;
   --base02: #44475a;
   --base1: #f8f8f2;
@@ -54,6 +57,7 @@
 [data-theme="gruvbox"] {
   --bg: #282828;
   --fg: #ebdbb2;
+  --fg-rgb: 235, 219, 178; /* RGB for #ebdbb2 */
   --accent: #fe8019;
   --base02: #3c3836;
   --base1: #ebdbb2;
@@ -69,6 +73,7 @@
 [data-theme="one-light"] {
   --bg: #fafafa;
   --fg: #383a42;
+  --fg-rgb: 56, 58, 66; /* RGB for #383a42 */
   --accent: #0184bc;
   --base03: #fafafa;
   --base02: #e7e7e7;
@@ -94,6 +99,7 @@
 [data-theme="programming-light"] {
   --bg: #ffffff;
   --fg: #333333;
+  --fg-rgb: 51, 51, 51; /* RGB for #333333 */
   --accent: #007acc;
   --base03: #f3f3f3;
   --base02: #e1e1e1;
