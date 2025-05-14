@@ -8,7 +8,10 @@
   position: relative;
   padding: 2rem 2.5rem;
   margin: 2rem 0;
-  overflow: hidden; /* Prevent brackets from causing horizontal scrollbars */
+  overflow: visible; /* Allow ghost brackets to protrude */
+  background: var(--base02); /* Distinct container background */
+  border-radius: 0.5rem;
+  z-index: 1; /* Sit above page background */
 }
 
 /* 
@@ -26,7 +29,7 @@
   position: absolute;
   color: var(--accent);
   opacity: 0.2; /* Ghostly appearance */
-  z-index: 0; /* Position behind content */
+  z-index: 2; /* Position above container background */
 }
 
 /* 
@@ -258,8 +261,19 @@
 .ascii-bracketed.purple::before, .ascii-bracketed.purple::after { color: var(--purple); }
 
 /* Special styling for blog posts - extra ghostly appearance */
-.blog-content .ascii-bracketed::before,
-.blog-content .ascii-bracketed::after {
+.blog-container .ascii-bracketed {
+  background: var(--base02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* above page background */
+  overflow: visible; /* ensure brackets can protrude */
+  position: relative;
+}
+.blog-container .ascii-bracketed::before,
+.blog-container .ascii-bracketed::after {
+  z-index: 2; /* ensure ghost brackets on top of container */
+}
+.blog-container .ascii-bracketed::before,
+.blog-container .ascii-bracketed::after {
   opacity: 0.15; /* Even more ghostly for better content readability */
 }
 

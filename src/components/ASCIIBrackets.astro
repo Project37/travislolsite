@@ -70,8 +70,16 @@ const bracketClass = type === 'square' ? '' : type;
   
   /* Add a subtle background to improve readability in blog posts */
   :global(.blog-content) .ascii-bracketed {
-    background-color: rgba(0,0,0,0.02);
-    box-shadow: 0 0 10px rgba(0,0,0,0.03);
+    background: var(--base02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: visible; /* allow brackets to protrude */
+    position: relative;
+    z-index: 1; /* above page background */
+  }
+  /* Ensure ghost brackets appear above the container */
+  :global(.blog-content) .ascii-bracketed::before,
+  :global(.blog-content) .ascii-bracketed::after {
+    z-index: 2;
   }
 </style>
 
