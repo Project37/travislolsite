@@ -3,23 +3,36 @@
  * ASCIIBrackets Component
  * 
  * A component that wraps content in stylized ASCII art brackets
- * for visual sectioning of content on the website.
+ * inspired by programming language syntax.
+ * Can be used for visual sectioning of content, especially for blogs
+ * about programming or technical topics.
  *
  * @component
  */
 interface Props {
-  /** The type of brackets to use: square, curly, angle, or pipe */
-  type?: 'square' | 'curly' | 'angle' | 'pipe';
+  /** 
+   * The type of brackets to use: 
+   * - Programming types: 'js-object', 'html', 'jsx', 'css', 'python', 'markdown', 'sql', 'bash'
+   * - Security types: 'security-report', 'code-review', 'vulnerability'
+   * - Classic types: 'square', 'curly', 'angle', 'pipe'
+   */
+  type?: string | 'square' | 'curly' | 'angle' | 'pipe' | 'js-object' | 'html' | 'jsx' | 'css' | 'python' | 'markdown' | 'sql' | 'bash' | 'security-report' | 'code-review' | 'vulnerability';
+  
   /** The size of the brackets: small, medium, or large */
   size?: 'small' | 'medium' | 'large';
+  
   /** The color of the brackets (matches theme color variables) */
-  color?: 'blue' | 'green' | 'yellow' | 'orange' | 'violet' | 'cyan' | 'red' | 'teal' | 'purple';
+  color?: string | 'blue' | 'green' | 'yellow' | 'orange' | 'violet' | 'cyan' | 'red' | 'teal' | 'purple';
+  
+  /** Optional label for the bracket (e.g. language name or file extension) */
+  label?: string;
 }
 
 const { 
   type = 'square', 
   size = 'medium',
-  color = 'violet'
+  color = 'violet',
+  label = ''
 } = Astro.props;
 
 // Map bracket type to CSS class
@@ -27,6 +40,7 @@ const bracketClass = type === 'square' ? '' : type;
 ---
 
 <div class={`ascii-bracketed ${bracketClass} ${size} ${color}`}>
+  {label && <div class="bracket-label">{label}</div>}
   <slot />
 </div>
 
@@ -34,6 +48,30 @@ const bracketClass = type === 'square' ? '' : type;
   /* Component-specific styles can be added here */
   .ascii-bracketed {
     margin: 2rem 0;
+    position: relative;
+    border-radius: 0.3rem;
+  }
+  
+  /* Label styling for bracket identification */
+  .bracket-label {
+    position: absolute;
+    top: -0.8rem;
+    left: 2.5rem;
+    background-color: var(--bg); /* Uses background color for contrast */
+    padding: 0 0.5rem;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: inherit;
+    opacity: 0.8;
+    z-index: 1; /* Above the brackets */
+    border-radius: 0.2rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  /* Add a subtle background to improve readability in blog posts */
+  :global(.blog-content) .ascii-bracketed {
+    background-color: rgba(0,0,0,0.02);
+    box-shadow: 0 0 10px rgba(0,0,0,0.03);
   }
 </style>
 

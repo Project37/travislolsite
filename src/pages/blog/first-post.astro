@@ -1,24 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-const date = new Date('2025-05-10').toLocaleDateString();
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+const tags = ['Zero Trust', 'Security Architecture', 'Identity'];
 ---
 
-<Layout>
-  <section style="background: linear-gradient(135deg, var(--base02) 0%, var(--base03) 100%); padding: 3rem 1rem; text-align: center; color: var(--base2);">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--base2);">Zero Trust Architecture: Beyond the Perimeter</h1>
-      <div style="color: var(--base2); opacity: 0.9; margin-bottom: 1rem;">
-        <span style="margin-right: 1.5rem;">
-          <strong>Published:</strong> {date}
-        </span>
-        <span>
-          <strong>Reading time:</strong> 10 minutes
-        </span>
-      </div>
-      <div style="display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
-        <span style="background: rgba(255,255,255,0.1); color: var(--base2); padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.9rem;">Zero Trust</span>
-        <span style="background: rgba(255,255,255,0.1); color: var(--base2); padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.9rem;">Security Architecture</span>
-        <span style="background: rgba(255,255,255,0.1); color: var(--base2); padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.9rem;">Identity</span>
+<BlogPostLayout 
+  title="Zero Trust Architecture: Beyond the Perimeter"
+  publishDate={new Date('2025-05-10')}
+  readingTime="10 minutes"
+  tags={tags}
+  bracketType="jsx"
+  bracketColor="cyan"
+  bracketLabel="SecurityArticle.jsx"
+>
       </div>
     </div>
   </section>

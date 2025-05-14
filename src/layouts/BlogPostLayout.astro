@@ -1,14 +1,26 @@
 ---
 import Layout from './Layout.astro';
+import ASCIIBrackets from '../components/ASCIIBrackets.astro';
 
 interface Props {
   title: string;
   publishDate: Date;
   readingTime?: string;
   tags?: string[];
+  bracketType?: 'js-object' | 'html' | 'jsx' | 'css' | 'python' | 'markdown' | 'sql' | 'bash' | 'square' | 'curly' | 'angle' | 'pipe';
+  bracketColor?: 'blue' | 'green' | 'yellow' | 'orange' | 'violet' | 'cyan' | 'red' | 'teal' | 'purple';
+  bracketLabel?: string;
 }
 
-const { title, publishDate, readingTime = '5 minutes', tags = [] } = Astro.props;
+const { 
+  title, 
+  publishDate, 
+  readingTime = '5 minutes', 
+  tags = [],
+  bracketType = 'markdown',
+  bracketColor = 'blue',
+  bracketLabel = ''
+} = Astro.props;
 const formattedDate = publishDate.toLocaleDateString();
 ---
 
@@ -35,16 +47,18 @@ const formattedDate = publishDate.toLocaleDateString();
   </section>
 
   <main class="blog-container">
-    <article class="blog-content">
-      <slot />
-      
-      <div class="blog-author">
-        <h3>About the Author</h3>
-        <p>
-          As a Senior IT Security Administrator with over [X] years of practical experience in designing and implementing enterprise security solutions, I've helped organizations across multiple industries strengthen their security posture through modern architectures like Zero Trust.
-        </p>
-      </div>
-    </article>
+    <ASCIIBrackets type={bracketType} color={bracketColor} label={bracketLabel || `${bracketType}.post`} size="large">
+      <article class="blog-content">
+        <slot />
+        
+        <div class="blog-author">
+          <h3>About the Author</h3>
+          <p>
+            As a Senior IT Security Administrator with over [X] years of practical experience in designing and implementing enterprise security solutions, I've helped organizations across multiple industries strengthen their security posture through modern architectures like Zero Trust.
+          </p>
+        </div>
+      </article>
+    </ASCIIBrackets>
 
     <div class="blog-footer">
       <h3 style="color: var(--accent);">Continue Reading</h3>

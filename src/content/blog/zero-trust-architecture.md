@@ -8,6 +8,9 @@ readingTime: "10 minutes"
 tags: ["Zero Trust", "Security Architecture", "Identity", "Cloud Security", "Access Control"]
 isFeatured: true
 coverImage: "/images/blog/zero-trust-header.jpg"
+bracketType: "python"
+bracketColor: "green"
+bracketLabel: "security_framework.py"
 ---
 
 As organizations increasingly adopt remote work models and migrate to cloud services, traditional perimeter-based security approaches are becoming obsolete. Zero Trust Architecture (ZTA) offers a more robust framework for modern security challenges.

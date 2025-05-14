@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ASCIIBrackets from '../components/ASCIIBrackets.astro';
+
+// Define bracket types for showcase
+const bracketTypes = [
+  { type: 'js-object', color: 'yellow', label: 'app.js', title: 'JavaScript Object', content: 'JavaScript-styled brackets for web security articles' },
+  { type: 'html', color: 'blue', label: 'index.html', title: 'HTML Tags', content: 'HTML-styled brackets for frontend security topics' },
+  { type: 'jsx', color: 'cyan', label: 'Component.jsx', title: 'React/JSX', content: 'React component style for modern web app security' },
+  { type: 'css', color: 'purple', label: 'styles.css', title: 'CSS Rules', content: 'CSS-styled brackets for UI/UX security considerations' },
+  { type: 'python', color: 'green', label: 'security.py', title: 'Python Function', content: 'Python-styled brackets for security automation articles' },
+  { type: 'markdown', color: 'teal', label: 'README.md', title: 'Markdown', content: 'Markdown-styled brackets for documentation and policy guides' },
+  { type: 'sql', color: 'orange', label: 'query.sql', title: 'SQL Query', content: 'SQL-styled brackets for database security topics' },
+  { type: 'bash', color: 'red', label: 'script.sh', title: 'Bash Script', content: 'Bash-styled brackets for system hardening guides' },
+  
+  // Security brackets
+  { type: 'security-report', color: 'violet', label: 'REPORT', title: 'Security Report', content: 'Formal security assessment report format' },
+  { type: 'code-review', color: 'teal', label: 'REVIEW', title: 'Code Review', content: 'Security-focused code review documentation' },
+  { type: 'vulnerability', color: 'red', label: 'CVE-2025', title: 'Vulnerability', content: 'Critical vulnerability documentation and resolution' },
+  
+  // Classic brackets for comparison
+  { type: 'square', color: 'blue', label: 'classic', title: 'Square Brackets', content: 'Traditional square brackets [ ]' },
+  { type: 'curly', color: 'green', label: 'classic', title: 'Curly Braces', content: 'Traditional curly braces { }' },
+  { type: 'angle', color: 'yellow', label: 'classic', title: 'Angle Brackets', content: 'Traditional angle brackets < >' },
+  { type: 'pipe', color: 'red', label: 'classic', title: 'Pipes', content: 'Traditional pipe brackets | |' }
+];
+---
+
+<Layout>
+  <section class="hero">
+    <div class="hero-container">
+      <h1>ASCII Bracket Showcase</h1>
+      <p>
+        Explore our various programming-inspired bracket styles for blog posts and content sections.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <section class="section">
+      <h2 class="section-title">Programming-Style Brackets</h2>
+      <p>These bracket styles are used to theme our blog posts based on their technical content. Each style represents a different programming language or technology.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+        {bracketTypes.slice(0, 8).map(bracket => (
+          <ASCIIBrackets type={bracket.type} color={bracket.color} label={bracket.label}>
+            <div style="padding: 1rem; text-align: center;">
+              <h4 style={`color: var(--${bracket.color}); margin-bottom: 0.5rem;`}>{bracket.title}</h4>
+              <p>{bracket.content}</p>
+            </div>
+          </ASCIIBrackets>
+        ))}
+      </div>
+      
+      <h2 class="section-title" style="margin-top: 3rem;">Security-Focused Brackets</h2>
+      <p>These bracket styles are specifically designed for security documentation and reporting.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+        {bracketTypes.slice(8, 11).map(bracket => (
+          <ASCIIBrackets type={bracket.type} color={bracket.color} label={bracket.label}>
+            <div style="padding: 1rem; text-align: center;">
+              <h4 style={`color: var(--${bracket.color}); margin-bottom: 0.5rem;`}>{bracket.title}</h4>
+              <p>{bracket.content}</p>
+            </div>
+          </ASCIIBrackets>
+        ))}
+      </div>
+      
+      <h2 class="section-title" style="margin-top: 3rem;">Classic Bracket Styles</h2>
+      <p>These are the traditional bracket styles that are also available for use.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+        {bracketTypes.slice(11).map(bracket => (
+          <ASCIIBrackets type={bracket.type} color={bracket.color}>
+            <div style="padding: 1rem; text-align: center;">
+              <h4 style={`color: var(--${bracket.color}); margin-bottom: 0.5rem;`}>{bracket.title}</h4>
+              <p>{bracket.content}</p>
+            </div>
+          </ASCIIBrackets>
+        ))}
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title">Using Brackets in Blog Posts</h2>
+      
+      <ASCIIBrackets type="markdown" color="violet" label="howto.md">
+        <div style="padding: 1rem;">
+          <p>When creating a new blog post, specify the bracket style in the frontmatter:</p>
+          
+          <pre style="background: rgba(7,54,66,0.1); padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 1rem 0;">
+---
+title: "My Technical Article"
+// ... other frontmatter
+bracketType: "python" 
+bracketColor: "green"
+bracketLabel: "security_script.py"
+---</pre>
+          
+          <p>Available bracket types:</p>
+          <ul style="columns: 2; margin: 1rem 0; list-style-type: none;">
+            <li><code>js-object</code> - JavaScript object</li>
+            <li><code>html</code> - HTML tags</li>
+            <li><code>jsx</code> - React/JSX component</li>
+            <li><code>css</code> - CSS rule</li>
+            <li><code>python</code> - Python function</li>
+            <li><code>markdown</code> - Markdown</li>
+            <li><code>sql</code> - SQL query</li>
+            <li><code>bash</code> - Bash script</li>
+            <li><code>square</code> - Square brackets</li>
+            <li><code>curly</code> - Curly braces</li>
+            <li><code>angle</code> - Angle brackets</li>
+            <li><code>pipe</code> - Pipes</li>
+          </ul>
+        </div>
+      </ASCIIBrackets>
+    </section>
+  </main>
+</Layout>

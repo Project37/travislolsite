@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import ASCIIBrackets from '../../components/ASCIIBrackets.astro';
 
 // Get all blog posts sorted by date
 const allPosts = await getCollection('blog');
@@ -86,6 +87,56 @@ const allTags = [...new Set(
           ))}
         </div>
       </div>
+      <!-- Programming bracket styles showcase -->
+      <section style="margin-top: 4rem; border-top: 1px solid var(--base01); padding-top: 2rem;">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--accent);">Our Articles Feature Programming-Style Brackets</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+          <ASCIIBrackets type="html" color="blue" label="html">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>HTML Articles</h4>
+              <p>Frontend development and web security topics</p>
+            </div>
+          </ASCIIBrackets>
+          
+          <ASCIIBrackets type="js-object" color="yellow" label="javascript">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>JavaScript Articles</h4>
+              <p>Client-side security and OWASP topics</p>
+            </div>
+          </ASCIIBrackets>
+          
+          <ASCIIBrackets type="python" color="green" label="python">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>Python Articles</h4>
+              <p>Security automation and tooling</p>
+            </div>
+          </ASCIIBrackets>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <ASCIIBrackets type="bash" color="red" label="bash">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>Bash Articles</h4>
+              <p>System hardening and security scripts</p>
+            </div>
+          </ASCIIBrackets>
+          
+          <ASCIIBrackets type="markdown" color="purple" label="markdown">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>Documentation</h4>
+              <p>Security policies and procedures</p>
+            </div>
+          </ASCIIBrackets>
+          
+          <ASCIIBrackets type="sql" color="teal" label="sql">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>SQL Articles</h4>
+              <p>Database security and injection prevention</p>
+            </div>
+          </ASCIIBrackets>
+        </div>
+      </section>
     </div>
   </main>
 </Layout>
