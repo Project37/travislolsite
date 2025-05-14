@@ -21,7 +21,7 @@ export default {
     company: "Hypertherm Associates",
     yearsOfExperience: "10",
     email: "CyberSec@Travis.lol",
-    linkedin: "https://linkedin.com/in/yourprofile",
+    linkedin: "https://linkedin.com/in/travis-damico",
     bluesky: "@travis.lol",
     github: "https://github.com/Project37"
   },
