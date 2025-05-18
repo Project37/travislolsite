@@ -22,6 +22,8 @@ import '../styles/blog.css';  // Blog-specific styles
 import siteConfig from '../config/site.js';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+import CautionBanner from '../components/CautionBanner.astro';
+import WatermarkOverlay from '../components/WatermarkOverlay.astro';
 import { Icon } from 'astro-iconify'; // Added import for Icon component
 
 // Define the interface for props
@@ -79,6 +81,20 @@ const {
     </script>
   </head>
   <body>
+    <!-- Add caution banner at the very top -->
+    <CautionBanner 
+      message="SITE UNDER CONSTRUCTION" 
+      opacity={0.95} 
+    />
+    
+    <!-- Add watermark overlay across the entire site -->
+    <WatermarkOverlay 
+      text="UNDER DEVELOPMENT" 
+      opacity={0.15}
+      zIndex={999}
+      color="255, 0, 0"
+    />
+    
     <header>
       <div class="word-cloud-background">
         <span>Security</span>
