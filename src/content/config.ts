@@ -48,7 +48,11 @@ const blogCollection = defineCollection({
     
     updateDate: z.date()
       .optional()
-      .describe("Last update date if applicable")
+      .describe("Last update date if applicable"),
+    // codebrackets
+    bracketType: z.string()
+      .optional()
+      .describe("Type of code brackets used in the article"),
   })
 });
 

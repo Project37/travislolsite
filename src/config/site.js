@@ -8,7 +8,7 @@ export default {
   // Site basics
   siteName: "Security Professional Portfolio",
   siteDescription: "Personal website for IT Security Professional showcasing expertise and insights",
-  siteUrl: "https://security.travis.lol",
+  siteUrl: "http://travis.lol",
   
   // SEO and social sharing
   ogImage: "/images/security-portfolio-og.jpg",
@@ -34,10 +34,12 @@ export default {
     { title: "Contact", url: "/#contact" }
   ],
   themes: [
-    { name: 'System', value: 'system' },
+    { name: 'Gruvbox Soft', value: 'one-light' },
     { name: 'Solarized Light', value: 'light' },
     { name: 'Solarized Dark', value: 'dark' },
     { name: 'Dracula', value: 'dracula' },
-    { name: 'Gruvbox Dark', value: 'gruvbox', default: true }
+    { name: 'Gruvbox Medium', value: 'gruvbox', default: true },
+    { name: 'Gruvbox Hard', value: 'gruvbox-hard' },
+    { name: 'Programming Light', value: 'programming-light' }
   ]
 };

@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import CodeBrackets from '../../components/CodeBrackets.astro';
+import AiSlopped from '../../components/AiSlopped.astro';
 
 // Get all blog posts sorted by date
 const allPosts = await getCollection('blog');
@@ -80,11 +81,22 @@ const allTags = [...new Set(
         <h3 style="color: var(--accent); margin-bottom: 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block; font-size: 1.4rem;">Security Topics</h3>
         
         <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-          {allTags.map(tag => (
-            <a href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}/`} style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">
-              {tag}
-            </a>
-          ))}
+          {allTags.map(tag => {
+            // Check if tag is AI-related (you can adjust this logic based on your actual tag naming convention)
+            const isAiTag = tag.toLowerCase().includes('ai') || tag.toLowerCase().includes('machine_learning') || tag.toLowerCase().includes('ml');
+            
+            return isAiTag ? (
+              <AiSlopped tag={tag.toLowerCase()}>
+                <a href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}/`} style="text-decoration: none; padding: 0.3rem 0.7rem;">
+                  {tag}
+                </a>
+              </AiSlopped>
+            ) : (
+              <a href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}/`} style="background: var(--base02); color: var(--base2); padding: 0.5rem 1rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">
+                {tag}
+              </a>
+            );
+          })}
         </div>
       </div>
       <!-- Programming bracket styles showcase -->
@@ -135,6 +147,34 @@ const allTags = [...new Set(
               <p>Database security and injection prevention</p>
             </div>
           </CodeBrackets>
+        </div>
+      </section>
+      
+      <!-- AI Topics Feature Section -->
+      <section style="margin-top: 3rem; border-top: 1px solid var(--base01); padding-top: 2rem;">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--accent);">AI Security Highlights</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <AiSlopped tag="ai_security">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>AI Security</h4>
+              <p>Protecting machine learning models and AI systems</p>
+            </div>
+          </AiSlopped>
+          
+          <AiSlopped tag="ethical_ai">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>Ethical AI</h4>
+              <p>Guidelines and best practices for responsible AI</p>
+            </div>
+          </AiSlopped>
+          
+          <AiSlopped tag="ml_vulnerabilities">
+            <div style="padding: 1rem; text-align: center;">
+              <h4>ML Vulnerabilities</h4>
+              <p>Identifying and mitigating security risks in machine learning</p>
+            </div>
+          </AiSlopped>
         </div>
       </section>
     </div>

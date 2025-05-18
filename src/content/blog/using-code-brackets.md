@@ -3,7 +3,7 @@ title: "Using Code Brackets for Stylish Code Sections"
 description: "Learn how to use the new CodeBrackets component to add stylized code-like brackets to your blog content in Astro."
 pubDate: 2025-05-13
 readingTime: "5 minutes"
-tags: ["Tutorial", "Components", "Design"]
+tags: ["Tutorial", "Components", "Design", "ai_slopped"]
 bracketType: "markdown"
 bracketColor: "violet"
 bracketLabel: "using-code-brackets.md"

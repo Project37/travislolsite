@@ -1,6 +1,9 @@
 ---
 import Layout from './Layout.astro';
 import CodeBrackets from '../components/CodeBrackets.astro'; // Changed from ASCIIBrackets
+import AiSlopped from '../components/AiSlopped.astro'; // Import AiSlopped component for highlighted tags
+//site config
+import siteConfig from '../config/site.js';
 
 interface Props {
   title: string;
@@ -40,7 +43,9 @@ const formattedDate = publishDate.toLocaleDateString();
       {tags.length > 0 && (
         <div style="display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
           {tags.map(tag => (
-            <span class="blog-tag">{tag}</span>
+            tag === "ai_slopped" || tag === "testing" ? 
+              <AiSlopped tag={tag} /> : 
+              <span class="blog-tag">{tag}</span>
           ))}
         </div>
       )}
@@ -55,7 +60,7 @@ const formattedDate = publishDate.toLocaleDateString();
         <div class="blog-author">
           <h3>About the Author</h3>
           <p>
-            As a Senior IT Security Administrator with over [X] years of practical experience in designing and implementing enterprise security solutions, I've helped organizations across multiple industries strengthen their security posture through modern architectures like Zero Trust.
+            As a Senior IT Security Administrator with over {siteConfig.author.yearsOfExperience} years of practical experience in supporting, maintaining and deploying enterprise security solutions, I've helped organizations across multiple industries strengthen their security posture through modern architectures like Zero Trust.
           </p>
         </div>
       </article>

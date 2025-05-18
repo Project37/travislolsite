@@ -5,7 +5,7 @@ pubDate: 2025-05-10
 updateDate: 2025-05-12
 author: "Travis D'Amico"
 readingTime: "10 minutes"
-tags: ["Zero Trust", "Security Architecture", "Identity", "Cloud Security", "Access Control"]
+tags: ["Zero Trust", "Security Architecture", "Identity", "Cloud Security", "Access Control","ai_slopped"]
 isFeatured: true
 coverImage: "/images/blog/zero-trust-header.jpg"
 bracketType: "python"

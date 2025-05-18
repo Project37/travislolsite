@@ -69,6 +69,22 @@
   --blue: #83a598;
 }
 
+/* Gruvbox Hard Theme */
+[data-theme="gruvbox-hard"] {
+  --bg: #1d2021;      /* Gruvbox dark hard background */
+  --fg: #ebdbb2;      /* Gruvbox light foreground */
+  --fg-rgb: 235, 219, 178; /* RGB for #ebdbb2 */
+  --accent: #fe8019;  /* Gruvbox orange for accent */
+  --base02: #32302f;  /* Darker background */
+  --base1: #ebdbb2;   /* Light foreground */
+  --yellow: #fabd2f;  /* Gruvbox yellow */
+  --red: #fb4934;     /* Gruvbox red */
+  --teal: #8ec07c;    /* Gruvbox aqua */
+  --purple: #d3869b;  /* Gruvbox purple */
+  --green: #b8bb26;   /* Gruvbox green */
+  --blue: #83a598;    /* Gruvbox blue */
+}
+
 /* Gruvbox Soft Theme */
 [data-theme="one-light"] {
   --bg: #f2e5bc;      /* Gruvbox light soft background */

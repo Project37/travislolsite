@@ -106,6 +106,11 @@ footer {
   background-color: #222; /* GitHub dark color */
   color: white;
 }
+.badge-value.failed {
+  background-color: #ff0000; /* GitHub dark color */
+  color: white;
+}
+
 
 /* Add more specific badge value styles here */
 /* e.g., .badge-value.linkedin { background-color: #0A66C2; } */
