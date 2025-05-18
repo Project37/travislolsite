@@ -10,12 +10,24 @@ main {
   background: linear-gradient(135deg, var(--base02) 0%, var(--base03) 100%);
   padding: 5rem 1rem;
   text-align: center;
-  color: var(--base2);
+  color: var(--fg);
 }
 
 .hero h1 {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
+  color: var(--fg);
+}
+
+[data-theme="dark"] .hero h1,
+[data-theme="dracula"] .hero h1,
+[data-theme="gruvbox"] .hero h1 {
+  color: var(--base2);
+}
+
+[data-theme="dark"] .hero,
+[data-theme="dracula"] .hero,
+[data-theme="gruvbox"] .hero {
   color: var(--base2);
 }
 
