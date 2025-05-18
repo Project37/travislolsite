@@ -114,9 +114,15 @@ footer {
   bottom: 1rem;
   right: 1rem;
   display: flex;
-  flex-direction: column; /* Stack them vertically */
-  gap: 0.5rem; /* Space between buttons */
+  flex-direction: row; /* Position them horizontally */
+  align-items: center; /* Center items vertically */
+  gap: 0.5rem; /* Space between components */
   z-index: 1000; /* Ensure they are above other content */
+  background-color: rgba(7,54,66,0.3); /* Subtle background */
+  border-radius: 0.5rem; /* Rounded corners */
+  padding: 0.5rem; /* Add some padding */
+  backdrop-filter: blur(2px); /* Add a slight blur effect */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
 }
 
 /* Optional: Adjust individual component styles if needed */
