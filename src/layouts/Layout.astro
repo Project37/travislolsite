@@ -76,7 +76,7 @@ const {
     <!-- Prevent flash by applying theme immediately -->
     <script is:inline>
       // Apply the saved theme or default to prevent flash of unstyled content
-      const savedTheme = localStorage.getItem('theme') || 'light';
+      const savedTheme = localStorage.getItem('theme') || 'gruvbox';
       document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
   </head>
