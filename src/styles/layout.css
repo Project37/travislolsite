@@ -6,6 +6,7 @@ header {
   text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   position: relative; /* Needed for z-index of word cloud to work */
+  margin-top: 3.5rem; /* Make room for the caution banner */
 }
 
 header h1 {
