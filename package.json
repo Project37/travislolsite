@@ -16,7 +16,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/node": "^9.2.1",
     "@typescript-eslint/parser": "^8.32.1",
-    "astro": "^5.7.12",
+    "astro": "^5.8.1",
     "astro-iconify": "^1.2.0",
     "typescript": "^5.8.3"
   },
