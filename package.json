@@ -14,17 +14,17 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/node": "^9.2.1",
-    "@typescript-eslint/parser": "^8.32.1",
-    "astro": "^5.7.12",
+    "@astrojs/node": "^9.4.4",
+    "@typescript-eslint/parser": "^8.45.0",
+    "astro": "^5.15.1",
     "astro-iconify": "^1.2.0",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
-    "eslint-plugin-astro": "^0.31.4",
+    "eslint": "^9.36.0",
+    "eslint-plugin-astro": "^1.4.0",
     "gh-pages": "^6.3.0",
-    "prettier": "^3.5.3",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.12.3"
   }
 }
