@@ -177,10 +177,97 @@ To add a new theme:
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production (static site)
+- `npm run check` - Sync Astro types and run TypeScript checks (`astro sync && tsc --noEmit`)
+- `npm run verify-release` - Run full release validation (`npm outdated && npm audit && npm run check && npm run build`)
 - `npm run preview` - Preview production build
 - `npm run format` - Format code with Prettier
 - `npm run lint` - Lint code with ESLint
 - `npm run astro ...` - Run Astro CLI commands
+
+## Dependency & Security Update Runbook
+
+Use this sequence whenever you want to bring dependencies up to date safely.
+
+1. Check for outdated direct dependencies:
+  ```bash
+  npm outdated
+  ```
+
+2. Update dependencies within declared ranges and refresh lockfile:
+  ```bash
+  npm update
+  npm install
+  ```
+
+3. Run security audit:
+  ```bash
+  npm audit
+  ```
+
+4. Apply automatic security remediations (if any are available):
+  ```bash
+  npm audit fix
+  ```
+
+5. Validate the project:
+  ```bash
+  npm run verify-release
+  ```
+
+6. Confirm final status is clean:
+  ```bash
+  npm outdated
+  npm audit
+  ```
+
+### Notes for this repository
+
+- Icon rendering is provided by `astro-icon` with local icon packs:
+  - `@iconify-json/tabler`
+  - `@iconify-json/carbon`
+  - `@iconify-json/mdi`
+- If icon-related build errors appear (missing icon sets), reinstall dependencies:
+  ```bash
+  npm install
+  ```
+- If `npm audit` flags only transitive tooling packages, validate whether they are used before adding new dependencies.
+
+## Release Checklist
+
+Use this checklist before pushing production updates.
+
+1. Ensure working tree is clean and up to date:
+  ```bash
+  git status
+  git pull
+  ```
+
+2. Run maintenance and validation:
+  ```bash
+  npm run verify-release
+  ```
+
+3. Review generated output and changed files:
+  ```bash
+  git status
+  ```
+
+4. Commit and push:
+  ```bash
+  git add .
+  git commit -m "chore: update dependencies and site content"
+  git push
+  ```
+
+5. Deploy (GitHub Pages workflow in this repo):
+  ```bash
+  npm run deploy
+  ```
+
+6. Post-deploy smoke check:
+- Open the site URL and verify homepage, blog index, and one blog post route.
+- Confirm icons and theme switching render correctly.
+- Verify no console errors in browser devtools.
 
 ## Performance Considerations
 
