@@ -16,15 +16,15 @@
     "@astrojs/check": "^0.9.6",
     "@astrojs/node": "^9.4.4",
     "@typescript-eslint/parser": "^8.49.0",
-    "astro": "^5.16.4",
+    "astro": "^5.16.5",
     "astro-iconify": "^1.2.0",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
     "gh-pages": "^6.3.0",
-    "prettier": "^3.7.3",
+    "prettier": "^3.7.4",
     "prettier-plugin-astro": "^0.14.1"
   }
 }
