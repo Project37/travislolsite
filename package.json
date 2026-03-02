@@ -18,7 +18,7 @@
     "@astrojs/node": "^9.5.4",
     "@iconify-json/carbon": "^1.2.18",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/tabler": "^1.2.27",
+    "@iconify-json/tabler": "^1.2.28",
     "@typescript-eslint/parser": "^8.56.1",
     "astro": "^5.17.3",
     "astro-icon": "^1.1.5",
