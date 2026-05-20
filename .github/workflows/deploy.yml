@@ -137,6 +137,9 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID || secrets.CLOUDFLARE_ACCOUNT_ID }}
     permissions:
       contents: read
       deployments: write
@@ -158,9 +161,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Skip deploy when Cloudflare token is missing
+        if: env.CLOUDFLARE_API_TOKEN == ''
+        run: |
+          echo "::warning::Cloudflare API token secret is not configured; skipping automatic deploy."
+          echo "Set CF_API_TOKEN or CLOUDFLARE_API_TOKEN in the production environment to enable CI deploys."
+
       - name: Deploy to production
+        if: env.CLOUDFLARE_API_TOKEN != ''
         run: npx wrangler deploy --name travis-lol
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
