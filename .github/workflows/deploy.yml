@@ -53,8 +53,8 @@ jobs:
           echo "preview_url=$PREVIEW_URL" >> "$GITHUB_OUTPUT"
           echo "worker_name=$WORKER_NAME" >> "$GITHUB_OUTPUT"
         env:
-          CLOUDFLARE_API_KEY: ${{ secrets.CF_API_KEY }}
-          CLOUDFLARE_EMAIL: ${{ secrets.CF_EMAIL }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
 
       - name: Comment preview URL on PR
@@ -127,8 +127,8 @@ jobs:
             --name "travis-lol-pr-${{ github.event.pull_request.number }}" \
             --force || echo "Worker not found or already deleted — skipping"
         env:
-          CLOUDFLARE_API_KEY: ${{ secrets.CF_API_KEY }}
-          CLOUDFLARE_EMAIL: ${{ secrets.CF_EMAIL }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
 
   # ── Production: deploy on merge to main ────────────────────────────────────
@@ -161,6 +161,6 @@ jobs:
       - name: Deploy to production
         run: npx wrangler deploy --env production
         env:
-          CLOUDFLARE_API_KEY: ${{ secrets.CF_API_KEY }}
-          CLOUDFLARE_EMAIL: ${{ secrets.CF_EMAIL }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
