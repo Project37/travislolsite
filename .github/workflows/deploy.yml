@@ -159,7 +159,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to production
-        run: npx wrangler deploy --env production
+        run: npx wrangler deploy --name travis-lol
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           
