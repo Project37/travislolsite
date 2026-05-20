@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const apps = [
+  {
+    name: 'TabletopDeck',
+    repo: 'Project37/tabletop_deck',
+    status: 'new',
+    badge: 'badge-green',
+    accent: 'text-green',
+    summary:
+      'A pocket facilitator console for cyber tabletop exercises: scenarios, timed injects, role prompts, checklist, and scorecard.',
+    features: [
+      '8 defensive cyber scenarios',
+      '12 timed inject cards',
+      'player role prompts',
+      'persistent exercise scorecard',
+    ],
+  },
+  {
+    name: 'BlackoutDeck',
+    repo: 'Project37/blackout_deck',
+    status: 'private',
+    badge: 'badge-purple',
+    accent: 'text-purple',
+    summary:
+      'An offline outage field kit for when the laptop, VPN, docs, phone, or network path is not there to save you.',
+    features: [
+      'outage runbooks',
+      'triage references',
+      'comms cards',
+      'persistent IR checklist',
+    ],
+  },
+  {
+    name: 'ThreatDeck',
+    repo: 'Project37/flip_threat',
+    status: 'private',
+    badge: 'badge-cyan',
+    accent: 'text-cyan',
+    summary:
+      'A defensive threat-modeling deck with STRIDE prompts, DREAD scoring, checklist tracking, and CSV export.',
+    features: [
+      'STRIDE card deck',
+      'DREAD scoring rubric',
+      'IR checklist state',
+      'CSV export',
+    ],
+  },
+];
+---
+
+<Layout title="Flipper Field Decks" description="rat[0] defensive offline Flipper Zero apps">
+  <section class="container" style="padding-top:3rem">
+    <p class="text-pixel text-dim">rat[0] / offline cyber tools</p>
+    <h1>// flipper field decks</h1>
+    <p class="text-dim mt-2 intro">
+      A small suite of defensive Flipper Zero apps for moments when the best security tool is
+      the thing still in your pocket: threat modeling, outage response, and tabletop facilitation.
+      No radio tricks, no fuzzing payloads, no credential storage — just offline prompts, checklists,
+      and decision support.
+    </p>
+
+    <hr class="pixel mt-3" />
+
+    <div class="app-grid mt-3">
+      {apps.map(app => (
+        <article class="card app-card">
+          <div class="app-top">
+            <div>
+              <span class={`badge ${app.badge}`}>{app.status}</span>
+              <h2 class="mt-2">{app.name}</h2>
+            </div>
+            <div class="flipper-icon" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 8 8" style="image-rendering:pixelated">
+                <rect x="1" y="0" width="6" height="8" fill="#0e0020"/>
+                <rect x="2" y="1" width="4" height="1" fill="#a855f7"/>
+                <rect x="2" y="2" width="4" height="3" fill="#080010"/>
+                <rect x="3" y="3" width="2" height="1" fill="#00ff41"/>
+                <rect x="2" y="6" width="1" height="1" fill="#00d4ff"/>
+                <rect x="4" y="6" width="1" height="1" fill="#ff6600"/>
+                <rect x="6" y="2" width="1" height="4" fill="#a855f7"/>
+              </svg>
+            </div>
+          </div>
+
+          <p class="text-dim mt-2">{app.summary}</p>
+
+          <div class="feature-list mt-2">
+            {app.features.map(feature => (
+              <span class="feature">▣ {feature}</span>
+            ))}
+          </div>
+
+          <p class={`repo-line mt-2 ${app.accent}`}>{app.repo}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="card mt-3">
+      <h2>// why it fits</h2>
+      <p class="text-dim mt-2">
+        These apps are intentionally boring in the best way: they help people think, decide,
+        communicate, and recover under pressure. That makes them easier to maintain, safer to publish,
+        and stronger for the rat[0] brand than another flashy exploit toy.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .intro { max-width: 680px; }
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .app-card { display: flex; flex-direction: column; }
+  .app-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .flipper-icon { filter: drop-shadow(0 0 10px rgba(0,255,65,.25)); }
+  .feature-list {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+  .feature {
+    font-size: 11px;
+    color: var(--dim);
+    border: 1px solid rgba(168,85,247,.25);
+    background: rgba(255,255,255,.03);
+    padding: 2px 6px;
+  }
+  .repo-line {
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+</style>

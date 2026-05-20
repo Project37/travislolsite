@@ -37,12 +37,13 @@ import Layout from '../layouts/Layout.astro';
       <p class="hero-sub prompt">devsecops eng · threat modeler · homelab builder</p>
       <p class="hero-desc">
         Embedding security into pipelines, threat modeling product lines, and building risk frameworks
-        by day. Running local AI stacks, writing C for Flipper Zero, and breaking things on purpose by night.
+        by day. Running local AI stacks, writing C for Flipper Zero, and building offline cyber decks by night.
       </p>
       <div class="hero-tags">
         <span class="badge badge-green">DevSecOps</span>
         <span class="badge badge-cyan">Threat Modeling</span>
         <span class="badge badge-purple">Security Automation</span>
+        <span class="badge badge-cyan">Flipper Zero</span>
         <span class="badge badge-green">Local AI</span>
         <span class="badge badge-orange">Cloudflare</span>
       </div>
@@ -112,6 +113,23 @@ import Layout from '../layouts/Layout.astro';
         <span class="badge badge-cyan mt-2">view all →</span>
       </a>
 
+      <a href="/flipper" class="card card-link">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 8 8" style="image-rendering:pixelated">
+            <rect x="1" y="0" width="6" height="8" fill="#0e0020"/>
+            <rect x="2" y="1" width="4" height="1" fill="#a855f7"/>
+            <rect x="2" y="2" width="4" height="3" fill="#080010"/>
+            <rect x="3" y="3" width="2" height="1" fill="#00ff41"/>
+            <rect x="2" y="6" width="1" height="1" fill="#00d4ff"/>
+            <rect x="4" y="6" width="1" height="1" fill="#ff6600"/>
+            <rect x="6" y="2" width="1" height="4" fill="#a855f7"/>
+          </svg>
+        </div>
+        <h3>Flipper Field Decks</h3>
+        <p>ThreatDeck, BlackoutDeck, and TabletopDeck: defensive offline cyber tools for rat[0].</p>
+        <span class="badge badge-green mt-2">new app →</span>
+      </a>
+
       <a href="/ops" class="card card-link">
         <div class="card-icon" aria-hidden="true">
           <svg width="32" height="32" viewBox="0 0 8 8" style="image-rendering:pixelated">
@@ -176,6 +194,8 @@ import Layout from '../layouts/Layout.astro';
       <span class="text-pixel text-orange">cf workers ✓</span>
       <span class="text-pixel text-dim">|</span>
       <span class="text-pixel text-purple">local gpu ✓</span>
+      <span class="text-pixel text-dim">|</span>
+      <span class="text-pixel text-green">tabletopdeck ✓</span>
     </div>
   </section>
 </Layout>
