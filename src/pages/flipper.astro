@@ -3,9 +3,24 @@ import Layout from '../layouts/Layout.astro';
 
 const apps = [
   {
+    name: 'DiscDeck',
+    repo: 'Project37/disc_deck',
+    status: 'new',
+    badge: 'badge-gold',
+    accent: 'text-gold',
+    summary:
+      'A compact disc golf scorecard for Flipper Zero: 9/18-hole rounds, 1-4 players, per-hole par, standings, persistence, and CSV export.',
+    features: [
+      '9 or 18 holes',
+      '1-4 players',
+      'per-hole par',
+      'CSV scorecard export',
+    ],
+  },
+  {
     name: 'TabletopDeck',
     repo: 'Project37/tabletop_deck',
-    status: 'new',
+    status: 'private',
     badge: 'badge-green',
     accent: 'text-green',
     summary:
@@ -50,15 +65,15 @@ const apps = [
 ];
 ---
 
-<Layout title="Flipper Field Decks" description="rat[0] defensive offline Flipper Zero apps">
+<Layout title="Flipper Field Decks" description="rat[0] offline Flipper Zero apps">
   <section class="container" style="padding-top:3rem">
-    <p class="text-pixel text-dim">rat[0] / offline cyber tools</p>
+    <p class="text-pixel text-dim">rat[0] / offline pocket tools</p>
     <h1>// flipper field decks</h1>
     <p class="text-dim mt-2 intro">
-      A small suite of defensive Flipper Zero apps for moments when the best security tool is
-      the thing still in your pocket: threat modeling, outage response, and tabletop facilitation.
-      No radio tricks, no fuzzing payloads, no credential storage — just offline prompts, checklists,
-      and decision support.
+      A small suite of Flipper Zero apps for moments when the best tool is the thing still in
+      your pocket: disc golf scorekeeping, threat modeling, outage response, and tabletop
+      facilitation. No radio tricks, no fuzzing payloads, no credential storage — just offline
+      prompts, scorecards, checklists, and decision support.
     </p>
 
     <hr class="pixel mt-3" />
@@ -100,9 +115,9 @@ const apps = [
     <div class="card mt-3">
       <h2>// why it fits</h2>
       <p class="text-dim mt-2">
-        These apps are intentionally boring in the best way: they help people think, decide,
-        communicate, and recover under pressure. That makes them easier to maintain, safer to publish,
-        and stronger for the rat[0] brand than another flashy exploit toy.
+        These apps are intentionally boring in the best way: they help people keep score, think,
+        decide, communicate, and recover under pressure. That makes them easier to maintain, safer
+        to publish, and stronger for the rat[0] brand than another flashy exploit toy.
       </p>
     </div>
   </section>
