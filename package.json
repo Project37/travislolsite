@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "wrangler pages dev ./dist",
-    "deploy": "astro build && wrangler deploy --env production",
+    "deploy": "astro build && wrangler deploy --name travis-lol",
     "prepare": "lefthook install"
   },
   "dependencies": {
