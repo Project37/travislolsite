@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "wrangler pages dev ./dist",
-    "deploy": "astro build && wrangler pages deploy ./dist",
+    "deploy": "astro build && wrangler deploy --env production",
     "prepare": "lefthook install"
   },
   "dependencies": {

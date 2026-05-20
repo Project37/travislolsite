@@ -30,11 +30,11 @@ tags = ["cloudflare", "wrangler"]
 description = "Global allowlist"
 paths = [
   # Lock files contain hashes that look like secrets
-  "package-lock.json",
-  "yarn.lock",
-  "pnpm-lock.yaml",
+  '''package-lock\.json$''',
+  '''yarn\.lock$''',
+  '''pnpm-lock\.yaml$''',
   # Test fixtures
-  "**/__tests__/**",
-  "**/*.test.*",
-  "**/*.spec.*",
+  '''(^|/)__tests__(/|$)''',
+  '''.*\.test\..*$''',
+  '''.*\.spec\..*$''',
 ]
