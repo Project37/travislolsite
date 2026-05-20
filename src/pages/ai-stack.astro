@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 const stack = [
-  { label: 'GitHub Copilot Pro+', cost: '$39/mo', color: 'var(--purple)', note: '1,500 premium requests/mo · full model access incl. Opus 4.7 · third-party agents (Claude, Codex) · 5x limits vs Pro' },
+  { label: 'GitHub Copilot Pro+', cost: '$39/mo', color: 'var(--purple)', note: 'June 1, 2026: $39 in GitHub AI Credits/mo · token-based usage · full model access incl. Opus 4.7 · third-party agents' },
   { label: 'GitHub Models', cost: 'FREE', color: 'var(--indigo)', note: 'Llama 4, Phi-4, GPT-4o-mini via Copilot token pool' },
   { label: 'Cloudflare Workers', cost: '$5/mo', color: 'var(--orange)', note: '10M req/mo, Workers AI, AI Gateway, Pages hosting' },
   { label: 'Local GPU Rig', cost: '$0/mo', color: 'var(--green)', note: 'Ollama + llama.cpp — heavy tasks, offline use' },
@@ -25,6 +25,12 @@ const stack = [
         chat.travis.lol
       </a>
       — Cloudflare Agents voice + text with Gemma 4 as the default model.
+    </p>
+    <p class="text-dim mt-2" style="max-width:560px">
+      Usage note: starting June 1, 2026, Copilot uses GitHub AI Credits.
+      Pro+ stays $39/month and includes $39 in monthly credits;
+      chat, CLI, agents, code review, input/output, and cached tokens draw from that
+      credit pool, while code completions and Next Edit stay included.
     </p>
 
     <hr class="pixel mt-3" />
