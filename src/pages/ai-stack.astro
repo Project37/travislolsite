@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 const stack = [
-  { label: 'GitHub Copilot Pro', cost: '$10/mo', color: 'var(--purple)', note: 'token-based from June 2026, ~300 premium reqs/mo free then pay-as-you-go' },
+  { label: 'GitHub Copilot Pro+', cost: '$39/mo', color: 'var(--purple)', note: '1,500 premium requests/mo · full model access incl. Opus 4.7 · third-party agents (Claude, Codex) · 5x limits vs Pro' },
   { label: 'GitHub Models', cost: 'FREE', color: 'var(--indigo)', note: 'Llama 4, Phi-4, GPT-4o-mini via Copilot token pool' },
   { label: 'Cloudflare Workers', cost: '$5/mo', color: 'var(--orange)', note: '10M req/mo, Workers AI, AI Gateway, Pages hosting' },
   { label: 'Local GPU Rig', cost: '$0/mo', color: 'var(--green)', note: 'Ollama + llama.cpp — heavy tasks, offline use' },
@@ -10,11 +10,11 @@ const stack = [
 ];
 ---
 
-<Layout title="AI Stack" description="Travis's $15/mo AI homelab setup">
+<Layout title="AI Stack" description="Travis's $44/mo AI homelab setup">
   <section class="container" style="padding-top:3rem">
     <h1>// ai-stack</h1>
     <p class="text-dim mt-2" style="max-width:560px">
-      My flat-rate $15/month AI setup. Cloud + local, token-aware, no vendor lock-in.
+      My $44/month AI setup. Cloud + local, token-aware, no vendor lock-in.
       <a href="https://ai-homelab-dashboard.workers.dev" target="_blank" rel="noopener" class="text-orange">
         → view live dashboard
       </a>
@@ -46,7 +46,7 @@ const stack = [
 
     <div class="total-card card mt-3">
       <span class="text-pixel text-gold">TOTAL MONTHLY</span>
-      <span class="total-amount">$15 / mo</span>
+      <span class="total-amount">$44 / mo</span>
     </div>
 
     <hr class="pixel mt-4" />
@@ -58,9 +58,10 @@ const stack = [
       <div class="rt-row rt-header">
         <span>task</span><span>model</span><span>where</span>
       </div>
-      <div class="rt-row"><span>code completion</span><span>Copilot / GPT-4o</span><span class="text-purple">cloud</span></div>
-      <div class="rt-row"><span>chat / explain</span><span>GitHub Models free tier</span><span class="text-indigo">cloud</span></div>
-      <div class="rt-row"><span>heavy reasoning</span><span>Llama 4 / local 70B</span><span class="text-green">local gpu</span></div>
+      <div class="rt-row"><span>code completion</span><span>Copilot / GPT-5 mini</span><span class="text-purple">cloud</span></div>
+      <div class="rt-row"><span>chat / explain</span><span>GPT-4o / auto model select</span><span class="text-indigo">cloud</span></div>
+      <div class="rt-row"><span>heavy reasoning</span><span>Claude Opus 4.7 / local 70B</span><span class="text-green">cloud + gpu</span></div>
+      <div class="rt-row"><span>long-running agents</span><span>Claude Sonnet / Codex (Pro+)</span><span class="text-purple">cloud</span></div>
       <div class="rt-row"><span>always-on assistant</span><span>Zenith LAN server</span><span class="text-cyan">homelab</span></div>
       <div class="rt-row"><span>Workers AI / edge</span><span>CF AI Gateway</span><span class="text-orange">edge</span></div>
     </div>
