@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const hardware = [
+  { name: 'Main Dev Rig', specs: 'GPU-accelerated, runs Ollama + llama.cpp for local inference', tag: 'badge-green' },
+  { name: 'Home Server (Zenith Lab)', specs: 'Always-on LAN inference server — serves models to other machines', tag: 'badge-cyan' },
+];
+const software = [
+  { name: 'VS Code + GitHub Copilot', note: 'Primary editor, AI code completion' },
+  { name: 'opencode', note: 'AI-powered terminal coding tool (configured in ~/.config)' },
+  { name: 'Ollama', note: 'Local model manager — Llama 3/4, Phi, Mistral etc.' },
+  { name: 'Wrangler', note: 'Cloudflare Workers CLI — deploy & dev' },
+  { name: 'Astro', note: 'Static site framework (this site)' },
+  { name: 'draw.io', note: 'Architecture diagrams — free, offline capable' },
+];
+const cloud = [
+  { name: 'GitHub Copilot Pro', cost: '$10/mo' },
+  { name: 'Cloudflare Workers (paid)', cost: '$5/mo' },
+  { name: 'GitHub Models', cost: 'free tier' },
+  { name: 'Cloudflare AI Gateway', cost: 'included in Workers' },
+];
+---
+
+<Layout title="Uses" description="Travis's gear, software, and tools">
+  <section class="container" style="padding-top:3rem">
+    <h1>// uses</h1>
+    <p class="text-dim mt-2">Gear and software I actually use. Updated when things change.</p>
+
+    <hr class="pixel mt-3" />
+
+    <h2 class="mt-3">hardware</h2>
+    <div class="uses-grid mt-2">
+      {hardware.map(h => (
+        <div class="card">
+          <h3>{h.name} <span class={`badge ${h.tag}`} style="font-size:6px;margin-left:0.5rem">local</span></h3>
+          <p class="text-dim mt-1" style="font-size:13px">{h.specs}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="mt-4">software</h2>
+    <div class="software-list mt-2">
+      {software.map(s => (
+        <div class="software-row">
+          <span class="sw-name">{s.name}</span>
+          <span class="sw-note">{s.note}</span>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="mt-4">cloud subscriptions</h2>
+    <div class="cloud-list mt-2">
+      {cloud.map(c => (
+        <div class="cloud-row">
+          <span>{c.name}</span>
+          <span class="text-gold text-pixel" style="font-size:8px">{c.cost}</span>
+        </div>
+      ))}
+      <div class="cloud-row total-row">
+        <span class="text-pixel" style="font-size:9px;color:var(--gold)">total</span>
+        <span class="text-gold text-pixel" style="font-size:9px">~$15/mo</span>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .uses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .software-list, .cloud-list { border: 1px solid var(--card-border); }
+  .software-row, .cloud-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba(168,85,247,.08);
+    font-size: 13px;
+  }
+  .software-row:last-child, .cloud-row:last-child { border-bottom: none; }
+  .sw-name { color: var(--cyan); font-family: var(--mono); }
+  .sw-note { color: var(--dim); font-size: 12px; text-align: right; }
+  .total-row { background: rgba(255,215,0,.04); border-top: 1px solid rgba(255,215,0,.2); }
+</style>

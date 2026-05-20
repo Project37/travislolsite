@@ -1,151 +1,147 @@
-/* Global styles and theme variables */
+/* ============================================
+   travis.lol — Pixel Art Global Styles
+   Press Start 2P + JetBrains Mono + CRT vibes
+   ============================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* ── CSS Variables ── */
 :root {
-  /* Solarized Light */
-  --base03: #002b36;
-  --base02: #073642;
-  --base01: #586e75;
-  --base00: #657b83;
-  --base0:  #839496;
-  --base1:  #93a1a1;
-  --base2:  #eee8d5;
-  --base3:  #fdf6e3;
-  --yellow: #b58900;
-  --orange: #cb4b16;
-  --red:    #dc322f;
-  --magenta:#d33682;
-  --violet: #6c71c4;
-  --blue:   #268bd2;
-  --cyan:   #2aa198;
-  --green:  #859900;
-  /* Additional colors for new expertise areas */
-  --teal:   #00827F;
-  --purple: #8052EC;
-  /* Main theme variables */
-  --bg: var(--base3);
-  --fg: var(--base00);
-  --fg-rgb: 101, 123, 131; /* RGB for #657b83 */
-  --accent: var(--blue);
+  --bg:       #080010;
+  --bg2:      #0e0020;
+  --orange:   #ff6600;
+  --green:    #00ff41;
+  --cyan:     #00d4ff;
+  --purple:   #a855f7;
+  --indigo:   #6366f1;
+  --red:      #ff3060;
+  --gold:     #ffd700;
+  --white:    #e0e0ff;
+  --dim:      #555577;
+  --pixel:    'Press Start 2P', monospace;
+  --mono:     'JetBrains Mono', monospace;
+  --card-bg:  rgba(255,255,255,0.03);
+  --card-border: rgba(168,85,247,0.25);
+  --radius:   0px; /* pixel-sharp — no border-radius */
 }
 
-[data-theme="dark"] {
-  --bg: var(--base03);
-  --fg: var(--base0);
-  --fg-rgb: 131, 148, 150; /* RGB for #839496 */
-  --accent: var(--cyan);
-  /* Keep the standard Solarized colors but adjust teal for better visibility in dark mode */
-  --teal: #4DB6AC;
-}
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Dracula Theme */
-[data-theme="dracula"] {
-  --bg: #282a36;
-  --fg: #f8f8f2;
-  --fg-rgb: 248, 248, 242; /* RGB for #f8f8f2 */
-  --accent: #bd93f9;
-  --base02: #44475a;
-  --base1: #f8f8f2;
-  --yellow: #f1fa8c;
-  --green: #50fa7b;
-  --blue: #8be9fd;
-  --red: #ff5555;
-  --teal: #64FFDA;
-  --purple: #bd93f9;
-}
-
-/* Gruvbox Dark Theme */
-[data-theme="gruvbox"] {
-  --bg: #282828;
-  --fg: #ebdbb2;
-  --fg-rgb: 235, 219, 178; /* RGB for #ebdbb2 */
-  --accent: #fe8019;
-  --base02: #3c3836;
-  --base1: #ebdbb2;
-  --yellow: #fabd2f;
-  --red: #fb4934;
-  --teal: #8ec07c;
-  --purple: #d3869b;
-  --green: #b8bb26;
-  --blue: #83a598;
-}
-
-/* Gruvbox Soft Theme */
-[data-theme="one-light"] {
-  --bg: #f2e5bc;      /* Gruvbox light soft background */
-  --fg: #3c3836;      /* Gruvbox dark foreground */
-  --fg-rgb: 60, 56, 54; /* RGB for #3c3836 */
-  --accent: #d65d0e;  /* Gruvbox orange for accent */
-  --base03: #f2e5bc;  /* Soft background */
-  --base02: #ebdbb2;  /* Lighter background */
-  --base01: #d5c4a1;  /* Gruvbox light muted */
-  --base00: #bdae93;  /* Light muted */
-  --base0:  #7c6f64;  /* Dark muted */
-  --base1:  #665c54;  /* Darker muted */
-  --base2:  #ebdbb2;  /* Light bg highlight */
-  --base3:  #f9f5d7;  /* Brightest bg */
-  --yellow: #d79921;  /* Gruvbox yellow */
-  --orange: #d65d0e;  /* Gruvbox orange */
-  --red:    #cc241d;  /* Gruvbox red */
-  --magenta:#b16286;  /* Gruvbox purple/magenta */
-  --violet: #8f3f71;  /* Gruvbox darker purple */
-  --blue:   #458588;  /* Gruvbox blue */
-  --cyan:   #689d6a;  /* Gruvbox aqua */
-  --green:  #98971a;  /* Gruvbox green */
-  --teal:   #689d6a;  /* Gruvbox aqua (duplicate) */
-  --purple: #b16286;  /* Gruvbox purple (duplicate) */
-}
-
-/* Programming Light Theme */
-[data-theme="programming-light"] {
-  --bg: #ffffff;
-  --fg: #333333;
-  --fg-rgb: 51, 51, 51; /* RGB for #333333 */
-  --accent: #007acc;
-  --base03: #f3f3f3;
-  --base02: #e1e1e1;
-  --base01: #cfcfcf;
-  --base00: #bdbdbd;
-  --base0:  #5c5c5c;
-  --base1:  #454545;
-  --base2:  #e1e1e1;
-  --base3:  #ffffff;
-  --yellow: #b89500;
-  --orange: #c85c00;
-  --red:    #a1260d;
-  --magenta:#b4009e;
-  --violet: #800080;
-  --blue:   #007acc;
-  --cyan:   #008080;
-  --green:  #008000;
-  --teal:   #008080;
-  --purple: #800080;
-}
+/* ── Base ── */
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
-  margin: 0;
+  background-color: var(--bg);
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.7;
   min-height: 100vh;
-  font-family: 'Inter', system-ui, sans-serif;
-  transition: background 0.3s, color 0.3s;
+  /* pixel grid texture */
+  background-image:
+    linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+  background-size: 16px 16px;
 }
 
-/* Common typography */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
+/* CRT scanlines overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0, transparent 3px,
+    rgba(0,0,0,.18) 3px, rgba(0,0,0,.18) 4px
+  );
 }
 
-p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
+/* ── Typography ── */
+h1, h2, h3 { font-family: var(--pixel); line-height: 1.4; }
+h1 { font-size: clamp(14px, 3vw, 28px); color: var(--green); }
+h2 { font-size: clamp(10px, 2vw, 18px); color: var(--cyan); }
+h3 { font-size: clamp(8px, 1.5vw, 13px); color: var(--purple); }
+
+a { color: var(--orange); text-decoration: none; }
+a:hover { color: var(--gold); text-decoration: underline; }
+
+code, pre {
+  font-family: var(--mono);
+  background: rgba(0,0,0,.4);
+  border: 1px solid var(--card-border);
+  border-radius: 2px;
+  padding: 2px 6px;
+  color: var(--green);
+  font-size: 0.85em;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.2s;
+/* ── Layout ── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-a:hover {
-  color: var(--yellow);
+/* ── Pixel Card ── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  clip-path: polygon(0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px));
+  padding: 1.5rem;
+  transition: border-color .2s, box-shadow .2s;
 }
+.card:hover {
+  border-color: var(--purple);
+  box-shadow: 0 0 20px rgba(168,85,247,.2);
+}
+
+/* ── Pixel Badge / Tag ── */
+.badge {
+  display: inline-block;
+  font-family: var(--pixel);
+  font-size: 7px;
+  padding: 4px 8px;
+  border: 1px solid currentColor;
+  clip-path: polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px));
+}
+.badge-green  { color: var(--green);  border-color: var(--green); }
+.badge-orange { color: var(--orange); border-color: var(--orange); }
+.badge-purple { color: var(--purple); border-color: var(--purple); }
+.badge-cyan   { color: var(--cyan);   border-color: var(--cyan); }
+.badge-gold   { color: var(--gold);   border-color: var(--gold); }
+
+/* ── Glitch text effect ── */
+@keyframes glitch {
+  0%, 95%, 100% { text-shadow: none; transform: none; }
+  96% { text-shadow: -2px 0 var(--red), 2px 0 var(--cyan); transform: translateX(-1px) skewX(-1deg); }
+  98% { text-shadow:  2px 0 var(--orange), -2px 0 var(--purple); transform: translateX(1px); }
+}
+.glitch { animation: glitch 6s infinite; }
+
+/* ── Terminal prompt ── */
+.prompt::before { content: '> '; color: var(--green); font-family: var(--mono); }
+
+/* ── Divider ── */
+hr.pixel {
+  border: none;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--purple) 0, var(--purple) 4px, transparent 4px, transparent 8px);
+  margin: 2rem 0;
+}
+
+/* ── Utility ── */
+.text-green  { color: var(--green); }
+.text-orange { color: var(--orange); }
+.text-purple { color: var(--purple); }
+.text-cyan   { color: var(--cyan); }
+.text-gold   { color: var(--gold); }
+.text-dim    { color: var(--dim); }
+.text-pixel  { font-family: var(--pixel); font-size: 10px; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }

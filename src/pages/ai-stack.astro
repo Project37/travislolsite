@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stack = [
+  { label: 'GitHub Copilot Pro', cost: '$10/mo', color: 'var(--purple)', note: 'token-based from June 2026, ~300 premium reqs/mo free then pay-as-you-go' },
+  { label: 'GitHub Models', cost: 'FREE', color: 'var(--indigo)', note: 'Llama 4, Phi-4, GPT-4o-mini via Copilot token pool' },
+  { label: 'Cloudflare Workers', cost: '$5/mo', color: 'var(--orange)', note: '10M req/mo, Workers AI, AI Gateway, Pages hosting' },
+  { label: 'Local GPU Rig', cost: '$0/mo', color: 'var(--green)', note: 'Ollama + llama.cpp — heavy tasks, offline use' },
+  { label: 'Home Server (Zenith)', cost: '$0/mo', color: 'var(--cyan)', note: 'LAN inference server, always-on model host' },
+];
+---
+
+<Layout title="AI Stack" description="Travis's $15/mo AI homelab setup">
+  <section class="container" style="padding-top:3rem">
+    <h1>// ai-stack</h1>
+    <p class="text-dim mt-2" style="max-width:560px">
+      My flat-rate $15/month AI setup. Cloud + local, token-aware, no vendor lock-in.
+      <a href="https://ai-homelab-dashboard.workers.dev" target="_blank" rel="noopener" class="text-orange">
+        → view live dashboard
+      </a>
+    </p>
+    <p class="text-dim mt-2" style="max-width:560px">
+      The newest piece of this setup is my private edge chat on
+      <a href="https://chat.travis.lol" target="_blank" rel="noopener" class="text-orange">
+        chat.travis.lol
+      </a>
+      — Cloudflare Agents voice + text with Gemma 4 as the default model.
+    </p>
+
+    <hr class="pixel mt-3" />
+
+    <div class="stack-list mt-3">
+      {stack.map(s => (
+        <div class="stack-item card">
+          <div class="stack-left">
+            <div class="stack-dot" style={`background:${s.color};box-shadow:0 0 6px ${s.color}`}></div>
+            <div>
+              <div class="stack-label" style={`color:${s.color}`}>{s.label}</div>
+              <div class="stack-note">{s.note}</div>
+            </div>
+          </div>
+          <div class="stack-cost" style={`color:${s.color}`}>{s.cost}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="total-card card mt-3">
+      <span class="text-pixel text-gold">TOTAL MONTHLY</span>
+      <span class="total-amount">$15 / mo</span>
+    </div>
+
+    <hr class="pixel mt-4" />
+
+    <h2 class="mt-3">// model routing</h2>
+    <p class="text-dim mt-2" style="font-size:13px">Where each task type gets routed:</p>
+
+    <div class="routing-table mt-2">
+      <div class="rt-row rt-header">
+        <span>task</span><span>model</span><span>where</span>
+      </div>
+      <div class="rt-row"><span>code completion</span><span>Copilot / GPT-4o</span><span class="text-purple">cloud</span></div>
+      <div class="rt-row"><span>chat / explain</span><span>GitHub Models free tier</span><span class="text-indigo">cloud</span></div>
+      <div class="rt-row"><span>heavy reasoning</span><span>Llama 4 / local 70B</span><span class="text-green">local gpu</span></div>
+      <div class="rt-row"><span>always-on assistant</span><span>Zenith LAN server</span><span class="text-cyan">homelab</span></div>
+      <div class="rt-row"><span>Workers AI / edge</span><span>CF AI Gateway</span><span class="text-orange">edge</span></div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .stack-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .stack-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .stack-left { display: flex; align-items: flex-start; gap: 0.75rem; flex: 1; }
+  .stack-dot  { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; margin-top: 4px; }
+  .stack-label{ font-family: var(--pixel); font-size: 9px; margin-bottom: 4px; }
+  .stack-note { color: var(--dim); font-size: 12px; }
+  .stack-cost { font-family: var(--pixel); font-size: 9px; white-space: nowrap; }
+
+  .total-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(255,215,0,.1);
+  }
+  .total-amount {
+    font-family: var(--pixel);
+    font-size: 18px;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(255,215,0,.5);
+  }
+
+  .routing-table { display: flex; flex-direction: column; border: 1px solid var(--card-border); }
+  .rt-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 80px;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(168,85,247,.1);
+  }
+  .rt-row:last-child { border-bottom: none; }
+  .rt-header {
+    font-family: var(--pixel);
+    font-size: 8px;
+    color: var(--dim);
+    background: rgba(0,0,0,.3);
+  }
+  .text-indigo { color: var(--indigo); }
+</style>

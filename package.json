@@ -1,34 +1,15 @@
 {
-  "name": "main_site",
+  "name": "travis-lol",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "check": "astro sync && tsc --noEmit",
-    "verify-release": "npm outdated && npm audit && npm run check && npm run build",
-    "postbuild": "cp public/.nojekyll dist/.nojekyll",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier --write .",
-    "lint": "eslint --ext .js,.ts,.astro src",
-    "deploy": "gh-pages -d dist --dotfiles"
+    "preview": "wrangler pages dev ./dist",
+    "deploy": "astro build && wrangler pages deploy ./dist"
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.4",
-    "@iconify-json/carbon": "^1.2.18",
-    "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/tabler": "^1.2.27",
-    "@typescript-eslint/parser": "^8.56.1",
-    "astro": "^5.17.3",
-    "astro-icon": "^1.1.5",
-    "typescript": "^5.9.3"
-  },
-  "devDependencies": {
-    "eslint": "^10.0.1",
-    "eslint-plugin-astro": "^1.6.0",
-    "gh-pages": "^6.3.0",
-    "prettier": "^3.8.1",
-    "prettier-plugin-astro": "^0.14.1"
+    "@astrojs/cloudflare": "^13.5.1",
+    "astro": "^6.3.3"
   }
 }

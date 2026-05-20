@@ -1,152 +1,237 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-import ExpertiseCard from '../components/ExpertiseCard.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import ContactInfo from '../components/ContactInfo.astro';
-import CodeBrackets from '../components/CodeBrackets.astro'; // Changed from ASCIIBrackets
-import siteConfig from '../config/site.js';
-import expertiseAreas from '../config/expertise.js';
-import projects from '../config/projects.js';
-
-const { author } = siteConfig;
 ---
 
-<Layout>
-  <!-- Hero section with professional introduction -->
-  <section class="hero">
-    <div class="hero-container">
-      <h1>Securing Your Digital Future</h1>
-      <p>
-        Senior IT Security Professional with extensive experience in enterprise security architecture, threat mitigation, and security compliance.
+<Layout title="travis.lol">
+  <section class="hero container">
+    <!-- Pixel robot mascot -->
+    <div class="hero-avatar" aria-hidden="true">
+      <svg width="80" height="80" viewBox="0 0 10 10" style="image-rendering:pixelated">
+        <!-- antenna -->
+        <rect x="4" y="0" width="2" height="1" fill="#a855f7"/>
+        <rect x="4" y="1" width="1" height="1" fill="#a855f7"/>
+        <!-- head -->
+        <rect x="2" y="2" width="6" height="4" fill="#6366f1"/>
+        <!-- eyes -->
+        <rect x="3" y="3" width="2" height="2" fill="#00d4ff"/>
+        <rect x="7" y="3" width="2" height="2" fill="#00d4ff"/>
+        <!-- eye glow -->
+        <rect x="4" y="4" width="1" height="1" fill="#ffffff"/>
+        <rect x="8" y="4" width="1" height="1" fill="#ffffff"/>
+        <!-- mouth -->
+        <rect x="3" y="5" width="1" height="1" fill="#ff6600"/>
+        <rect x="5" y="5" width="1" height="1" fill="#ff6600"/>
+        <rect x="7" y="5" width="1" height="1" fill="#ff6600"/>
+        <!-- body -->
+        <rect x="3" y="6" width="4" height="3" fill="#a855f7"/>
+        <!-- core -->
+        <rect x="4" y="7" width="2" height="1" fill="#00ff41"/>
+        <!-- legs -->
+        <rect x="3" y="9" width="1" height="1" fill="#6366f1"/>
+        <rect x="6" y="9" width="1" height="1" fill="#6366f1"/>
+      </svg>
+    </div>
+
+    <div class="hero-text">
+      <h1 class="glitch">travis.lol</h1>
+      <p class="hero-sub prompt">devsecops eng · threat modeler · homelab builder</p>
+      <p class="hero-desc">
+        Embedding security into pipelines, threat modeling product lines, and building risk frameworks
+        by day. Running local AI stacks, writing C for Flipper Zero, and breaking things on purpose by night.
       </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <Button href="/#contact" variant="primary">Contact Me</Button>
-        <Button href="/blog/" variant="outline">Read My Blog</Button>
+      <div class="hero-tags">
+        <span class="badge badge-green">DevSecOps</span>
+        <span class="badge badge-cyan">Threat Modeling</span>
+        <span class="badge badge-purple">Security Automation</span>
+        <span class="badge badge-green">Local AI</span>
+        <span class="badge badge-orange">Cloudflare</span>
       </div>
     </div>
   </section>
 
-  <main>
-    <!-- About section -->
-    <section id="about" class="section" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
-      <div>
-        <h2 class="section-title">About Me</h2>
-        <p>With over {author.yearsOfExperience} years of experience in IT security, I specialize in designing and implementing robust security solutions for enterprises. My expertise spans across network security, identity and access management, security compliance frameworks, and incident response.</p>
-        <p>I am passionate about staying ahead of emerging threats and utilizing cutting-edge technologies to protect organizational assets. I believe in a proactive approach to security, focusing on threat prevention while maintaining operational efficiency.</p>
-        <p>Currently serving as a Senior IT Security Administrator at {author.company}, I oversee security operations and lead initiatives to enhance the organization's security posture.</p>
-      </div>
-      <div style="text-align: center;">
-        <!-- Replace with a professional headshot or security-themed image -->
-        <div style="width: 250px; height: 250px; background: var(--base02); border-radius: 0.5rem; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: bold;">
-          [Your Professional Photo]
+  <hr class="pixel container" style="max-width:960px;margin:2rem auto;" />
+
+  <section class="grid-section container">
+    <h2 class="section-title">// latest</h2>
+    <div class="card-grid">
+
+      <a href="/work" class="card card-link">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 8 8" style="image-rendering:pixelated">
+            <!-- shield body -->
+            <rect x="2" y="0" width="4" height="1" fill="#a855f7"/>
+            <rect x="1" y="1" width="6" height="5" fill="#a855f7"/>
+            <rect x="2" y="6" width="4" height="1" fill="#a855f7"/>
+            <rect x="3" y="7" width="2" height="1" fill="#a855f7"/>
+            <!-- shield inner -->
+            <rect x="2" y="2" width="4" height="3" fill="#080010"/>
+            <!-- lock shackle -->
+            <rect x="3" y="2" width="2" height="1" fill="#00d4ff"/>
+            <!-- lock body -->
+            <rect x="2" y="3" width="4" height="2" fill="#00d4ff"/>
+            <!-- keyhole -->
+            <rect x="3" y="3" width="2" height="1" fill="#080010"/>
+            <rect x="3" y="4" width="1" height="1" fill="#080010"/>
+          </svg>
         </div>
-      </div>
-    </section>
+        <h3>Work</h3>
+        <p>Career path from help desk to DevSecOps — security automation, threat modeling, risk frameworks.</p>
+        <span class="badge badge-purple mt-2">career →</span>
+      </a>
 
-    <!-- Expertise section -->
-    <section id="expertise" class="section">
-      <h2 class="section-title">Areas of Expertise</h2>
-      
-      <div class="expertise-grid">
-        {expertiseAreas.map(area => (
-          <ExpertiseCard 
-            title={area.title} 
-            description={area.description} 
-            color={area.color}
-            icon={area.icon}
-          />
-        ))}
-      </div>
-    </section>
-
-    <!-- Projects/Case Studies Section -->
-    <section id="projects" class="section">
-      <h2 class="section-title">Selected Projects</h2>
-      
-      <div class="project-grid">
-        {projects.map(project => (
-          <ProjectCard 
-            title={project.title}
-            company={project.company}
-            duration={project.duration}
-            challenge={project.challenge}
-            solution={project.solution}
-            result={project.result}
-            accentColor={project.accentColor}
-          />
-        ))}
-      </div>
-    </section>
-
-    <!-- Code Bracket Demo Section -->
-    <section id="approach" class="section">
-      <h2 class="section-title">My Security Approach</h2>
-      
-      <div>
-        <CodeBrackets type="security-report" size="medium" color="violet" label="APPROACH">
-          <div style="text-align: center; padding: 1rem 2rem;">
-            <h3 style="color: var(--violet); margin-bottom: 1rem;">Security-First Methodology</h3>
-            <p>My security approach integrates advanced technology with strategic planning to create multi-layered defense mechanisms that adapt to evolving threats while maintaining business continuity.</p>
-          </div>
-        </CodeBrackets>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 2rem;">
-          <CodeBrackets type="python" size="small" color="green" label="prevention.py">
-            <div style="text-align: center; padding: 1rem;">
-              <h4 style="color: var(--green); margin-bottom: 0.5rem;">Prevention</h4>
-              <p>Proactive security measures to prevent breaches before they occur.</p>
-            </div>
-          </CodeBrackets>
-          
-          <CodeBrackets type="jsx" size="small" color="blue" label="Monitor.jsx">
-            <div style="text-align: center; padding: 1rem;">
-              <h4 style="color: var(--blue); margin-bottom: 0.5rem;">Monitoring</h4>
-              <p>Continuous security monitoring to detect anomalies and threats in real-time.</p>
-            </div>
-          </CodeBrackets>
-          
-          <CodeBrackets type="css" size="small" color="orange" label="Response.css">
-            <div style="text-align: center; padding: 1rem;">
-              <h4 style="color: var(--orange); margin-bottom: 0.5rem;">Response</h4>
-              <p>Rapid incident response protocols to minimize impact when threats are detected.</p>
-            </div>
-          </CodeBrackets>
+      <a href="/ai-stack" class="card card-link">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 8 8" style="image-rendering:pixelated">
+            <rect x="1" y="0" width="6" height="1" fill="#a855f7"/>
+            <rect x="0" y="1" width="8" height="5" fill="#080010"/>
+            <rect x="1" y="2" width="2" height="1" fill="#00ff41"/>
+            <rect x="4" y="2" width="3" height="1" fill="#6366f1"/>
+            <rect x="1" y="4" width="5" height="1" fill="#ff6600"/>
+            <rect x="0" y="6" width="8" height="1" fill="#a855f7"/>
+          </svg>
         </div>
-        
-        <div style="margin-top: 3rem;">
-          <CodeBrackets type="code-review" size="medium" color="teal" label="SECURITY ASSESSMENT">
-            <div style="padding: 1.5rem;">
-              <h3 style="color: var(--teal); margin-bottom: 1rem; text-align: center;">My Security Assessment Process</h3>
-              
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                <div>
-                  <h4 style="color: var(--teal); margin-bottom: 0.5rem;">1. Identify</h4>
-                  <p>Comprehensive asset inventory and vulnerability scanning to identify potential weaknesses.</p>
-                  
-                  <h4 style="color: var(--teal); margin: 1rem 0 0.5rem;">3. Analyze</h4>
-                  <p>Risk assessment and threat modeling to prioritize security measures.</p>
-                </div>
-                
-                <div>
-                  <h4 style="color: var(--teal); margin-bottom: 0.5rem;">2. Protect</h4>
-                  <p>Implementation of security controls and hardening measures to protect critical assets.</p>
-                  
-                  <h4 style="color: var(--teal); margin: 1rem 0 0.5rem;">4. Respond</h4>
-                  <p>Incident response planning and regular security drills to ensure readiness.</p>
-                </div>
-              </div>
-            </div>
-          </CodeBrackets>
+        <h3>AI Home Stack</h3>
+        <p>My $15/mo AI setup — Copilot Pro, CF Workers, local GPUs &amp; a home server.</p>
+        <span class="badge badge-green mt-2">live →</span>
+      </a>
+
+      <a href="/projects" class="card card-link">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 8 8" style="image-rendering:pixelated">
+            <rect x="0" y="1" width="8" height="6" fill="#0e0020"/>
+            <rect x="1" y="2" width="6" height="4" fill="#080010"/>
+            <rect x="2" y="3" width="4" height="1" fill="#00d4ff"/>
+            <rect x="2" y="5" width="2" height="1" fill="#a855f7"/>
+            <rect x="0" y="0" width="2" height="1" fill="#ff6600"/>
+            <rect x="3" y="0" width="2" height="1" fill="#ff6600"/>
+            <rect x="6" y="0" width="2" height="1" fill="#ff6600"/>
+          </svg>
         </div>
-      </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="section" style="margin-bottom: 3rem;">
-      <ContactInfo>
-        <!-- You can add a contact form or other content in this slot if needed -->
-      </ContactInfo>
-    </section>
-  </main>
+        <h3>Projects</h3>
+        <p>Things I've built. Workers, tools, experiments, and whatever else escapes the lab.</p>
+        <span class="badge badge-cyan mt-2">view all →</span>
+      </a>
+
+      <a href="https://chat.travis.lol" class="card card-link" target="_blank" rel="noopener">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 8 8" style="image-rendering:pixelated">
+            <rect x="2" y="0" width="4" height="1" fill="#a855f7"/>
+            <rect x="1" y="1" width="6" height="4" fill="#6366f1"/>
+            <rect x="2" y="2" width="1" height="1" fill="#00d4ff"/>
+            <rect x="5" y="2" width="1" height="1" fill="#00d4ff"/>
+            <rect x="2" y="4" width="4" height="1" fill="#ff6600"/>
+            <rect x="1" y="5" width="6" height="2" fill="#0e0020"/>
+            <rect x="2" y="6" width="4" height="1" fill="#00ff41"/>
+          </svg>
+        </div>
+        <h3>Private AI Chat</h3>
+        <p>Cloudflare Agents voice + text chat with Gemma 4 by default, live model switching, and pixel UI.</p>
+        <span class="badge badge-orange mt-2">open chat ↗</span>
+      </a>
+
+      <a href="/uses" class="card card-link">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 8 8" style="image-rendering:pixelated">
+            <rect x="2" y="0" width="4" height="1" fill="#ffd700"/>
+            <rect x="1" y="1" width="6" height="5" fill="#0e0020"/>
+            <rect x="2" y="2" width="4" height="1" fill="#00ff41"/>
+            <rect x="2" y="4" width="3" height="1" fill="#ffd700"/>
+            <rect x="3" y="6" width="2" height="2" fill="#a855f7"/>
+            <rect x="1" y="7" width="6" height="1" fill="#6366f1"/>
+          </svg>
+        </div>
+        <h3>Uses</h3>
+        <p>Hardware, software, and tools I actually use day to day — including my local AI rigs.</p>
+        <span class="badge badge-gold mt-2">gear list →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="status-bar container">
+    <div class="status-inner">
+      <span class="status-dot"></span>
+      <span class="text-pixel text-dim">system online</span>
+      <span class="text-pixel text-dim">|</span>
+      <span class="text-pixel text-green">devsecops ✓</span>
+      <span class="text-pixel text-dim">|</span>
+      <span class="text-pixel text-cyan">threat model active ✓</span>
+      <span class="text-pixel text-dim">|</span>
+      <span class="text-pixel text-orange">cf workers ✓</span>
+      <span class="text-pixel text-dim">|</span>
+      <span class="text-pixel text-purple">local gpu ✓</span>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-avatar {
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 12px rgba(168,85,247,.6));
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
+  }
+  .hero-text { flex: 1; min-width: 240px; }
+  .hero-sub  { color: var(--green); margin: 0.75rem 0; font-size: 12px; }
+  .hero-desc { color: var(--dim); max-width: 520px; margin-bottom: 1.5rem; }
+  .hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  .section-title {
+    font-family: var(--pixel);
+    font-size: 10px;
+    color: var(--dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .card-link h3 { margin: 0.75rem 0 0.5rem; }
+  .card-link p  { color: var(--dim); font-size: 13px; }
+  .card-icon    { margin-bottom: 0.5rem; }
+
+  .status-bar {
+    margin-top: 4rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+  }
+  .status-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 8px;
+  }
+  .status-dot {
+    width: 8px; height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--green);
+    animation: blink 2s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+</style>

@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const roles = [
+  {
+    title: 'DevSecOps Software Engineer',
+    period: 'current',
+    badge: 'badge-green',
+    badgeLabel: 'now',
+    summary: 'Lead security automation and integration initiatives by embedding security into development pipelines and Agile workflows. Trusted advisor for secure practices and risk management — bridging the gap between IT, security, and engineering.',
+    highlights: [
+      'Designed and implemented automated workflows to package and validate enterprise applications with built-in integrity checks and repeatable deployment artifacts',
+      'Co-founded internal Kanban workflow initiative — standardized endpoint provisioning, app delivery, and configuration change processes',
+      'Build and maintain threat models and risk management frameworks across all supported product lines',
+      'Partner cross-functionally to deliver security awareness training and align security strategy with business and engineering teams',
+    ],
+    tags: ['DevSecOps', 'CI/CD', 'Threat Modeling', 'Risk Management', 'Agile / Kanban', 'Security Automation'],
+    color: 'var(--green)',
+  },
+  {
+    title: 'Sr. IT Security Engineer',
+    period: 'prior',
+    badge: 'badge-cyan',
+    badgeLabel: 'prior',
+    summary: 'Managed daily security operations with a strong focus on endpoint protection, vulnerability management, and incident response. Led enterprise-level security tooling deployments and standardized IT processes organization-wide.',
+    highlights: [
+      'Led enterprise-wide rollout of Privileged Access Management (PAM) and Endpoint Detection & Response (EDR) solutions',
+      'Directed vulnerability patching, malware remediation, and SIEM-based security incident investigation',
+      'Modernized security operations — replaced ad-hoc tasks with standardized, documented procedures',
+      'Coordinated with internal IT and external partners to strengthen organizational defenses and ensure smooth security deployments',
+    ],
+    tags: ['PAM', 'EDR', 'SIEM', 'Incident Response', 'Vuln Management', 'Endpoint Security'],
+    color: 'var(--cyan)',
+  },
+  {
+    title: 'IT Security',
+    period: 'prior',
+    badge: 'badge-purple',
+    badgeLabel: 'prior',
+    summary: 'Security operations focused on endpoint protection, vulnerability management, and compliance. Supported internal initiatives and built the operational foundation that led to the senior security role.',
+    highlights: [
+      'Endpoint protection and vulnerability management day-to-day operations',
+      'Investigated and triaged security alerts using enterprise security platforms',
+      'Supported internal compliance initiatives and security audits',
+      'Standardized security documentation and developed repeatable operational procedures',
+    ],
+    tags: ['Endpoint Security', 'Vulnerability Mgmt', 'Compliance', 'Security Ops', 'Documentation'],
+    color: 'var(--purple)',
+  },
+  {
+    title: 'IT Support / Help Desk',
+    period: 'foundation',
+    badge: 'badge-orange',
+    badgeLabel: 'foundation',
+    summary: 'Delivered comprehensive IT operations and technical support. Built the identity management, endpoint, and process optimization foundation that opened the door into dedicated security work.',
+    highlights: [
+      'Resolved complex hardware, software, and network issues — hands-on and remote support across the org',
+      'Managed user access, permissions, and endpoint configurations for secure onboarding and offboarding',
+      'Created IT documentation, troubleshooting guides, and knowledge-base articles for end-users and junior staff',
+      'Liaised between end-users and infrastructure teams — identified recurring issues and advocated for long-term fixes',
+    ],
+    tags: ['Identity Management', 'Endpoint', 'ITSM', 'Technical Support', 'Documentation'],
+    color: 'var(--orange)',
+  },
+];
+---
+
+<Layout title="Work" description="Travis's career — DevSecOps, security engineering, IT">
+  <section class="container" style="padding-top:3rem">
+    <h1>// work</h1>
+    <p class="text-dim mt-2" style="max-width:560px">
+      Career path from help desk to DevSecOps — building things, securing things, and automating
+      the gap between them. Each role fed the next.
+    </p>
+
+    <hr class="pixel mt-3" />
+
+    <div class="timeline mt-3">
+      {roles.map((role, i) => (
+        <div class="timeline-item">
+          <div class="timeline-connector">
+            <div class="tl-dot" style={`background:${role.color};box-shadow:0 0 8px ${role.color}`}></div>
+            {i < roles.length - 1 && <div class="tl-line"></div>}
+          </div>
+          <div class="card role-card">
+            <div class="role-header">
+              <h3 style={`color:${role.color}`}>{role.title}</h3>
+              <span class={`badge ${role.badge}`}>{role.badgeLabel}</span>
+            </div>
+            <p class="role-summary text-dim mt-2">{role.summary}</p>
+            <ul class="highlights mt-2">
+              {role.highlights.map(h => (
+                <li><span class="hl-bullet" style={`color:${role.color}`}>▸</span> {h}</li>
+              ))}
+            </ul>
+            <div class="tag-list mt-3">
+              {role.tags.map(t => <span class="tag" style={`border-color:${role.color}33;color:${role.color}`}>{t}</span>)}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .timeline-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 1.5rem;
+  }
+
+  .tl-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .tl-line {
+    width: 2px;
+    flex: 1;
+    min-height: 2rem;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--card-border) 0,
+      var(--card-border) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    margin-top: 4px;
+  }
+
+  .role-card {
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .role-summary {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .highlights li {
+    font-size: 13px;
+    color: var(--dim);
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .hl-bullet {
+    flex-shrink: 0;
+    font-family: var(--mono);
+    margin-top: 1px;
+  }
+
+  .tag-list {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: rgba(0,0,0,.2);
+    border: 1px solid;
+    padding: 2px 6px;
+  }
+</style>

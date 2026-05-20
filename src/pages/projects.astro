@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    name: 'Private AI Chat',
+    desc: 'Cloudflare Agents chat app with text/voice modes, Workers AI STT/TTS, Gemma 4 by default, and a pixel-art UI.',
+    tags: ['cloudflare-agents', 'workers-ai', 'react'],
+    badge: 'badge-green',
+    badgeLabel: 'live',
+    href: 'https://chat.travis.lol',
+    external: true,
+  },
+  {
+    name: 'AI Homelab Dashboard',
+    desc: 'Pixel art Cloudflare Worker dashboard showing my full AI stack — costs, routing, model HP bars.',
+    tags: ['cloudflare-workers', 'typescript', 'pixel-art'],
+    badge: 'badge-orange',
+    badgeLabel: 'live',
+    href: '/ai-stack',
+  },
+  {
+    name: 'FlipUmp',
+    desc: 'Baseball umpire assistant for Flipper Zero. Tracks pitch count, balls, strikes, outs, score, fouls, hits, and HBP across innings — with haptic feedback and a single-level undo.',
+    tags: ['flipper-zero', 'c', 'embedded'],
+    badge: 'badge-gold',
+    href: 'https://github.com/Project37/FlipUmp',
+    external: true,
+  },
+  {
+    name: 'Zenith Lab',
+    desc: 'Work-in-progress home server AI orchestration project. Local models, APIs, and experiments.',
+    tags: ['python', 'local-ai', 'ollama'],
+    badge: 'badge-purple',
+    badgeLabel: 'wip',
+    href: '#',
+  },
+  {
+    name: 'travis.lol',
+    desc: 'This site. Built with Astro + Cloudflare Pages. Pixel art styling, dark theme, fast static output.',
+    tags: ['astro', 'cloudflare-pages', 'typescript'],
+    badge: 'badge-cyan',
+    badgeLabel: 'this',
+    href: '/',
+  },
+];
+---
+
+<Layout title="Projects" description="Things Travis has built">
+  <section class="container" style="padding-top:3rem">
+    <h1>// projects</h1>
+    <p class="text-dim mt-2" style="max-width:500px">
+      A collection of things I've built, tinkered with, or unleashed on unsuspecting servers.
+    </p>
+
+    <hr class="pixel mt-3" />
+
+    <div class="project-grid mt-3">
+      {projects.map(p => (
+        <a
+          href={p.href}
+          class="card card-link project-card"
+          target={p.external ? '_blank' : undefined}
+          rel={p.external ? 'noopener' : undefined}
+        >
+          <div class="project-header">
+            <h3>{p.name}</h3>
+            <span class={`badge ${p.badge}`}>{p.badgeLabel}</span>
+          </div>
+          <p class="project-desc">{p.desc}</p>
+          <div class="tag-list">
+            {p.tags.map(t => <span class="tag">{t}</span>)}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .card-link { display: block; text-decoration: none; color: inherit; }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .project-desc { color: var(--dim); font-size: 13px; margin-bottom: 1rem; }
+  .tag-list { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--indigo);
+    background: rgba(99,102,241,.1);
+    border: 1px solid rgba(99,102,241,.3);
+    padding: 2px 6px;
+  }
+</style>
