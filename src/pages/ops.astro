@@ -1,0 +1,384 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const controls = [
+  { name: 'CI build gate', state: 'online', detail: 'Astro build runs on push + PR before deploy.', badge: 'badge-green' },
+  { name: 'Dependency audit', state: 'clean', detail: 'npm audit blocks moderate+ findings in CI.', badge: 'badge-green' },
+  { name: 'Secret scanning', state: 'armed', detail: 'Gitleaks scans repo changes and local hooks grep staged files.', badge: 'badge-cyan' },
+  { name: 'CodeQL', state: 'watching', detail: 'JavaScript/TypeScript security-and-quality queries enabled.', badge: 'badge-purple' },
+  { name: 'SBOM', state: 'tracked', detail: 'Dependency graph snapshot published from CI.', badge: 'badge-gold' },
+  { name: 'Branch protection', state: 'locked', detail: 'main requires PR flow and Build + Security checks.', badge: 'badge-orange' },
+];
+
+const environments = [
+  { name: 'local', target: 'wrangler dev', purpose: 'iterate without touching prod', color: 'var(--cyan)' },
+  { name: 'preview', target: 'travis-lol-pr-*', purpose: 'ephemeral PR workers; destroyed on close', color: 'var(--purple)' },
+  { name: 'production', target: 'travis-lol', purpose: 'Cloudflare Worker serving travis.lol', color: 'var(--green)' },
+];
+
+const risks = [
+  { threat: 'Secret exposure', mitigation: 'Scoped env secrets, Gitleaks, no hardcoded tokens, key rotation after exposure.' },
+  { threat: 'Supply-chain drift', mitigation: 'Dependabot groups, npm audit gates, lockfile discipline, SBOM evidence.' },
+  { threat: 'Bad deploy', mitigation: 'Build gate, preview worker path, explicit production worker name.' },
+  { threat: 'Runaway AI spend', mitigation: 'Copilot Pro+ credits noted, local GPU fallback, cloud/local routing decisions.' },
+];
+
+const spend = [
+  { label: 'Copilot Pro+', value: '$39/mo', note: 'June 1, 2026: GitHub AI Credits, token-based usage.' },
+  { label: 'Cloudflare Workers', value: '$5/mo', note: 'Edge deploys, Workers AI, AI Gateway, observability.' },
+  { label: 'Local AI', value: '$0/mo', note: 'Ollama + llama.cpp for private or heavy tasks.' },
+];
+---
+
+<Layout title="Ops Cockpit" description="Public-safe DevSecOps cockpit for travis.lol">
+  <section class="container ops-shell">
+    <div class="ops-hero">
+      <div>
+        <p class="text-pixel text-dim">PUBLIC-SAFE CONTROL PLANE</p>
+        <h1 class="glitch">// ops-cockpit</h1>
+        <p class="ops-copy">
+          A retro DevSecOps evidence wall for this site: pipeline gates, security controls,
+          deploy rails, AI spend awareness, and a tiny threat model. No secrets, no internals,
+          just the receipts.
+        </p>
+      </div>
+      <div class="radar card" aria-hidden="true">
+        <div class="radar-grid"></div>
+        <div class="radar-sweep"></div>
+        <span class="radar-dot dot-a"></span>
+        <span class="radar-dot dot-b"></span>
+        <span class="radar-dot dot-c"></span>
+      </div>
+    </div>
+
+    <div class="terminal-strip mt-3">
+      <span class="status-light"></span>
+      <span>controls online</span>
+      <span class="text-dim">|</span>
+      <span>repo: Project37/travislolsite</span>
+      <span class="text-dim">|</span>
+      <span>deploy: Cloudflare Workers</span>
+    </div>
+
+    <hr class="pixel mt-3" />
+
+    <section class="ops-grid mt-3">
+      {controls.map(control => (
+        <article class="card control-card">
+          <div class="control-top">
+            <h3>{control.name}</h3>
+            <span class={`badge ${control.badge}`}>{control.state}</span>
+          </div>
+          <p>{control.detail}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="split-grid mt-4">
+      <div>
+        <h2>// deploy rail</h2>
+        <div class="rail mt-2">
+          {environments.map(env => (
+            <div class="rail-row">
+              <span class="rail-dot" style={`background:${env.color};box-shadow:0 0 8px ${env.color}`}></span>
+              <div>
+                <span class="rail-name" style={`color:${env.color}`}>{env.name}</span>
+                <span class="rail-target">{env.target}</span>
+                <p>{env.purpose}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2>// live pulse</h2>
+        <div class="pulse-card card mt-2">
+          <div class="pulse-line">
+            <span>github actions</span>
+            <span class="pulse-value" data-pulse-status>checking public api...</span>
+          </div>
+          <div class="pulse-line">
+            <span>production worker</span>
+            <a href="https://travis-lol.travdamico.workers.dev" target="_blank" rel="noopener">travis-lol</a>
+          </div>
+          <div class="pulse-line">
+            <span>security model</span>
+            <span class="text-green">shift-left + evidence</span>
+          </div>
+          <p class="text-dim pulse-note">
+            The Actions pulse uses GitHub's public API when available. If the repo is private
+            or rate-limited, the dashboard stays public-safe and shows the static controls.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="split-grid mt-4">
+      <div>
+        <h2>// mini threat model</h2>
+        <div class="threat-table mt-2">
+          {risks.map(risk => (
+            <div class="threat-row">
+              <span>{risk.threat}</span>
+              <p>{risk.mitigation}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2>// spend + routing</h2>
+        <div class="spend-list mt-2">
+          {spend.map(item => (
+            <div class="spend-row card">
+              <div>
+                <span class="spend-label">{item.label}</span>
+                <p>{item.note}</p>
+              </div>
+              <span class="spend-value">{item.value}</span>
+            </div>
+          ))}
+          <div class="spend-total">
+            <span>TOTAL KNOWN MONTHLY</span>
+            <strong>$44/mo</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <script is:inline>
+    const status = document.querySelector('[data-pulse-status]');
+    if (status) {
+      fetch('https://api.github.com/repos/Project37/travislolsite/actions/runs?per_page=1')
+        .then(response => response.ok ? response.json() : Promise.reject(new Error('unavailable')))
+        .then(data => {
+          const run = data.workflow_runs?.[0];
+          if (!run) {
+            status.textContent = 'no public runs';
+            return;
+          }
+          const conclusion = run.conclusion || run.status;
+          status.textContent = `${run.name}: ${conclusion}`;
+          status.classList.add(conclusion === 'success' ? 'text-green' : 'text-orange');
+        })
+        .catch(() => {
+          status.textContent = 'public api unavailable';
+          status.classList.add('text-dim');
+        });
+    }
+  </script>
+</Layout>
+
+<style>
+  .ops-shell { padding-top: 3rem; }
+  .ops-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 2rem;
+    align-items: center;
+  }
+  .ops-copy {
+    color: var(--dim);
+    max-width: 700px;
+    margin-top: 1rem;
+  }
+  .terminal-strip {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid var(--card-border);
+    background: rgba(0,0,0,.35);
+    padding: 0.75rem 1rem;
+    font-family: var(--pixel);
+    font-size: 8px;
+    color: var(--green);
+  }
+  .status-light {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: blink 1.8s step-end infinite;
+  }
+  .ops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .control-card p,
+  .rail-row p,
+  .spend-row p,
+  .threat-row p,
+  .pulse-note {
+    color: var(--dim);
+    font-size: 12px;
+    margin-top: 0.5rem;
+  }
+  .control-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .split-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .rail,
+  .threat-table {
+    border: 1px solid var(--card-border);
+  }
+  .rail-row,
+  .threat-row {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(168,85,247,.12);
+  }
+  .rail-row:last-child,
+  .threat-row:last-child { border-bottom: none; }
+  .rail-dot {
+    width: 10px;
+    height: 10px;
+    margin-top: 4px;
+  }
+  .rail-name,
+  .spend-label,
+  .threat-row > span {
+    font-family: var(--pixel);
+    font-size: 9px;
+  }
+  .rail-target {
+    color: var(--dim);
+    font-size: 12px;
+    margin-left: 0.5rem;
+  }
+  .pulse-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(168,85,247,.12);
+    font-size: 13px;
+  }
+  .pulse-line:first-child { padding-top: 0; }
+  .pulse-line:last-of-type { border-bottom: none; }
+  .pulse-value { text-align: right; }
+  .threat-row {
+    grid-template-columns: 150px 1fr;
+  }
+  .threat-row > span { color: var(--orange); }
+  .spend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .spend-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .spend-label { color: var(--cyan); }
+  .spend-value,
+  .spend-total strong {
+    font-family: var(--pixel);
+    color: var(--gold);
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .spend-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(255,215,0,.35);
+    background: rgba(255,215,0,.05);
+    font-family: var(--pixel);
+    font-size: 9px;
+    color: var(--gold);
+  }
+  .radar {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    border-color: rgba(0,255,65,.35);
+    background: radial-gradient(circle, rgba(0,255,65,.18) 0 1px, transparent 2px 100%),
+      rgba(0,0,0,.35);
+  }
+  .radar-grid {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(0,255,65,.35);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 30px rgba(0,255,65,.06),
+      0 0 0 60px rgba(0,255,65,.04);
+  }
+  .radar-grid::before,
+  .radar-grid::after {
+    content: '';
+    position: absolute;
+    background: rgba(0,255,65,.25);
+  }
+  .radar-grid::before {
+    top: 50%;
+    left: -20px;
+    right: -20px;
+    height: 1px;
+  }
+  .radar-grid::after {
+    left: 50%;
+    top: -20px;
+    bottom: -20px;
+    width: 1px;
+  }
+  .radar-sweep {
+    position: absolute;
+    inset: 50%;
+    width: 96px;
+    height: 2px;
+    transform-origin: left center;
+    background: linear-gradient(90deg, var(--green), transparent);
+    animation: sweep 3s linear infinite;
+  }
+  .radar-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--orange);
+    box-shadow: 0 0 8px var(--orange);
+  }
+  .dot-a { top: 62px; left: 132px; }
+  .dot-b { top: 134px; left: 74px; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+  .dot-c { top: 96px; left: 166px; background: var(--purple); box-shadow: 0 0 8px var(--purple); }
+  @keyframes sweep {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .25; }
+  }
+  @media (max-width: 760px) {
+    .ops-hero,
+    .split-grid {
+      grid-template-columns: 1fr;
+    }
+    .radar {
+      width: 180px;
+      height: 180px;
+    }
+    .threat-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
