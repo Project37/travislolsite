@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "wrangler pages dev ./dist",
-    "deploy": "astro build && wrangler pages deploy ./dist"
+    "deploy": "astro build && wrangler pages deploy ./dist",
+    "prepare": "lefthook install"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.2",
@@ -14,5 +15,9 @@
   },
   "overrides": {
     "ws": "^8.20.1"
+  },
+  "devDependencies": {
+    "lefthook": "^1.11.13",
+    "wrangler": "^4.13.2"
   }
 }

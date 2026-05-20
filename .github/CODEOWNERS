@@ -1,0 +1,7 @@
+# Code ownership for Project37/travislolsite
+# All files — Travis owns everything, all PRs notify him
+* @Project37
+
+# CI/CD pipeline changes get extra scrutiny
+.github/ @Project37
+wrangler.jsonc @Project37

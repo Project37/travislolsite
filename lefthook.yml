@@ -1,0 +1,45 @@
+# Lefthook pre-commit and commit-msg hooks
+# Install: npx lefthook install
+# https://github.com/evilmartians/lefthook
+
+pre-commit:
+  parallel: true
+  commands:
+    audit:
+      name: Dependency audit
+      run: npm audit --audit-level=high
+      fail_text: |
+        High/critical vulnerabilities found. Run `npm audit` for details.
+
+    secrets:
+      name: Secret scan
+      run: |
+        # Check for common secret patterns before commit
+        if git diff --cached --diff-filter=A -U0 | grep -qiE \
+          '(api[_-]?key|api[_-]?token|secret[_-]?key|password\s*=|cloudflare[_-]?api|cf[_-]?api[_-]?token)\s*[:=]\s*["\x27]?[A-Za-z0-9/+=_-]{10,}'; then
+          echo "⚠️  Possible secret detected in staged changes."
+          echo "   Run 'git diff --cached' to review before committing."
+          exit 1
+        fi
+
+commit-msg:
+  commands:
+    conventional:
+      name: Conventional commits
+      run: |
+        MSG=$(cat {1})
+        # Allow merge commits and revert commits through
+        if echo "$MSG" | grep -qE "^(Merge|Revert)"; then exit 0; fi
+        if ! echo "$MSG" | grep -qE "^(feat|fix|chore|docs|style|refactor|perf|test|build|ci|revert)(\(.+\))?(!)?: .{1,}"; then
+          echo ""
+          echo "❌ Commit message must follow Conventional Commits format."
+          echo "   Format: <type>(<scope>): <description>"
+          echo ""
+          echo "   Types: feat fix chore docs style refactor perf test build ci revert"
+          echo "   Examples:"
+          echo "     feat: add work timeline page"
+          echo "     fix(nav): correct active link indicator"
+          echo "     chore: update dependencies"
+          echo ""
+          exit 1
+        fi
